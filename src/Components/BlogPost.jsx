@@ -10,7 +10,8 @@ export default function BlogPost() {
       const { data } = await axios.get(
         `${import.meta.env.VITE_LOCALHOST}/blogs`
       );
-      setBlogs(data);
+      const resentPost = data.sort((a, b)=>new Date(b.deadline)-new Date(a.deadline))
+      setBlogs(resentPost);
     };
     fetchData();
   }, []);

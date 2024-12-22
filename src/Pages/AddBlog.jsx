@@ -1,20 +1,30 @@
 import axios from "axios";
+import { Datepicker } from "flowbite-react";
 const AddBlogs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
     const title = from.title.value;
-    const image = from.image.value;
+    const cardImage = from.cardImage.value;
+    const cover = from.cover.value;
+    const Img1 = from.Img1.value;
+    const Img2 = from.Img2.value;
+    const deadline = from.deadline.value;
     const category = from.category.value;
     const shortDescription = from.shortDescription.value;
     const longDescription = from.longDescription.value;
     const addBlog = {
       title,
-      image,
+      cover,
+      cardImage,
+      Img1,
+      Img2,
       category,
+      deadline,
       shortDescription,
       longDescription,
     };
+    console.log(addBlog);
     // Add your logic here to save the data to your database
     try {
       const { data } = await axios.post(
@@ -28,7 +38,7 @@ const AddBlogs = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-8">
+    <div className="bg-white shadow-md rounded-lg py-10">
       <div className="shadow-md p-10 rounded-md max-w-3xl mx-auto border border-cyan-50">
         <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
           Add a New Blog
@@ -45,37 +55,87 @@ const AddBlogs = () => {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Image URL
-            </label>
-            <input
-              type="url"
-              name="image"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-              placeholder="Enter image URL"
-              required
-            />
+          <div className="md:flex gap-5">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Cover Image
+              </label>
+              <input
+                type="url"
+                name="cover"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Card Image
+              </label>
+              <input
+                type="url"
+                name="cardImage"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Category
-            </label>
-            <select
-              name="category"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
-              required
-            >
-              <option value="" disabled>
-                Select a category
-              </option>
-              <option value="travel">Travel</option>
-              <option value="tech">Tech</option>
-              <option value="lifestyle">Lifestyle</option>
-            </select>
+          <div className="md:flex gap-5">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Image 1
+              </label>
+              <input
+                type="url"
+                name="Img1"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Image 2
+              </label>
+              <input
+                type="url"
+                name="Img2"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
           </div>
 
+          <div className="md:flex gap-5">
+            <div className="flex-1 w-full">
+              <label className="block text-sm font-medium text-gray-700">
+                DateLine
+              </label>
+              <Datepicker name="deadline" />
+            </div>
+
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Category
+              </label>
+              <select
+                name="category"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                required
+              >
+                <option value="" disabled>
+                  Select a category
+                </option>
+                <option value="travel">Travel</option>
+                <option value="tech">Tech</option>
+                <option value="lifestyle">Lifestyle</option>
+              </select>
+            </div>
+          </div>
+          
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Short Description
@@ -83,7 +143,7 @@ const AddBlogs = () => {
             <textarea
               name="shortDescription"
               rows="2"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+              className="mt-1 block w-full h-[180px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
               placeholder="Write a short description"
               required
             />
@@ -96,7 +156,7 @@ const AddBlogs = () => {
             <textarea
               name="longDescription"
               rows="5"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+              className="mt-1 block w-full h-[300px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
               placeholder="Write a detailed description"
               required
             />
