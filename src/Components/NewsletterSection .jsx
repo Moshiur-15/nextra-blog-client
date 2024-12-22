@@ -16,7 +16,7 @@ export default function NewsletterSection(){
           <input
             type="email"
             placeholder="Enter..."
-            className="px-4 py-2 border border-gray-300 text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none w-full sm:w-2/3"
+            className="px-4 py-2 border border-gray-300 text-gray-800 focus:ring-2 focus:ring-cyan-500 focus:outline-none w-full sm:w-2/3"
             required
           />
           <button

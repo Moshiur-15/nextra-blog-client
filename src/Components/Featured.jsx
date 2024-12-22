@@ -1,8 +1,8 @@
 import React from "react";
-import Img from "../assets/popular_destination_1.jpeg";
-import Img2 from "../assets/popular_destination_3.jpeg";
-import Img3 from "../assets/popular_destination_4.jpeg";
-import Img4 from "../assets/popular_destination_5.jpeg";
+import Img from "../assets/blog-post-img-1.jpg";
+import Img2 from "../assets/blog-post-img-2.jpg";
+import Img3 from "../assets/blog-post-img-3.jpg";
+import Img4 from "../assets/blog-post-img-4.jpg";
 
 export default function Featured() {
   return (
@@ -25,7 +25,7 @@ export default function Featured() {
           />
           <div className="absolute bottom-5 left-5">
             <h3 className="text-2xl font-bold font-oswald text-white">
-              The Future of Technology
+            Pre-Trip Reading & Travel Plans for Amazon, Brazil
             </h3>
             <p className="text-white mt-2 font-lora">
               Learn how technology is enhancing our lives.
@@ -44,7 +44,7 @@ export default function Featured() {
           />
           <div className="absolute bottom-5 left-5 ">
             <h3 className="text-2xl font-bold font-oswald text-white">
-              Travel Experiences
+            The Ultimate Grand Canyon Travel Guide for alpinists
             </h3>
             <p className="text-white mt-2 font-lora">
               Explore the best destinations and travel tips.
@@ -63,10 +63,10 @@ export default function Featured() {
           />
           <div className="absolute bottom-5 left-5 ">
             <h3 className="text-2xl font-bold font-oswald text-white">
-              Personal Development
+            Guided Hikes in Iceland – Rhyolite mountain Trail
             </h3>
             <p className="text-white mt-2 font-lora">
-              Discover the best ways to improve yourself.
+            Guided Hikes in Iceland – Rhyolite mountain Trail
             </p>
             <button className="mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
               Read More
@@ -82,7 +82,7 @@ export default function Featured() {
           />
           <div className="absolute bottom-5 left-5 ">
             <h3 className="text-2xl font-bold font-oswald text-white">
-              Health and Fitness
+            My Favorite Hiking Trails Around Reykjavík
             </h3>
             <p className="text-white mt-2 font-lora">
               Learn tips for staying healthy and fit.

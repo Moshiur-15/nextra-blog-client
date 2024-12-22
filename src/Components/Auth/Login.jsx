@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/Hook";
 
 export default function Login() {
-  const { loginUser, setUser, googleProvider } = useAuth();
+  const { loginUser, setUser, googleProvider } = useAuth()
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -87,30 +87,29 @@ export default function Login() {
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
-          {/* btn */}
-          <div className="flex items-center my-3 gap-2">
-            <div className="form-control flex-1">
-              <button className="btn">
-                <span>
-                  <CgLogIn />
-                </span>
-                <span>Register</span>
-              </button>
-            </div>
-            <div className="form-control flex-1">
-              <button
-                type="button"
-                onClick={handleGoogleProvider}
-                className="flex items-center gap-2 rounded-xl border btn"
-              >
-                <span>
-                  <FaGoogle />
-                </span>
-                <span>Google</span>
-              </button>
-            </div>
+          <div className="form-control mt-6">
+            <button className="btn text-[15px] border hover:border-cyan-600 bg-cyan-600 hover:text-cyan-600 font-semibold hover:bg-white text-white">
+              <span>
+                <CgLogIn />
+              </span>
+              <span>Login</span>
+            </button>
           </div>
         </form>
+
+        <div className="form-control">
+          <div className="form-control mt-2">
+            <button
+              onClick={handleGoogleProvider}
+              className="btn border border-cyan-600 text-cyan-600 font-semibold text-[15px]"
+            >
+              <span>
+                <FaGoogle />
+              </span>
+              <span>Google</span>
+            </button>
+          </div>
+        </div>
 
         <Link to="/register">
           Don’t Have An Account?

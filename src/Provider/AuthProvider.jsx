@@ -10,8 +10,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext } from "react";
-export const AuthContext = createContext(null);
-
+import { ToastContainer } from "react-toastify";
+export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,6 +22,7 @@ export default function AuthProvider({ children }) {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
   // login user
   const loginUser = (email, password) => {
     setLoading(true);
@@ -43,6 +44,7 @@ export default function AuthProvider({ children }) {
     setLoading(false);
     return updateProfile(auth.currentUser, userProfile);
   };
+
   // onAuthStateChanged
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -53,7 +55,6 @@ export default function AuthProvider({ children }) {
     });
   }, []);
   const authInfo = {
-    name: "Moshiur",
     user,
     loading,
     setUser,
@@ -64,6 +65,9 @@ export default function AuthProvider({ children }) {
     googleProvider,
   };
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>
+      <ToastContainer />
+      {children}
+    </AuthContext.Provider>
   );
 }
