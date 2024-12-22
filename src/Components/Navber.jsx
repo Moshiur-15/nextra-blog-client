@@ -5,12 +5,12 @@ import { Link, NavLink } from "react-router-dom";
 export default function Navber() {
   const { user, logOut } = useAuth();
   return (
-    <div className="shadow-md bg-[#111111]">
+    <div className="shadow-md bg-gray-900 py-2">
       <div className="md:mx-5 lg:mx-16">
-        <Navbar fluid rounded className="bg-[#111111] text-white">
+        <Navbar fluid rounded className="bg-gray-900 text-white">
           <Navbar.Brand href="https://flowbite-react.com">
             <h2 className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Flowbite React
+              Travel Blogs
             </h2>
           </Navbar.Brand>
           <div className="flex md:order-2">
@@ -18,13 +18,14 @@ export default function Navber() {
               referrerPolicy="no-referrer"
               alt="not found"
               img={user?.photoURL}
+              className="mr-2"
               rounded
             />
-            <div className="ml-2">
+            <div className="space-x-2">
               {user ? (
                 <Button
                   color=""
-                  className="hover:bg-[#eb6331] bg-[#ff7341] font-bold"
+                  className="bg-cyan-500 hover:bg-cyan-600 font-bold"
                   onClick={logOut}
                 >
                   Logout
@@ -33,15 +34,15 @@ export default function Navber() {
                 <div className="flex gap-2">
                   <Button
                     color=""
-                    className="hover:bg-[#eb6331] bg-[#ff7341] font-bold"
+                    className="bg-cyan-500 hover:bg-cyan-600 font-bold"
                   >
-                    Login
+                    <Link to='/login'>Login</Link>
                   </Button>
                   <Button
                     color=""
-                    className="hover:bg-[#eb6331] bg-[#ff7341] font-bold"
+                    className="bg-cyan-500 hover:bg-cyan-600 font-bold"
                   >
-                    Register
+                    <Link to='/register'>Register</Link>
                   </Button>
                 </div>
               )}
@@ -49,67 +50,60 @@ export default function Navber() {
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse className="font-lora">
-            <Navbar.Link>
-              <NavLink
-                className={({ isActive }) =>
-                  `text-white hover:text-[#F08A65] font-bold ${
-                    isActive ? "text-[#F08A65] underline" : ""
-                  }`
-                }
-                to="/"
-              >
-                Home
-              </NavLink>
-            </Navbar.Link>
+            <NavLink
+              className={({ isActive }) =>
+                `text-white hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : ""
+                }`
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
 
-            <Navbar.Link href="#">
-              <NavLink
-                className={({ isActive }) =>
-                  `text-white hover:text-[#F08A65] font-bold ${
-                    isActive ? "text-[#F08A65] underline" : ""
-                  }`
-                }
-                to="/addBlog"
-              >
-                Add Blog
-              </NavLink>
-            </Navbar.Link>
-            <Navbar.Link href="#">
-              <NavLink
-                className={({ isActive }) =>
-                  `text-white hover:text-[#F08A65] font-bold ${
-                    isActive ? "text-[#F08A65] underline" : ""
-                  }`
-                }
-                to="/allBlogs"
-              >
-                All blogs
-              </NavLink>
-            </Navbar.Link>
-            <Navbar.Link href="#">
-              <NavLink
-                className={({ isActive }) =>
-                  `text-white hover:text-[#F08A65] font-bold ${
-                    isActive ? "text-[#F08A65] underline" : ""
-                  }`
-                }
-                to="/featuredBlogs"
-              >
-                Featured Blogs
-              </NavLink>
-            </Navbar.Link>
-            <Navbar.Link href="#">
-              <NavLink
-                className={({ isActive }) =>
-                  `text-white hover:text-[#F08A65] font-bold ${
-                    isActive ? "text-[#F08A65] underline" : ""
-                  }`
-                }
-                to="/wishlist"
-              >
-                Wishlist
-              </NavLink>
-            </Navbar.Link>
+            <NavLink
+              className={({ isActive }) =>
+                `text-white hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : ""
+                }`
+              }
+              to="/addBlog"
+            >
+              Add Blog
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `text-white hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : ""
+                }`
+              }
+              to="/allBlogs"
+            >
+              All blogs
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `text-white hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : ""
+                }`
+              }
+              to="/featuredBlogs"
+            >
+              Featured Blogs
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `text-white hover:text-cyan-400 font-bold ${
+                  isActive ? "text-cyan-500 underline" : ""
+                }`
+              }
+              to="/wishlist"
+            >
+              Wishlist
+            </NavLink>
           </Navbar.Collapse>
         </Navbar>
       </div>

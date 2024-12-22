@@ -11,6 +11,7 @@ export default {
         lota: ["Lato", 'sans-serif'],
         lora: ["Lora", "serif"],
         oswald: ["Oswald", "sans-serif"],
+        roboto: ['Roboto', 'sans-serif'],
       }
     },
   },
