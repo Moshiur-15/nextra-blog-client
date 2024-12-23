@@ -11,9 +11,9 @@ export default function BlogPost() {
         `${import.meta.env.VITE_LOCALHOST}/blogs`
       );
       const resentPost = data.sort((a, b)=>new Date(b.deadline)-new Date(a.deadline))
-      setBlogs(resentPost);
-    };
-    fetchData();
+      setBlogs(resentPost)
+    }
+    fetchData()
   }, []);
   return (
     <div>

@@ -1,6 +1,10 @@
 import React from "react";
-
-export default function NewsletterSection(){
+import { toast } from "react-toastify";
+export default function NewsletterSection() {
+  const handleForm = (e) => {
+    e.preventDefault();
+    toast.success("Thank you for subscribing to our newsletter!");
+  };
   return (
     <section className="relative top-20 lg:top-32 text-white">
       <div className="text-center px-6 bg-cyan-600 py-20 container mx-auto rounded-xl">
@@ -8,9 +12,11 @@ export default function NewsletterSection(){
           Subscribe to our Newsletter
         </h2>
         <p className="text-base lg:text-lg max-w-xl mx-auto font-roboto opacity-80">
-        Subscribe to my newsletter for the latest blog posts, tips, & travel guides. Let's stay updated!
+          Subscribe to my newsletter for the latest blog posts, tips, & travel
+          guides. Let's stay updated!
         </p>
         <form
+          onSubmit={handleForm}
           className="flex flex-col sm:flex-row justify-center gap-2 mt-4 max-w-3xl mx-auto"
         >
           <input
@@ -29,5 +35,4 @@ export default function NewsletterSection(){
       </div>
     </section>
   );
-};
-
+}

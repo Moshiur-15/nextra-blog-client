@@ -1,9 +1,34 @@
 import axios from "axios";
-import { Datepicker } from "flowbite-react";
-import useAuth from "../hooks/Hook";
-const AddBlogs = () => {
-  const { user } = useAuth();
-  console.log(user);
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+const UpdateBlog = () => {
+  const { id } = useParams();
+  const [blog, setBlog] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_LOCALHOST}/unique-blog/${id}`
+      );
+      setBlog(data);
+    };
+    fetchData();
+  }, [id]);
+  console.log(blog);
+  const {
+    title,
+    shortDescription,
+    longDescription,
+    deadline,
+    cover,
+    category,
+    cardImage,
+    Img2,
+    Img1,
+  } = blog || {};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -12,7 +37,6 @@ const AddBlogs = () => {
     const cover = from.cover.value;
     const Img1 = from.Img1.value;
     const Img2 = from.Img2.value;
-    const deadline = from.deadline.value;
     const category = from.category.value;
     const shortDescription = from.shortDescription.value;
     const longDescription = from.longDescription.value;
@@ -26,22 +50,19 @@ const AddBlogs = () => {
       deadline,
       shortDescription,
       longDescription,
-      blogPostUser: {
-        photoURL: user?.photoURL,
-        email: user?.email,
-        displayName: user?.displayName,
-      },
     };
-    console.log(addBlog);
-    // Add your logic here to save the data to your database
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_LOCALHOST}/add-blogs`,
+      await axios.put(
+        `${import.meta.env.VITE_LOCALHOST}/unique-blog/${id}`,
         addBlog
       );
-      console.log(data);
+      Swal.fire({
+        title: "Update",
+        text: "Blog Update successfully!",
+        icon: "success",
+      });
     } catch (err) {
-      console.log(err);
+      return toast.error(`${err.message}`);
     }
   };
 
@@ -49,7 +70,7 @@ const AddBlogs = () => {
     <div className="bg-white shadow-md rounded-lg py-10">
       <div className="shadow-md p-10 rounded-md max-w-3xl mx-auto border border-cyan-50">
         <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
-          Add a New Blog
+          Update A New Blog
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -60,6 +81,7 @@ const AddBlogs = () => {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
               placeholder="Enter blog title"
               required
+              defaultValue={title}
             />
           </div>
 
@@ -74,6 +96,7 @@ const AddBlogs = () => {
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                 placeholder="Enter image URL"
                 required
+                defaultValue={cover}
               />
             </div>
             <div className="flex-1">
@@ -86,6 +109,7 @@ const AddBlogs = () => {
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                 placeholder="Enter image URL"
                 required
+                defaultValue={cardImage}
               />
             </div>
           </div>
@@ -101,6 +125,7 @@ const AddBlogs = () => {
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                 placeholder="Enter image URL"
                 required
+                defaultValue={Img1}
               />
             </div>
             <div className="flex-1">
@@ -113,17 +138,18 @@ const AddBlogs = () => {
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                 placeholder="Enter image URL"
                 required
+                defaultValue={Img2}
               />
             </div>
           </div>
 
           <div className="md:flex gap-5">
-            <div className="flex-1 w-full">
+            {/* {deadline && <div className="flex-1 w-full">
               <label className="block text-sm font-medium text-gray-700">
                 Arrival Date
               </label>
-              <Datepicker name="deadline" />
-            </div>
+              <Datepicker value={deadline} name="deadline" />
+            </div>} */}
 
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700">
@@ -133,6 +159,7 @@ const AddBlogs = () => {
                 name="category"
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 required
+                defaultValue={category}
               >
                 <option value="" disabled>
                   Select a category
@@ -149,6 +176,7 @@ const AddBlogs = () => {
               Short Description
             </label>
             <textarea
+              defaultValue={shortDescription}
               name="shortDescription"
               rows="2"
               className="mt-1 block w-full h-[180px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
@@ -162,6 +190,7 @@ const AddBlogs = () => {
               Long Description
             </label>
             <textarea
+              defaultValue={longDescription}
               name="longDescription"
               rows="5"
               className="mt-1 block w-full h-[300px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
@@ -172,9 +201,9 @@ const AddBlogs = () => {
 
           <button
             type="submit"
-            className="w-full font-lora bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className="w-full bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
           >
-            Post Blog
+            Update
           </button>
         </form>
       </div>
@@ -182,4 +211,4 @@ const AddBlogs = () => {
   );
 };
 
-export default AddBlogs;
+export default UpdateBlog;
