@@ -16,7 +16,6 @@ const UpdateBlog = () => {
     };
     fetchData();
   }, [id]);
-  console.log(blog);
   const {
     title,
     shortDescription,

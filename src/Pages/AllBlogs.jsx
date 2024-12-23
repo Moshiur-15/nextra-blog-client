@@ -5,17 +5,16 @@ import BlogCard from "../Components/BlogCard";
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
+  const [filter, setFilter] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_LOCALHOST}/blogs`
+        `${import.meta.env.VITE_LOCALHOST}/blogs?filter=${filter}&&search=${search}`
       );
       setBlogs(data);
     };
     fetchData();
-  }, []);
-
+  }, [filter, search]);
   return (
     <div className="container mx-auto my-10">
       <div className="mb-10">
@@ -38,10 +37,10 @@ export default function AllBlogs() {
         />
         <select
           name="category"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
+          onChange={(e) => setFilter(e.target.value)}
           className="w-full md:flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4 md:mb-0"
           required
+          value={filter}
         >
           <option value="" disabled>
             Select a category
@@ -54,12 +53,7 @@ export default function AllBlogs() {
       </div>
 
       <div className="mt-5 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {blogs
-          ?.filter((blog) =>
-            blog.title.toLowerCase().includes(search.toLowerCase())
-            && 
-            (!category || blog.category === category))
-          .map((blog) => (
+        {blogs?.map((blog) => (
             <BlogCard key={blog._id} blog={blog} />
           ))}
       </div>
