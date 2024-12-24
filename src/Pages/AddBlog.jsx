@@ -111,7 +111,7 @@ const AddBlogs = () => {
               </label>
               <textarea
                 name="shortDescription"
-                minLength={60}
+                minLength={100}
                 maxLength={200}
                 rows="2"
                 className="mt-1 block w-full bg-gray-400/10 h-[180px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"

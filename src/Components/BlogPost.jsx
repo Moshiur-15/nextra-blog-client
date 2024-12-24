@@ -26,7 +26,7 @@ export default function BlogPost() {
       {/* text */}
       <div className="text-center py-6 px-4 md:px-0">
         <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
-          Recent Blog Posts
+          Latest Blog Posts
         </h2>
         <p className="font-lora text-base max-w-2xl mx-auto">
           Discover the latest stories, travel guides, and tips from around the
@@ -52,7 +52,7 @@ export default function BlogPost() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {blogs?.slice(0, 6).map((blog) => (
+            {blogs?.slice(0, 6).reverse().map((blog) => (
               <BlogCard key={blog._id} blog={blog} />
             ))}
           </div>
