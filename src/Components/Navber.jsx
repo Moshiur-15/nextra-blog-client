@@ -66,17 +66,6 @@ export default function Navber() {
 
             <NavLink
               className={({ isActive }) =>
-                `hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : "text-white"
-                }`
-              }
-              to="/addBlog"
-            >
-              Add Blog
-            </NavLink>
-
-            <NavLink
-              className={({ isActive }) =>
                 ` hover:text-cyan-500 font-bold ${
                   isActive ? "text-cyan-400 underline" : "text-white"
                 }`
@@ -84,6 +73,17 @@ export default function Navber() {
               to="/allBlogs"
             >
               All blogs
+            </NavLink>
+            
+            <NavLink
+              className={({ isActive }) =>
+                `hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : "text-white"
+                }`
+              }
+              to="/addBlog"
+            >
+              Add Blog
             </NavLink>
 
             <NavLink

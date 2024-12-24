@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
           <h1 className="text-4xl font-bold text-cyan-500 font-lora">
-            Travel Blog
+            Blog Hub
           </h1>
           <div className="mt-6 md:mt-0">
             <ul className="flex space-x-8 text-lg font-roboto">
@@ -50,9 +50,7 @@ export default function Footer() {
               About Us
             </h2>
             <p className="text-gray-400">
-              Welcome to Travel Blog! Your ultimate guide to discovering
-              beautiful destinations, hidden gems, and unique experiences around
-              the world.
+            Welcome to <span className="font-bold text-cyan-500">Blog Hub!</span> Your ultimate guide to discovering beautiful destinations, hidden gems, and unique experiences around the world.
             </p>
           </div>
           <div>

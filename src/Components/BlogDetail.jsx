@@ -64,15 +64,15 @@ export default function BlogDetail() {
   }, [id]);
 
   return (
-    <section className="mb-10 space-y-10">
+    <section className="space-y-10">
       <div className="relative">
         <img
           src={blogs?.cover}
           className="w-full h-[350px] md:h-[320px] lg:h-[400px] xl:h-[460px] object-fill"
-          alt=""
+          alt="not found"
         />
         <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-          <h2 className="text-white  font-extrabold text-xl md:text-3xl">
+          <h2 className="text-white font-extrabold text-xl md:text-3xl">
             Single Blog
           </h2>
           <p className="text-base md:text-xl font-bold text-gray-200/70">Modern & Beautiful Blog Hub Theme</p>
@@ -80,8 +80,8 @@ export default function BlogDetail() {
       </div>
       <div className="container mx-auto">
         {/* card detail */}
-        <div className="">
-          <div className="mx-5 md:mx-10 lg:mx-16 xl:mx-56 shadow-lg p-5 my-10">
+        <div>
+          <div className="mx-5 md:mx-10 lg:mx-16 xl:mx-56 shadow-lg p-5 mb-10">
             <div className="overflow-hidden">
               <img
                 src={blogs?.cardImage}

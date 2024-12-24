@@ -4,12 +4,16 @@ import BlogPost from "../Components/BlogPost";
 import NewsletterSection from "../Components/NewsletterSection ";
 import TravelPoint from "../Components/TravelPoint";
 import Featured from "../Components/Featured";
+import TrendingPosts from "../Components/trendingPosts";
 export default function Home() {
   return (
     <div className="font-lora">
       <Banner />
       <div className="container mx-auto mt-20 px-2 md:px-0">
         <BlogPost />
+      </div>
+      <div className="container mx-auto mt-24 px-2 md:px-0">
+        <TrendingPosts />
       </div>
       <div className="container mx-auto mt-24 px-2 md:px-0">
         <TravelPoint />

@@ -20,21 +20,21 @@ export default function AllBlogs() {
   return (
     <div className="container mx-auto my-10">
       <div className="mb-10">
-        <h1 className="text-3xl font-bold text-gray-800 text-center">
-          All Blogs
+        <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
+          Welcome to the Blog Hub
         </h1>
-        <p className="text-gray-600 text-center mt-2">
-          Browse through our latest blogs, filter by category, or search by
-          title.
+        <p className="text-gray-600 text-center mt-2 md:text-lg px-3 md:px-0">
+          Explore our collection of insightful blogs. Filter by category or
+          search for a specific topic to stay up-to-date.
         </p>
       </div>
 
-      <div className="max-w-sm mb-8 flex flex-col gap-2">
-        <div>
+      <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-6 mb-8 p-2">
+        <div className="flex-1">
           <select
             name="category"
             onChange={(e) => setFilter(e.target.value)}
-            className="w-full md:flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4 md:mb-0"
+            className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
             required
             value={filter}
           >
@@ -52,18 +52,18 @@ export default function AllBlogs() {
             <option value="sports">Sports</option>
           </select>
         </div>
-        <div className="max-w-72">
+        <div className="flex-1">
           <input
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             type="text"
             placeholder="Search blogs by title"
-            className="w-full md:flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4 md:mb-0"
+            className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
           />
         </div>
       </div>
 
-      <div >
+      <div>
         {blogs.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {blogs?.map((blog) => (

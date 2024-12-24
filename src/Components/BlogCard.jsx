@@ -37,11 +37,11 @@ export default function BlogCard({ blog }) {
   return (
     <div className="bg-white rounded-lg shadow-lg ">
       <div>
-        <div>
+        <div className="overflow-hidden">
           <img
             src={cardImage}
-            className="rounded-t-lg rounded-b-[1px] object-cover w-full h-[350px] md:h-[400px] lg:h-[300px] xl:h-[360px]"
-            alt=""
+            className="transition-transform duration-700 hover:scale-105 bg-black bg-opacity-40 inset-0 hover:bg-opacity-45 rounded-t-lg rounded-b-[1px] object-cover w-full h-[350px] md:h-[400px] lg:h-[280px] xl:h-[300px]"
+            alt="not found"
           />
         </div>
         <div className="pt-5 pb-10 px-8">

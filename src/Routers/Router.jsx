@@ -13,6 +13,7 @@ import Login from "../Components/Auth/Login";
 import Register from "../Components/Auth/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateBlog from "../Components/updateBlog";
+import TrendingPosts from "../Components/trendingPosts";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/blogsDetail/:id",
         element: <BlogDetail/>
+      },
+      {
+        path: "/popularBlog",
+        element: <TrendingPosts/>
       },
       {
         path: "/featuredBlogs",

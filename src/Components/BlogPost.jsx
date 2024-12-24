@@ -24,11 +24,11 @@ export default function BlogPost() {
   return (
     <div>
       {/* text */}
-      <div className="text-center py-4 px-4 md:px-0">
+      <div className="text-center py-6 px-4 md:px-0">
         <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
           Recent Blog Posts
         </h2>
-        <p className="font-lora text-base md:px-10 lg:px-24 xl:px-52">
+        <p className="font-lora text-base max-w-2xl mx-auto">
           Discover the latest stories, travel guides, and tips from around the
           world. Stay inspired with our handpicked adventures and hidden gems
           waiting to be explored.
@@ -36,7 +36,7 @@ export default function BlogPost() {
       </div>
 
       {/* card */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
+      <div>
         {loading ? (
           <div className="flex justify-center items-center h-[100vh]">
             <ThreeDots
