@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 
 export default function HomeLayout() {
   return (
-    <div className="font-lota">
+    <div className="font-lora">
       <Navber />
       <div className="min-h-[calc(100vh-300px)]">
         <Outlet />

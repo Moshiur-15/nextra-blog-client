@@ -2,19 +2,19 @@ import React from "react";
 import { Avatar, Button, Navbar } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import { Link, NavLink } from "react-router-dom";
-import Logo from '../assets/blogsicon.png'
+import Logo from "../assets/blogsicon.png";
 export default function Navber() {
   const { user, logOut } = useAuth();
   return (
     <div className="shadow-md bg-gray-900 py-2">
       <div className="md:mx-5 lg:mx-16">
         <Navbar fluid rounded className="bg-gray-900 text-white">
-          <Navbar.Brand >
+          <Navbar.Brand>
             <div className="flex gap-2 flex-row">
               <img className="h-8 rounded-xl w-8" src={Logo} alt="not found" />
-            <h2 className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Blogs
-            </h2>
+              <h2 className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                Blog Hub
+              </h2>
             </div>
           </Navbar.Brand>
           <div className="flex md:order-2">
@@ -39,13 +39,13 @@ export default function Navber() {
                     color=""
                     className="bg-cyan-500 hover:bg-cyan-600 font-bold"
                   >
-                    <Link to='/login'>Login</Link>
+                    <Link to="/login">Login</Link>
                   </Button>
                   <Button
                     color=""
                     className="bg-cyan-500 hover:bg-cyan-600 font-bold"
                   >
-                    <Link to='/register'>Register</Link>
+                    <Link to="/register">Register</Link>
                   </Button>
                 </div>
               )}

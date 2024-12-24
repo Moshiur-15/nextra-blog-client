@@ -33,9 +33,15 @@ export default function Banner() {
               src={banner1}
               alt=""
             />
-            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
-              Welcome Our Side
-            </h2>
+            <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
+              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+                Welcome to BlogHub
+              </h2>
+              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
+                Your go-to platform for exploring, sharing, and engaging with
+                insightful content. Join the conversation today!
+              </p>
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -45,9 +51,15 @@ export default function Banner() {
               src={banner2}
               alt=""
             />
-            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
-              Welcome Our Side
-            </h2>
+            <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
+              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+                Welcome to BlogHub
+              </h2>
+              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
+                Your go-to platform for exploring, sharing, and engaging with
+                insightful content. Join the conversation today!
+              </p>
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -57,9 +69,15 @@ export default function Banner() {
               src={banner3}
               alt=""
             />
-            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
-              Welcome Our Side
-            </h2>
+            <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
+              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+                Welcome to BlogHub
+              </h2>
+              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
+                Your go-to platform for exploring, sharing, and engaging with
+                insightful content. Join the conversation today!
+              </p>
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>

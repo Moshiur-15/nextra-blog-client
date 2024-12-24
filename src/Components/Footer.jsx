@@ -5,28 +5,40 @@ import {
   FaInstagram,
   FaPinterestP,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white pb-12 pt-44">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
-          <h1 className="text-4xl font-bold text-cyan-500 font-lora">Travel Blog</h1>
+          <h1 className="text-4xl font-bold text-cyan-500 font-lora">
+            Travel Blog
+          </h1>
           <div className="mt-6 md:mt-0">
             <ul className="flex space-x-8 text-lg font-roboto">
               <li>
-                <a href="#"className="text-gray-400 hover:text-cyan-500 transition duration-700">
+                <Link
+                  to="/"
+                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#"className="text-gray-400 hover:text-cyan-500 transition duration-700">
-                All blogs
-                </a>
+                <Link
+                  to="/allBlogs"
+                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                >
+                  All blogs
+                </Link>
               </li>
               <li>
-                <a href="#"className="text-gray-400 hover:text-cyan-500 transition duration-700">
-                Featured Blogs
-                </a>
+                <Link
+                  to="/featuredBlogs"
+                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                >
+                  Featured Blogs
+                </Link>
               </li>
             </ul>
           </div>

@@ -3,6 +3,7 @@ import { Button } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
+import { MdOutlineDateRange } from "react-icons/md";
 export default function BlogCard({ blog }) {
   const {
     title,
@@ -34,54 +35,49 @@ export default function BlogCard({ blog }) {
     // fetchData();
   };
   return (
-    <div class="bg-white rounded-lg shadow-lg">
+    <div className="bg-white rounded-lg shadow-lg ">
       <div>
         <div>
           <img
             src={cardImage}
-            className="rounded-t-md rounded-b-[1px] object-cover w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px]"
+            className="rounded-t-lg rounded-b-[1px] object-cover w-full h-[350px] md:h-[400px] lg:h-[300px] xl:h-[360px]"
             alt=""
           />
         </div>
         <div className="pt-5 pb-10 px-8">
-          {/* date, user */}
-          <div className="flex my-2 items-center">
-            <h2 className="mr-1 md:mr-3  text-base lg:text-xl font-normal font-lora text-cyan-600">
+          {/* date, user
+           */}
+          <div className="flex justify-between items-center mb-2">
+            <span className="bg-cyan-100 text-cyan-700 text-[12px] font-semibold px-3 py-1 rounded-full uppercase">
+              {category}
+            </span>
+            <div className="flex items-center gap-[2px] text-gray-500 text-sm">
+              <span>
+                <MdOutlineDateRange />
+              </span>
               <span>{deadline}</span>
-            </h2>
-            <h2 className="text-base lg:text-xl font-normal font-lora">
-              <span className="border-l-2 border-black"></span>
-            </h2>
-            <h2 className="ml-1 md:ml-3 text-base lg:text-xl font-normal font-lora">
-              By
-            </h2>
-            <h2 className="ml-1 text-base lg:text-xl font-normal font-lora text-cyan-600">
-              <span>{blogPostUser?.displayName}</span>
-            </h2>
+            </div>
           </div>
-
-          <h2 className="text-xl lg:text-2xl font-bold">{title}</h2>
-          <h2 className="text-base lg:text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer font-lora">
-            {category}
+          <h2 className="text-xl lg:text-2xl font-semibold font-lora">
+            {title}
           </h2>
-          <p className="text-gray-600 text-sm mt-2 font-lora">
+          <p className="text-gray-600 text-sm mt-2 font-lora border-b-2 border-cyan-400 pb-3 border-dashed">
             {shortDescription}
           </p>
+
           <div className="mt-4 flex">
-            <Button
-              href="#"
+            <button
               color=""
-              className="font-lora rounded-[5px] bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5"
+              className="rounded-[5px] px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5"
             >
-              <Link to={`/blogsDetail/${_id}`}>Blog Details</Link>
-            </Button>
+              <Link to={`/blogsDetail/${_id}`}>Details</Link>
+            </button>
             <Button
-              href="#"
               color=""
               onClick={() => handleWishlist(blog)}
-              className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold font-lora rounded-[5px]"
+              className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-[5px]"
             >
-              Add to WishList
+              WishList
             </Button>
           </div>
         </div>

@@ -63,10 +63,18 @@ export default function AllBlogs() {
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {blogs?.map((blog) => (
-          <BlogCard key={blog._id} blog={blog} />
-        ))}
+      <div >
+        {blogs.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {blogs?.map((blog) => (
+              <BlogCard key={blog._id} blog={blog} />
+            ))}
+          </div>
+        ) : (
+          <p className="rounded-lg min-h-[calc(100vh-650px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
+            No data available...!
+          </p>
+        )}
       </div>
     </div>
   );

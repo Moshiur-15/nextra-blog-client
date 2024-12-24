@@ -3,7 +3,7 @@ import { Datepicker } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 const AddBlogs = () => {
   const { user } = useAuth();
-  console.log(user);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -55,7 +55,7 @@ const AddBlogs = () => {
           Share your thoughts, ideas, or experiences with the world. Write your
           blog post below and publish it for your readers to enjoy!
         </p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <section className=" border rounded p-10 space-y-4">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Text Part
@@ -111,6 +111,8 @@ const AddBlogs = () => {
               </label>
               <textarea
                 name="shortDescription"
+                minLength={60}
+                maxLength={200}
                 rows="2"
                 className="mt-1 block w-full bg-gray-400/10 h-[180px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 placeholder="Write a short description"
@@ -144,7 +146,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cover"
-                  className="mt-1 bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -156,7 +158,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cardImage"
-                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -165,13 +167,13 @@ const AddBlogs = () => {
 
             <div className="md:flex gap-5">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block  text-sm font-medium text-gray-700">
                   Image 1
                 </label>
                 <input
                   type="url"
                   name="Img1"
-                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -183,7 +185,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="Img2"
-                  className="mt-1 block bg-gray-400/10 w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block bg-gray-400/10 w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
