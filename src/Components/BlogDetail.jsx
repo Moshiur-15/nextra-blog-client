@@ -72,21 +72,15 @@ export default function BlogDetail() {
           alt=""
         />
       </div>
-      <div className="container mx-auto space-y-8 bg-white">
+      <div className="container mx-auto space-y-8 bg-white shadow-lg rounded-lg py-8 px-3 md:px-6">
         {/* card detail */}
         <div className="mx-5 md:mx-10 lg:mx-56">
-          <div className="relative">
+          <div>
             <img
               src={blogs?.cardImage}
               className="object-cover w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px]"
               alt=""
             />
-            <button
-              type="submit"
-              className="absolute top-5 left-5 rounded-md bg-cyan-500 text-white btn border-none font-lora"
-            >
-              Travel / Tour
-            </button>
           </div>
           <div className="mt-5">
             {/* date, user */}
@@ -129,11 +123,11 @@ export default function BlogDetail() {
               {blogs?.longDescription}
             </p>
 
-            <div className="mt-2 flex">
+            <div className="my-4 flex">
               <Button
                 href="#"
                 color=""
-                className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold font-lora"
+                className="bg-cyan-500 px-3.5 md:py-2 hover:bg-cyan-600 text-white font-semibold font-lora"
               >
                 Add to WishList
               </Button>
@@ -141,7 +135,7 @@ export default function BlogDetail() {
                 <Button
                   href="#"
                   color=""
-                  className="ml-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5 font-lora"
+                  className="ml-2 px-3.5 md:py-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5 font-lora"
                 >
                   <Link to={`/updateBlog/${id}`}>Update Blog</Link>
                 </Button>
@@ -169,31 +163,6 @@ export default function BlogDetail() {
                   placeholder="Write Comment"
                   required
                 />
-              </div>
-
-              <div className="lg:flex gap-5 mt-5">
-                <div className="flex-1">
-                  <input
-                    type="url"
-                    name="name"
-                    className="mt-1 block w-full bg-gray-100 rounded-md  focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm input"
-                    placeholder="Enter Your Name*"
-                    required
-                    readOnly
-                    defaultValue={user?.displayName}
-                  />
-                </div>
-                <div className="flex-1 mt-5 lg:mt-0">
-                  <input
-                    type="url"
-                    name="email"
-                    className="mt-1 block w-full bg-gray-100 rounded-md  focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm input"
-                    placeholder="Enter Email Address*"
-                    required
-                    readOnly
-                    defaultValue={user?.email}
-                  />
-                </div>
               </div>
               <button
                 type="submit"

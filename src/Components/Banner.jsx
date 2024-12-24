@@ -27,13 +27,40 @@ export default function Banner() {
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
-          <img className="w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px] bg-contain" src={banner1} alt="" />
+          <div className="relative">
+            <img
+              className="w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px] object-cover"
+              src={banner1}
+              alt=""
+            />
+            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
+              Welcome Our Side
+            </h2>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px] bg-contain" src={banner2} alt="" />
+          <div className="relative">
+            <img
+              className="w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px] bg-contain"
+              src={banner2}
+              alt=""
+            />
+            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
+              Welcome Our Side
+            </h2>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-[400px] md:h-[420px] lg:h-[500px] xl:h-[560px] bg-contain" src={banner3} alt="" />
+          <div className="relative">
+            <img
+              className="w-full h-[350px] md:h-[420px] lg:h-[500px] xl:h-[560px] bg-contain"
+              src={banner3}
+              alt=""
+            />
+            <h2 className="absolute  text-2xl md:text-3xl left-1/2 top-1/2 -translate-x-1/2 lg:text-2xl font-bold text-white hover:text-cyan-600 cursor-pointer font-lora">
+              Welcome Our Side
+            </h2>
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>

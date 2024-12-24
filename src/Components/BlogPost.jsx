@@ -9,20 +9,18 @@ export default function BlogPost() {
       const { data } = await axios.get(
         `${import.meta.env.VITE_LOCALHOST}/blogs`
       );
-      const resentPost = data.sort((a, b)=>new Date(b.deadline)-new Date(a.deadline))
-      setBlogs(resentPost)
+      setBlogs(data);
     }
     fetchData()
   }, []);
   return (
-    <div>
+    <div className=" md:mx-10 lg:mx-24 xl:mx-48">
       {/* text */}
       <div className="text-center py-4 px-4 md:px-0">
-        <h2 className="font-oswald font-bold text-2xl md:text-3xl">
+        <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
           Recent Blog Posts
         </h2>
-        <p className="font-lora text-base md:px-10 lg:px-24 xl:px-72">
-          {" "}
+        <p className="font-lora text-base md:px-10 lg:px-24 xl:px-52">
           Discover the latest stories, travel guides, and tips from around the
           world. Stay inspired with our handpicked adventures and hidden gems
           waiting to be explored.
@@ -30,7 +28,7 @@ export default function BlogPost() {
       </div>
 
       {/* card */}
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div className="mt-5 space-y-10">
         {blogs?.slice(0, 6).map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}

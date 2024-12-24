@@ -19,7 +19,6 @@ export default function Navber() {
           </Navbar.Brand>
           <div className="flex md:order-2">
             <Avatar
-              referrerPolicy="no-referrer"
               alt="not found"
               img={user?.photoURL}
               className="mr-2"
@@ -56,8 +55,8 @@ export default function Navber() {
           <Navbar.Collapse className="font-lora">
             <NavLink
               className={({ isActive }) =>
-                `text-white hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : ""
+                `hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : "text-white"
                 }`
               }
               to="/"
@@ -67,8 +66,8 @@ export default function Navber() {
 
             <NavLink
               className={({ isActive }) =>
-                `text-white hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : ""
+                `hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : "text-white"
                 }`
               }
               to="/addBlog"
@@ -78,8 +77,8 @@ export default function Navber() {
 
             <NavLink
               className={({ isActive }) =>
-                `text-white hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : ""
+                ` hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : "text-white"
                 }`
               }
               to="/allBlogs"
@@ -89,8 +88,8 @@ export default function Navber() {
 
             <NavLink
               className={({ isActive }) =>
-                `text-white hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : ""
+                ` hover:text-cyan-500 font-bold ${
+                  isActive ? "text-cyan-400 underline" : "text-white"
                 }`
               }
               to="/featuredBlogs"
