@@ -50,7 +50,7 @@ export default function Login() {
   };
   return (
     <div className="py-5 flex items-center justify-center min-h-[calc(100vh-250px)]">
-      <div className="w-full max-w-md p-8 shadow-lg rounded-lg">
+      <div className="w-full max-w-md p-8 rounded-lg shadow-custom-cyan">
         <h2 className="text-lg md:text-2xl font-bold mb-4 text-gray-800 text-center ">
           Login your account
         </h2>
@@ -106,14 +106,14 @@ export default function Login() {
               <span>
                 <FaGoogle />
               </span>
-              <span>Google</span>
+              <span>Login With Google</span>
             </button>
           </div>
         </div>
 
         <Link to="/register">
           Don’t Have An Account?
-          <span className="text-red-500 underline">Register</span>
+          <span className="text-cyan-500 hover:text-cyan-600 underline">Register</span>
         </Link>
       </div>
     </div>

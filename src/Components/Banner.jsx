@@ -34,7 +34,7 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
                 Welcome to BlogHub
               </h2>
               <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
                 Welcome to BlogHub
               </h2>
               <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
@@ -70,7 +70,7 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-xl md:text-3xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
                 Welcome to BlogHub
               </h2>
               <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">

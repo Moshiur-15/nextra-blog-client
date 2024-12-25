@@ -2,79 +2,96 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import BlogCard from "../Components/BlogCard";
+import Loading from "../Components/Loading";
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(
-        `${
-          import.meta.env.VITE_LOCALHOST
-        }/blogs?filter=${filter}&&search=${search}`
-      );
-      setBlogs(data);
+      try {
+        const { data } = await axios.get(
+          `${
+            import.meta.env.VITE_LOCALHOST
+          }/blogs?filter=${filter}&&search=${search}`
+        );
+        setBlogs(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+        return toast.error(`${err.message}`);
+      }
     };
     fetchData();
   }, [filter, search]);
   return (
-    <div className="container mx-auto my-10">
-      <div className="mb-10">
-        <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
-          Welcome to the Blog Hub
+    <div>
+      <div className="py-10 bg-cyan-100/80 mb-10">
+        <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
+          Welcome to All Blogs Post
         </h1>
-        <p className="text-gray-600 text-center mt-2 md:text-lg px-3 md:px-0">
+        <p className="text-gray-600 text-center mt-3 md:text-lg max-w-2xl mx-auto">
           Explore our collection of insightful blogs. Filter by category or
           search for a specific topic to stay up-to-date.
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-6 mb-8 p-2">
-        <div className="flex-1">
-          <select
-            name="category"
-            onChange={(e) => setFilter(e.target.value)}
-            className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
-            required
-            value={filter}
-          >
-            <option value="" disabled>
-              Select a category
-            </option>
-            <option value="">All Category</option>
-            <option value="travel">Travel</option>
-            <option value="game">The Game</option>
-            <option value="lifestyle">Lifestyle</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="education">Education</option>
-            <option value="health">Health & Fitness</option>
-            <option value="food">Food</option>
-            <option value="sports">Sports</option>
-          </select>
-        </div>
-        <div className="flex-1">
-          <input
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-            type="text"
-            placeholder="Search blogs by title"
-            className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
-          />
-        </div>
-      </div>
-
-      <div>
-        {blogs.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {blogs?.map((blog) => (
-              <BlogCard key={blog._id} blog={blog} />
-            ))}
+      <div className="container mx-auto">
+        <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-6 mb-8 p-2">
+          <div className="flex-1">
+            <select
+              name="category"
+              onChange={(e) => setFilter(e.target.value)}
+              className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
+              required
+              value={filter}
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="">All Category</option>
+              <option value="travel">Travel</option>
+              <option value="game">The Game</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="education">Education</option>
+              <option value="health">Health & Fitness</option>
+              <option value="food">Food</option>
+              <option value="sports">Sports</option>
+            </select>
           </div>
-        ) : (
-          <p className="rounded-lg min-h-[calc(100vh-650px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
-            No data available...!
-          </p>
-        )}
+          <div className="flex-1">
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              type="text"
+              placeholder="Search blogs by title"
+              className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
+            />
+          </div>
+        </div>
+
+        <div>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div>
+              {blogs.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 xl:p-0">
+                  {[...blogs]?.reverse().map((blog) => (
+                    <BlogCard key={blog._id} blog={blog} />
+                  ))}
+                </div>
+              ) : (
+                <p className="rounded-lg min-h-[calc(100vh-440px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
+                  blog posts Not available.!
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

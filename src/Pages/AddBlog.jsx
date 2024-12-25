@@ -32,8 +32,8 @@ const AddBlogs = () => {
         displayName: user?.displayName,
       },
     };
-    console.log(addBlog);
-    // Add your logic here to save the data to your database
+
+
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_LOCALHOST}/add-blogs`,
@@ -43,6 +43,7 @@ const AddBlogs = () => {
     } catch (err) {
       console.log(err);
     }
+    
   };
 
   return (

@@ -52,8 +52,8 @@ const UpdateBlog = () => {
     };
     try {
       await axios.put(
-        `${import.meta.env.VITE_LOCALHOST}/unique-blog/${id}`,
-        addBlog
+        `${import.meta.env.VITE_LOCALHOST}/update-blog/${id}`,
+        addBlog,
       );
       Swal.fire({
         title: "Update",
@@ -155,7 +155,7 @@ const UpdateBlog = () => {
             </div>
           </section>
 
-          <section className="py-8 space-y-5 clear-start border rounded p-10 bg-white">
+          <section className="py-8 space-y-8 clear-start border rounded p-10 bg-white">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Img Section
             </h2>
@@ -219,7 +219,7 @@ const UpdateBlog = () => {
           </section>
           <button
             type="submit"
-            className="w-full font-lora bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className="w-full btn font-lora bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
           >
             Post Blog
           </button>

@@ -6,7 +6,7 @@ import Logo from "../assets/blogsicon.png";
 export default function Navber() {
   const { user, logOut } = useAuth();
   return (
-    <div className="shadow-md bg-gray-900 py-2">
+    <div className="shadow-md bg-gray-900 py-2 sticky top-0 z-50">
       <div className="md:mx-5 lg:mx-16">
         <Navbar fluid rounded className="bg-gray-900 text-white">
           <Navbar.Brand>
@@ -99,8 +99,8 @@ export default function Navber() {
 
             <NavLink
               className={({ isActive }) =>
-                `text-white hover:text-cyan-400 font-bold ${
-                  isActive ? "text-cyan-500 underline" : ""
+                ` hover:text-cyan-400 font-bold ${
+                  isActive ? "text-cyan-500 underline" : "text-white"
                 }`
               }
               to="/wishlist"

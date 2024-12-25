@@ -67,8 +67,8 @@ export default function Register() {
       });
   };
   return (
-    <div className="flex items-center justify-center my-10 min-h-[calc(100vh-250px)]">
-      <div className="w-full max-w-md p-8 shadow-md hover:shadow-lg rounded-lg">
+    <div className="flex items-center justify-center py-10 min-h-[calc(100vh-250px)]">
+      <div className="bg-white w-full max-w-md p-8 shadow-custom-cyan rounded-lg">
         <h2 className="text-lg md:text-2xl font-bold mb-4 text-gray-800 text-center ">
           Register Your Account
         </h2>

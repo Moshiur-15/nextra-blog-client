@@ -7,7 +7,7 @@ export default function HomeLayout() {
   return (
     <div className="font-lora">
       <Navber />
-      <div className="min-h-[calc(100vh-300px)]">
+      <div className="">
         <Outlet />
       </div>
       <Footer />

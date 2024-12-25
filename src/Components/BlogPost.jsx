@@ -2,6 +2,7 @@ import BlogCard from "./BlogCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
+import Loading from "./Loading";
 
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
@@ -17,6 +18,7 @@ export default function BlogPost() {
       } catch (error) {
         console.log(error);
         setLoading(false);
+        return toast.error(`${err.message}`);
       }
     };
     fetchData();
@@ -37,24 +39,19 @@ export default function BlogPost() {
 
       {/* card */}
       <div>
-        {loading ? (
-          <div className="flex justify-center items-center h-[100vh]">
-            <ThreeDots
-              visible={true}
-              height="80"
-              width="80"
-              color="#06b6d4"
-              radius="9"
-              ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {[...blogs]?.reverse().slice(0, 6).map((blog) => (
-              <BlogCard key={blog._id} blog={blog} />
-            ))}
+        {loading ? <Loading/> : (
+          <div>
+            {blogs.length > 0 ? (
+              <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 xl:p-0">
+                {[...blogs]?.reverse().slice(0, 6).map((blog) => (
+                  <BlogCard key={blog._id} blog={blog} />
+                ))}
+              </div>
+            ) : (
+              <p className="rounded-lg min-h-[calc(100vh-440px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
+                No blog posts available.!
+              </p>
+            )}
           </div>
         )}
       </div>

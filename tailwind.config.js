@@ -12,7 +12,10 @@ export default {
         lora: ["Lora", "serif"],
         oswald: ["Oswald", "sans-serif"],
         roboto: ['Roboto', 'sans-serif'],
-      }
+      },
+      boxShadow: {
+        'custom-cyan': '0px -4px 6px rgba(6, 182, 212, 0.3), 0px 4px 6px rgba(6, 182, 212, 0.3), -4px 0px 6px rgba(6, 182, 212, 0.3), 4px 0px 6px rgba(6, 182, 212, 0.3)',
+      },
     },
   },
   plugins: [

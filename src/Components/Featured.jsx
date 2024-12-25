@@ -24,7 +24,7 @@ export default function Featured() {
             src={Img}
             alt="Image not found"
           />
-          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-45">
+          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
             <h3 className="text-2xl font-bold font-oswald text-white">
             Pre-Trip Reading & Travel Plans for Amazon, Brazil
             </h3>
@@ -46,7 +46,7 @@ export default function Featured() {
             src={Img2}
             alt="Image not found"
           />
-          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-45">
+          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
             <h3 className="text-2xl font-bold font-oswald text-white">
             The Ultimate Grand Canyon Travel Guide for alpinists
             </h3>
@@ -66,7 +66,7 @@ export default function Featured() {
             src={Img3}
             alt="Image not found"
           />
-          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-45">
+          <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
             <h3 className="text-2xl font-bold font-oswald text-white">
             Guided Hikes in Iceland – Rhyolite mountain Trail
             </h3>
@@ -86,7 +86,7 @@ export default function Featured() {
             src={Img4}
             alt="Image not found"
           />
-          <div className="absolute flex flex-col justify-end items-start p-4 bg-black bg-opacity-40 inset-0 hover:bg-opacity-45">
+          <div className="absolute flex flex-col justify-end items-start p-4 bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
             <h3 className="text-2xl font-bold font-oswald text-white">
             My Favorite Hiking Trails Around Reykjavík
             </h3>

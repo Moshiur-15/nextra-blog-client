@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { createContext } from "react";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -49,11 +50,33 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
-      setLoading(false);
+      console.log(currentUser)
+      if(currentUser?.email){
+        const userEmail = {email:currentUser?.email} 
+        axios.post('http://localhost:3000/jwt',userEmail, {withCredentials:true})
+        .then((res) => {
+          console.log("login",res.data);
+          setLoading(false)
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+      else{
+        axios.post('http://localhost:3000/signOut',{}, {withCredentials:true})
+        .then((res) => {
+          console.log('logout',res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+      setLoading(false)
       return () => unsubscribe();
     });
   }, []);
+  
   const authInfo = {
     user,
     loading,
