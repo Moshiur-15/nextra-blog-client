@@ -52,7 +52,7 @@ export default function BlogPost() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {blogs?.slice(0, 6).reverse().map((blog) => (
+            {[...blogs]?.reverse().slice(0, 6).map((blog) => (
               <BlogCard key={blog._id} blog={blog} />
             ))}
           </div>

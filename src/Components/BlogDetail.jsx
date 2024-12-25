@@ -68,7 +68,7 @@ export default function BlogDetail() {
       <div className="relative">
         <img
           src={blogs?.cover}
-          className="w-full h-[350px] md:h-[320px] lg:h-[400px] xl:h-[460px] object-fill"
+          className="w-full h-[350px] md:h-[320px] lg:h-[400px] xl:h-[460px] object-cover"
           alt="not found"
         />
         <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
