@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "flowbite-react";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -75,6 +74,7 @@ export default function BlogDetail() {
     category: blogs?.category,
     email: user?.email,
   };
+
   const handleWishlist = (wishlist) => {
     const fetchData = async () => {
       try {
@@ -170,20 +170,18 @@ export default function BlogDetail() {
                   </p>
 
                   <div className="my-4 flex">
-                    <Button
-                      color=""
+                    <button
                       onClick={() => handleWishlist(wishlistData)}
-                      className="ml-2 px-3.5 md:py-2 bg-cyan-500/90 hover:bg-cyan-600/90 text-white font-semibold mr-5 font-lora"
+                      className="rounded-md ml-2 px-5 md:py-3.5 bg-cyan-500/90 hover:bg-cyan-600/90 text-white font-semibold mr-5 font-lora"
                     >
                       Add To WishList
-                    </Button>
+                    </button>
                     {isBlogOwner && (
-                      <Button
-                        color=""
-                        className="ml-2 px-3.5 md:py-2 bg-indigo-500/90 hover:bg-indigo-600/90 text-white font-semibold mr-5 font-lora"
+                      <button
+                        className="rounded-md px-5 md:py-3.5 bg-indigo-500/90 hover:bg-indigo-600/90 text-white font-semibold mr-5 font-lora"
                       >
                         <Link to={`/updateBlog/${id}`}>Update Blog</Link>
-                      </Button>
+                      </button>
                     )}
                   </div>
                 </div>

@@ -1,7 +1,6 @@
 import BlogCard from "./BlogCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ThreeDots } from "react-loader-spinner";
 import Loading from "./Loading";
 
 export default function BlogPost() {
@@ -30,7 +29,7 @@ export default function BlogPost() {
         <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
           Latest Blog Posts
         </h2>
-        <p className="font-lora text-base max-w-2xl mx-auto">
+        <p className="text-base max-w-2xl mx-auto md:text-lg">
           Discover the latest stories, travel guides, and tips from around the
           world. Stay inspired with our handpicked adventures and hidden gems
           waiting to be explored.
@@ -49,7 +48,7 @@ export default function BlogPost() {
               </div>
             ) : (
               <p className="rounded-lg min-h-[calc(100vh-440px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
-                No blog posts available.!
+                Blog posts is not available.!
               </p>
             )}
           </div>

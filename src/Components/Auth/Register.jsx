@@ -22,8 +22,7 @@ export default function Register() {
         setUser(result.user);
         navigate(location.state ? location.state : "/");
         Swal.fire({
-          title: "The Register",
-          text: "Register successfully!",
+          title: "Register successfully!",
           icon: "success",
         });
       })
@@ -31,6 +30,7 @@ export default function Register() {
         return toast.error(`${error.message}`);
       });
   };
+
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -57,8 +57,7 @@ export default function Register() {
         profile({ displayName: name, photoURL: photo });
         navigate(location.state ? location.state : "/");
         Swal.fire({
-          title: "The Register",
-          text: "Register successfully!",
+          title: "Register successfully!",
           icon: "success",
         });
       })

@@ -1,12 +1,12 @@
 import React from "react";
-import { Button } from "flowbite-react";
+import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
 import { MdOutlineDateRange } from "react-icons/md";
 import { toast } from "react-toastify";
+import Img from '../assets/love.avif'
 export default function BlogCard({ blog }) {
-  const navigate = useNavigate();
   const { user } = useAuth();
   const { title, shortDescription, category, _id, cardImage, deadline } =
     blog || {};
@@ -25,8 +25,10 @@ export default function BlogCard({ blog }) {
           `${import.meta.env.VITE_LOCALHOST}/add-wishlist`,
           wishlist
         );
-        alert("data added");
-        navigate("/wishlist");
+        Swal.fire({
+          title:"Added to wishlist successfully!",
+          icon: "success"
+        });
       } catch (err) {
         console.log(err);
         return toast.error(`${err.message}`);
@@ -36,7 +38,7 @@ export default function BlogCard({ blog }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg">
+    <div className="bg-white rounded-lg shadow-lg relative">
       <div className="flex flex-col h-full overflow-hidden">
         <img
           src={cardImage}
@@ -63,14 +65,13 @@ export default function BlogCard({ blog }) {
             {shortDescription}
           </p>
           <div className="flex mt-3">
-              <Link to={`/blogsDetail/${_id}`} className="rounded-md py-1.5 px-7 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5">Details</Link>
-
-            <button
-              color=""
-              onClick={() => handleWishlist(wishlistData)}
-              className="px-7 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-md"
+            <Link to={`/blogsDetail/${_id}`} className="rounded-md py-1.5 px-7 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5">Details</Link>
+            <button         
+               onClick={() => handleWishlist(wishlistData)}
+               data-tip='Add to wishlist'
+              className="tooltip absolute top-3 right-3 flex items-center justify-center"
             >
-              WishList
+              <img src={Img} className="bg-white h-8 w-8 rounded-full object-contain border p-1" alt="not found" />
             </button>
           </div>
         </div>

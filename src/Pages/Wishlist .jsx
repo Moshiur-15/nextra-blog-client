@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/Hook";
-import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 export default function Wishlist() {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
@@ -12,44 +12,66 @@ export default function Wishlist() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_LOCALHOST}/wishlist/${user?.email}`
+          `${import.meta.env.VITE_LOCALHOST}/wishlist/${user?.email}`,
+          { withCredentials: true }
         );
         setBlogs(data);
-      } catch (error) {
-        console.log(error);
-        return toast.error(`${error.message}`);
+      } catch (err) {
+        console.log(err);
+        return toast.error(`${err?.response?.data?.message}`, {
+          position: "top-center",
+        });
       }
     };
     fetchData();
   }, [user]);
 
-  const handleDelete =(id)=>{
+  const handleDelete = (id) => {
     const fetchData = async () => {
       try {
-        await axios.delete(`${import.meta.env.VITE_LOCALHOST}/delete/${id}`);
-        const stateUpdate = blogs.filter(blog=>blog._id !== id);
-        setBlogs(stateUpdate);
-        toast.success('Blog with id has been deleted successfully')
+        const result = await Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        });
+        if (result.isConfirmed) {
+          await axios.delete(`${import.meta.env.VITE_LOCALHOST}/delete/${id}`);
+          const stateUpdate = blogs.filter((blog) => blog._id !== id);
+          setBlogs(stateUpdate);
+          Swal.fire({
+            title: "Deleted!",
+            text: "Blog deleted successfully from your wishlist",
+            icon: "success",
+          });
+        }
       } catch (error) {
         console.log(error);
-        return toast.error(`${error.message}`);
+        return toast.error(`Error: ${error.message}`);
       }
-    }
+    };
     fetchData();
-  }
-  
+  };
+
   return (
     <div className="min-h-[calc(100vh-400px)] mb-12">
       <div className="py-16 bg-cyan-100/80 mb-10">
         <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
-           Wishlist Collection
+          Wishlist Collection
         </h1>
-        <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg mx-auto">
+        <p className="text-gray-600 text-center mt-3 md:text-lg max-w-md mx-auto">
           Welcome to your wishlist page! Explore and manage your saved blogs
           here.
         </p>
       </div>
-      <div className={`container mx-auto ${blogs.length>0 && 'bg-gray-100'} md:px-8 md:py-8 rounded-lg`}>
+      <div
+        className={`container mx-auto ${
+          blogs.length > 0 && "bg-gray-100"
+        } md:px-8 md:py-8 rounded-lg`}
+      >
         <div>
           {blogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2">
@@ -90,19 +112,18 @@ export default function Wishlist() {
                       <div className="flex mt-3">
                         <button
                           color=""
-                          className="flex-1 py-1.5 rounded-[5px] px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5"
+                          className="flex-1 py-1.5 rounded-[5px] bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5"
                         >
                           <Link to={`/blogsDetail/${blog?._id}`}>Details</Link>
                         </button>
                         <button
                           color=""
-                          onClick={()=>handleDelete(blog?._id)}
+                          onClick={() => handleDelete(blog?._id)}
                           className="flex-1 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-[5px]"
                         >
                           Delate
                         </button>
                       </div>
-
                     </div>
                   </div>
                 </div>

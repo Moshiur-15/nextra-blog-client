@@ -53,28 +53,30 @@ const UpdateBlog = () => {
     try {
       await axios.put(
         `${import.meta.env.VITE_LOCALHOST}/update-blog/${id}`,
-        addBlog,
+        addBlog,{withCredentials:true}
       );
       Swal.fire({
-        title: "Update",
-        text: "Blog Update successfully!",
+        title: "Blog Update successfully!",
         icon: "success",
       });
     } catch (err) {
-      return toast.error(`${err.message}`);
+      return toast.error(`${err?.response?.data?.message}`, {
+        position: "top-center",
+      });
     }
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg py-10">
-      <div className="rounded-md max-w-3xl mx-auto">
+    <div className="mb-8">
+        <div className="bg-cyan-100 pt-14 pb-6">
         <h2 className="text-2xl xl:text-3xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
           Update You Blog
         </h2>
         <p className="mb-14 font-lora max-w-2xl mx-auto text-center mt-2">
         Edit your existing blog post below. Update the content, images, and other details, and publish the changes to share your updated ideas with your audience.
         </p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        </div>
+        <form onSubmit={handleSubmit} className="mt-10 bg-white shadow-xl rounded-lg p-3 md:p-6 space-y-4 max-w-3xl mx-auto">
           <section className=" border rounded p-10 space-y-4">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Text Part
@@ -225,7 +227,6 @@ const UpdateBlog = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 

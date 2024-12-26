@@ -1,9 +1,11 @@
 import axios from "axios";
 import { Datepicker } from "flowbite-react";
 import useAuth from "../hooks/Hook";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 const AddBlogs = () => {
   const { user } = useAuth();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -33,31 +35,41 @@ const AddBlogs = () => {
       },
     };
 
-
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_LOCALHOST}/add-blogs`,
-        addBlog
+        addBlog,{ withCredentials: true }
       );
       console.log(data);
+      Swal.fire({
+        title: "Blog Added Successfully",
+        icon: "success",
+      });
     } catch (err) {
-      console.log(err);
+      console.log(err)
+      return toast.error(`${err?.response?.data?.message}`, {
+        position: "top-center",
+      });
     }
-    
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg py-10">
-      <div className="rounded-md max-w-3xl mx-auto">
-        <h2 className="text-2xl xl:text-3xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
-          Add a New Blog
-        </h2>
-        <p className="mb-14 font-lora max-w-xl mx-auto text-center mt-2">
-          Share your thoughts, ideas, or experiences with the world. Write your
-          blog post below and publish it for your readers to enjoy!
-        </p>
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <section className=" border rounded p-10 space-y-4">
+    <div className="bg-white mb-10">
+      <div className="">
+        <div className="bg-cyan-100 py-10 mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+            Add a New Blog
+          </h2>
+          <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
+            Share your thoughts, ideas, or experiences with the world. Write
+            your blog post below and publish it for your readers to enjoy!
+          </p>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-8 shadow-2xl p-3 rounded-md max-w-3xl mx-auto"
+        >
+          <section className="border rounded p-10 space-y-4">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Text Part
             </h2>
@@ -137,21 +149,9 @@ const AddBlogs = () => {
 
           <section className="py-8 space-y-5 clear-start border rounded p-10 bg-white">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
-              Img Section
+              Img Part
             </h2>
             <div className="md:flex gap-5">
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Cover Image
-                </label>
-                <input
-                  type="url"
-                  name="cover"
-                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                  placeholder="Enter image URL"
-                  required
-                />
-              </div>
               <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700">
                   Card Image
@@ -164,12 +164,24 @@ const AddBlogs = () => {
                   required
                 />
               </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Details Page Cover Image
+                </label>
+                <input
+                  type="url"
+                  name="cover"
+                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  placeholder="Enter image URL"
+                  required
+                />
+              </div>
             </div>
 
             <div className="md:flex gap-5">
               <div className="flex-1">
                 <label className="block  text-sm font-medium text-gray-700">
-                  Image 1
+                  Details Page Image
                 </label>
                 <input
                   type="url"
@@ -181,7 +193,7 @@ const AddBlogs = () => {
               </div>
               <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Image 2
+                  Details Page Image
                 </label>
                 <input
                   type="url"
@@ -195,7 +207,7 @@ const AddBlogs = () => {
           </section>
           <button
             type="submit"
-            className="w-full font-lora bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className="w-full btn bg-cyan-500 text-white hover:bg-cyan-600 "
           >
             Post Blog
           </button>

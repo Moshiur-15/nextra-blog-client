@@ -7,12 +7,12 @@ import { FaArrowRight } from "react-icons/fa";
 
 export default function Featured() {
   return (
-    <div>
-      <div className="text-center px-4 md:px-0">
-        <h2 className="lg:text-3xl text-2xl font-bold font-oswald">
+    <div className="">
+      <div className="text-center px-4 md:px-0 py-8">
+        <h2 className="lg:text-3xl text-2xl font-oswald font-bold">
           Featured Blogs
         </h2>
-        <p className="text-base lg:text-lg md:px-10 lg:px-32 xl:px-96 font-lora">
+        <p className="text-base md:text-lg max-w-2xl mx-auto">
           Read our exclusive blog posts designed to provide you with new
           knowledge and experiences. Start reading today!
         </p>
@@ -93,7 +93,7 @@ export default function Featured() {
             <p className="text-white mt-2 font-lora">
               Learn tips for staying healthy and fit.
             </p>
-            <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
+            <button  className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
               <span>Read More</span>
               <span><FaArrowRight /></span>
             </button>

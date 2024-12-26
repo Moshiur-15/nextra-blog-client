@@ -27,12 +27,12 @@ export default function AllBlogs() {
     fetchData();
   }, [filter, search]);
   return (
-    <div>
+    <div className="mb-12">
       <div className="py-10 bg-cyan-100/80 mb-10">
-        <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
-          Welcome to All Blogs Post
+        <h1 className="text-2xl md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
+          All Blogs Post
         </h1>
-        <p className="text-gray-600 text-center mt-3 md:text-lg max-w-2xl mx-auto">
+        <p className="text-gray-600 text-center mt-3 md:text-lg max-w-2xl mx-auto text-base">
           Explore our collection of insightful blogs. Filter by category or
           search for a specific topic to stay up-to-date.
         </p>

@@ -2,7 +2,6 @@ import React from "react";
 import Banner from "../Components/Banner";
 import BlogPost from "../Components/BlogPost";
 import NewsletterSection from "../Components/NewsletterSection ";
-import TravelPoint from "../Components/TravelPoint";
 import Featured from "../Components/Featured";
 import TrendingPosts from "../Components/trendingPosts";
 export default function Home() {
@@ -14,9 +13,6 @@ export default function Home() {
       </div>
       <div className="container mx-auto mt-24 px-2 md:px-0">
         <TrendingPosts />
-      </div>
-      <div className="container mx-auto mt-24 px-2 md:px-0">
-        <TravelPoint />
       </div>
       <div className="container mx-auto mt-24 px-2 md:px-0">
         <Featured />

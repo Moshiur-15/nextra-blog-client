@@ -20,8 +20,7 @@ export default function Login() {
         setUser(result.user);
         navigate(location.state ? location.state : "/");
         Swal.fire({
-          title: "The Login",
-          text: "Login successfully!",
+          title: "Login successfully!",
           icon: "success",
         });
       })
@@ -39,8 +38,7 @@ export default function Login() {
         setUser(res.user);
         navigate(location.state ? location.state : "/");
         Swal.fire({
-          title: "The Login",
-          text: "Login successfully!",
+          title: "Login successfully!",
           icon: "success",
         });
       })
