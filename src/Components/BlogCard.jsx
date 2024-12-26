@@ -38,7 +38,7 @@ export default function BlogCard({ blog }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg relative">
+    <div className="bg-white rounded-lg shadow-md hover:shadow-lg relative">
       <div className="flex flex-col h-full overflow-hidden">
         <img
           src={cardImage}

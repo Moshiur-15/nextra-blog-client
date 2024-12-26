@@ -38,7 +38,8 @@ const AddBlogs = () => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_LOCALHOST}/add-blogs`,
-        addBlog,{ withCredentials: true }
+        addBlog,
+        { withCredentials: true }
       );
       console.log(data);
       Swal.fire({
@@ -46,7 +47,7 @@ const AddBlogs = () => {
         icon: "success",
       });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       return toast.error(`${err?.response?.data?.message}`, {
         position: "top-center",
       });
@@ -67,23 +68,37 @@ const AddBlogs = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="space-y-8 shadow-2xl p-3 rounded-md max-w-3xl mx-auto"
+          className="space-y-8 p-3 md:p-10  max-w-[900px] mx-auto"
         >
           <section className="border rounded p-10 space-y-4">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Text Part
             </h2>
-            <div>
-              <label className=" text-sm font-medium text-gray-700">
-                Title
-              </label>
-              <input
-                type="text"
-                name="title"
-                className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
-                placeholder="Enter blog title"
-                required
-              />
+            <div className="md:flex items-center gap-6">
+              <div className="flex-1">
+                <label className=" text-sm font-medium text-gray-700">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                  placeholder="Enter blog title"
+                  required
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Card Image
+                </label>
+                <input
+                  type="url"
+                  name="cardImage"
+                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  placeholder="Enter image URL"
+                  required
+                />
+              </div>
             </div>
 
             <div className="md:flex gap-5">
@@ -151,31 +166,17 @@ const AddBlogs = () => {
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
               Img Part
             </h2>
-            <div className="md:flex gap-5">
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Card Image
-                </label>
-                <input
-                  type="url"
-                  name="cardImage"
-                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                  placeholder="Enter image URL"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Details Page Cover Image
-                </label>
-                <input
-                  type="url"
-                  name="cover"
-                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                  placeholder="Enter image URL"
-                  required
-                />
-              </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Details Page Cover Image
+              </label>
+              <input
+                type="url"
+                name="cover"
+                className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
             </div>
 
             <div className="md:flex gap-5">

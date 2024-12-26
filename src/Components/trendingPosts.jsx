@@ -6,6 +6,7 @@ import Img4 from "../assets/travel-blog-b1.png";
 import Img5 from "../assets/travel-blog-b1.png";
 import Img6 from "../assets/travel-blog-b1.png";
 import { Button } from "flowbite-react";
+import * as motion from "motion/react-client";
 
 const TrendingPosts = () => {
   const trendingPosts = [
@@ -69,55 +70,86 @@ const TrendingPosts = () => {
 
   return (
     <section className="bg-gray-50 py-12 px-6 rounded-lg">
-      <h2 className="text-3xl font-bold text-center mb-8">Trending Posts</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {trendingPosts.map((post, inx) => (
-          <div
-            key={inx}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
-          >
-            <div>
-              <div className="">
-                <img
-                  className="h-56 w-full object-fill"
-                  src={post.image}
-                  alt=""
-                />
-              </div>
-            </div>
-            {/* text */}
-            <section className="p-6">
-              <div className="flex justify-between items-center mb-2">
-                <div className="flex items-center gap-1.5">
-                  <span>
-                    <img
-                      className="h-10 w-10 object-fill rounded-full"
-                      src={post.image}
-                      alt=""
-                    />
-                  </span>
-                  <span className="text-gray-500 text-md">{post.name}</span>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5, delay:0.2 },
+        }}
+      >
+        <div className="text-center px-4 md:px-0 py-8">
+          <h2 className="lg:text-3xl text-2xl font-oswald font-bold">
+            Trending Posts
+          </h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto">
+            Stay updated with the latest insights, tips, and stories trending
+            across the web. Discover what's hot and stay informed!
+          </p>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          scale: {
+            type: "spring",
+            visualDuration: 0.4,
+            bounce: 0.2,
+            delay: 0.3,
+          },
+        }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {trendingPosts.map((post, inx) => (
+            <div
+              key={inx}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <div>
+                <div className="">
+                  <img
+                    className="h-56 w-full object-fill"
+                    src={post.image}
+                    alt=""
+                  />
                 </div>
-                <span className="bg-cyan-100 text-cyan-700 text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
-                  {post.category}
-                </span>
               </div>
-              <div className="">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 hover:text-blue-600 transition duration-300 ease-in-out">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{post.description}</p>
-                <Button
-                data-tip='Post Not Available'
-                  className="tooltip bg-cyan-500 hover:bg-cyan-600 text-white"
-                >
-                   Post Details
-                </Button>
-              </div>
-            </section>
-          </div>
-        ))}
-      </div>
+              {/* text */}
+              <section className="p-6">
+                <div className="flex justify-between items-center mb-2">
+                  <div className="flex items-center gap-1.5">
+                    <span>
+                      <img
+                        className="h-10 w-10 object-fill rounded-full"
+                        src={post.image}
+                        alt=""
+                      />
+                    </span>
+                    <span className="text-gray-500 text-md">{post.name}</span>
+                  </div>
+                  <span className="bg-cyan-100 text-cyan-700 text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
+                    {post.category}
+                  </span>
+                </div>
+                <div className="">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4 hover:text-blue-600 transition duration-300 ease-in-out">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{post.description}</p>
+                  <Button
+                    data-tip="Post Not Available"
+                    className="tooltip bg-cyan-500 hover:bg-cyan-600 text-white"
+                  >
+                    Post Details
+                  </Button>
+                </div>
+              </section>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };

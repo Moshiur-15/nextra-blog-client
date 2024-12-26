@@ -83,7 +83,6 @@ export default function BlogDetail() {
           wishlist
         );
         alert("data added");
-        navigate("/wishlist");
       } catch (err) {
         console.log(err);
         return toast.error(`${err.message}`);

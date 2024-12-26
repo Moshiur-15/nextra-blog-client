@@ -12,10 +12,10 @@ export default function Home() {
         <BlogPost />
       </div>
       <div className="container mx-auto mt-24 px-2 md:px-0">
-        <TrendingPosts />
+        <Featured />
       </div>
       <div className="container mx-auto mt-24 px-2 md:px-0">
-        <Featured />
+        <TrendingPosts />
       </div>
       <div className="my-8 px-2 md:px-0">
         <NewsletterSection />

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const UpdateBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
