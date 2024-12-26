@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
 import { MdOutlineDateRange } from "react-icons/md";
-import { toast } from "react-toastify";
 import Img from '../assets/love.avif'
 export default function BlogCard({ blog }) {
   const { user } = useAuth();
@@ -31,7 +30,6 @@ export default function BlogCard({ blog }) {
         });
       } catch (err) {
         console.log(err);
-        return toast.error(`${err.message}`);
       }
     };
     fetchData();

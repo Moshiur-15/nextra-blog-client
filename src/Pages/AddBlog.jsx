@@ -3,6 +3,7 @@ import { Datepicker } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import * as motion from "motion/react-client";
 const AddBlogs = () => {
   const { user } = useAuth();
 
@@ -48,9 +49,9 @@ const AddBlogs = () => {
       });
     } catch (err) {
       console.log(err);
-      return toast.error(`${err?.response?.data?.message}`, {
-        position: "top-center",
-      });
+      // return toast.error(`${err?.response?.data?.message}`, {
+      //   position: "top-center",
+      // });
     }
   };
 
@@ -58,13 +59,27 @@ const AddBlogs = () => {
     <div className="bg-white mb-10">
       <div className="">
         <div className="bg-cyan-100 py-10 mb-6">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
-            Add a New Blog
-          </h2>
-          <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
-            Share your thoughts, ideas, or experiences with the world. Write
-            your blog post below and publish it for your readers to enjoy!
-          </p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.4,
+              scale: {
+                type: "spring",
+                visualDuration: 0.4,
+                bounce: 0.2,
+                delay: 0.2,
+              },
+            }}
+          >
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+              Add a New Blog
+            </h2>
+            <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
+              Share your thoughts, ideas, or experiences with the world. Write
+              your blog post below and publish it for your readers to enjoy!
+            </p>
+          </motion.div>
         </div>
         <form
           onSubmit={handleSubmit}

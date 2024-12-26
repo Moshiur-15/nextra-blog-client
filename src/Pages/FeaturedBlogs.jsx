@@ -1,10 +1,12 @@
 import axios from "axios";
-import { DataType, Table } from 'ka-table';
+import { DataType, Table } from "ka-table";
 
 import { SortingMode, SortDirection } from "ka-table/enums";
 import React, { useEffect, useState } from "react";
+import Loading from "../Components/Loading";
 export default function FeaturedBlogs() {
   const [blogs, setBlogs] = useState({});
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -12,6 +14,7 @@ export default function FeaturedBlogs() {
           `${import.meta.env.VITE_LOCALHOST}/feature`
         );
         setBlogs(data);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -21,7 +24,10 @@ export default function FeaturedBlogs() {
 
   return (
     <div className="container mx-auto min-h-[calc(100vh-500px)] my-10 border">
-      <Table
+      {loading ? (
+        <Loading />
+      ) : (
+        <Table
           columns={[
             {
               key: "title",
@@ -80,20 +86,18 @@ export default function FeaturedBlogs() {
               elementAttributes: ({ rowData }) => ({
                 style: {
                   backgroundColor:
-                    rowData.idx % 2 === 0
-                      ? "#F9FAFB"
-                      : "#FFFFFF", 
+                    rowData.idx % 2 === 0 ? "#F9FAFB" : "#FFFFFF",
                   padding: "12px",
                   borderRadius: "8px",
                   border: "1px solid rgba(0, 0, 0, 0.1)",
                   transition: "background-color 0.3s ease",
-                  overflowX: "auto"
+                  overflowX: "auto",
                 },
-               
               }),
             },
           }}
         />
+      )}
     </div>
   );
 }

@@ -19,9 +19,9 @@ export default function Wishlist() {
         setBlogs(data);
       } catch (err) {
         console.log(err);
-        return toast.error(`${err?.response?.data?.message}`, {
-          position: "top-center",
-        });
+        // return toast.error(`${err?.response?.data?.message}`, {
+        //   position: "top-center",
+        // });
       }
     };
     fetchData();
