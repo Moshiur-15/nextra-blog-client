@@ -1,70 +1,69 @@
 import React from "react";
-import Img1 from "../assets/travel-blog-b1.png";
-import Img2 from "../assets/travel-blog-b2.jpg";
-import Img3 from "../assets/travel-blog-b3.jpg";
-import Img4 from "../assets/travel-blog-b1.png";
-import Img5 from "../assets/travel-blog-b1.png";
-import Img6 from "../assets/travel-blog-b1.png";
+import Img1 from "../assets/img1.webp";
+import Img2 from "../assets/img2.jpg";
+import Img3 from "../assets/img3.jpg";
+import Img4 from "../assets/img4.jpg";
+import Img5 from "../assets/img5.jpg";
+import Img6 from "../assets/img6.avif";
+import user from "../assets/user1.jpg";
+import user2 from "../assets/user2.jpg";
+import user3 from "../assets/user3.webp";
 import { Button } from "flowbite-react";
 import * as motion from "motion/react-client";
 
 const TrendingPosts = () => {
   const trendingPosts = [
     {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
-      image: `${Img2}`,
-      description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
-    },
-    {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
-      image: `${Img3}`,
-      description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
-    },
-    {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
+      title: "AI-Powered Fitness: Transforming Health and Wellness",
+      category: "Health & Fitness",
+      name: "Michael Wilson",
+      user: `${user}`,
       image: `${Img1}`,
       description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
+        "AI is revolutionizing personal health and fitness with personalized workout plans and data-driven insights.",
     },
     {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
+      title: "The Future of Gaming: How AI Enhances Competitive Play",
+      category: "The Game",
+      name: "Alice Johnson",
+      user: `${user3}`,
+      image: `${Img2}`,
+      description: "AI is shaping the future of gaming, from smarter NPCs to predictive analytics for professional gamers."
+    },
+    {
+      title: "Smart Living: How AI is Shaping Modern Lifestyles",
+      category: "Lifestyle",
+      name: "Emily",
       image: `${Img3}`,
+      user: `${user2}`,
       description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
+        "AI-powered devices and solutions are changing how we live, from smart homes to health management.",
     },
     {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
+      title: "AI in Education: Personalizing Learning Experiences",
+      category: "Education",
+      name: "Michael Wilson",
       image: `${Img4}`,
+      user: `${user}`,
       description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
+        "AI tools are transforming education by offering personalized learning, automating grading, and enhancing student engagement.",
     },
     {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
+      title: "Food of the Future: AI in Meal Planning and Preparation",
+      category: "Food",
+      name: "Alice Johnson",
       image: `${Img5}`,
+      user: `${user3}`,
       description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
+        "AI is revolutionizing the food industry, from recipe recommendations to smart kitchen devices that optimize cooking.",
     },
     {
-      title: "The Best Practices for Web Accessibility",
-      category: "category",
-      name: "name",
+      title: "AI in Culinary Arts: Revolutionizing Cooking and Recipes",
+      category: "Food",
+      name: "Emily",
+      user: `${user2}`,
       image: `${Img6}`,
-      description:
-        "Ensure that your websites are accessible to everyone, regardless of their abilities.",
+      description: "AI is enhancing the culinary world by creating innovative recipes, optimizing food preparation, and personalizing meal plans based on individual tastes."
     },
   ];
 
@@ -75,7 +74,12 @@ const TrendingPosts = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 0.4,
-          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5, delay:0.2 },
+          scale: {
+            type: "spring",
+            visualDuration: 0.4,
+            bounce: 0.5,
+            delay: 0.2,
+          },
         }}
       >
         <div className="text-center px-4 md:px-0 py-8">
@@ -110,7 +114,7 @@ const TrendingPosts = () => {
               <div>
                 <div className="">
                   <img
-                    className="h-56 w-full object-fill"
+                    className="h-56 w-full object-cover"
                     src={post.image}
                     alt=""
                   />
@@ -122,8 +126,8 @@ const TrendingPosts = () => {
                   <div className="flex items-center gap-1.5">
                     <span>
                       <img
-                        className="h-10 w-10 object-fill rounded-full"
-                        src={post.image}
+                        className="h-10 w-10 object-cover rounded-full"
+                        src={post.user}
                         alt=""
                       />
                     </span>
@@ -137,11 +141,8 @@ const TrendingPosts = () => {
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 hover:text-blue-600 transition duration-300 ease-in-out">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{post.description}</p>
-                  <Button
-                    data-tip="Post Not Available"
-                    className="tooltip bg-cyan-500 hover:bg-cyan-600 text-white"
-                  >
+                  <p className="text-gray-600 mb-4">{post.description.slice(0,100)}...</p>
+                  <Button className="cursor-not-allowed bg-cyan-500 hover:bg-cyan-600 text-white">
                     Post Details
                   </Button>
                 </div>

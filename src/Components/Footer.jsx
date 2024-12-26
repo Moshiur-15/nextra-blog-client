@@ -11,11 +11,11 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white pt-16 lg:pt-44 pb-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
-          <h1 className="text-4xl font-bold text-cyan-500 font-lora">
-            Blog Hub
+          <h1 className="text-3xl md:text-4xl font-bold text-cyan-500">
+            NextEra Blog
           </h1>
           <div className="mt-6 md:mt-0">
-            <ul className="flex space-x-8 text-lg font-roboto">
+            <ul className="flex space-x-8 md:text-lg">
               <li>
                 <Link
                   to="/"
@@ -50,7 +50,10 @@ export default function Footer() {
               About Us
             </h2>
             <p className="text-gray-400">
-            Welcome to <span className="font-bold text-cyan-500">Blog Hub!</span> Your ultimate guide to discovering beautiful destinations, hidden gems, and unique experiences around the world.
+              Welcome to{" "}
+              <span className="font-bold text-cyan-500">NextEra Blog!</span>{" "}
+              Your ultimate guide to discovering beautiful destinations, hidden
+              gems, and unique experiences around the world.
             </p>
           </div>
           <div>

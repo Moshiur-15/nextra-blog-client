@@ -34,13 +34,13 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
-                Welcome to BlogHub
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              Welcome to the Future of Blogging
               </h2>
-              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
-                Your go-to platform for exploring, sharing, and engaging with
-                insightful content. Join the conversation today!
+              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
+              <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
             </div>
           </div>
         </SwiperSlide>
@@ -52,13 +52,13 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
-                Welcome to BlogHub
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              Welcome to the Future of Blogging
               </h2>
-              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
-                Your go-to platform for exploring, sharing, and engaging with
-                insightful content. Join the conversation today!
+              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
+              <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
             </div>
           </div>
         </SwiperSlide>
@@ -70,13 +70,13 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-5xl">
-                Welcome to BlogHub
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              Welcome to the Future of Blogging
               </h2>
-              <p className="text-base md:text-xl font-bold text-gray-200/70 max-w-2xl mx-auto">
-                Your go-to platform for exploring, sharing, and engaging with
-                insightful content. Join the conversation today!
+              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
+              <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
             </div>
           </div>
         </SwiperSlide>

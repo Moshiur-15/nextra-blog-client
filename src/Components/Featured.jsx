@@ -60,7 +60,7 @@ export default function Featured() {
                 Learn how technology is enhancing our lives.
               </p>
               <div>
-                <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
+                <button className=" flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
                   <span>Read More</span>
                   <span>
                     <FaArrowRight />

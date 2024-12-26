@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import axios from "axios";
 import BlogCard from "../Components/BlogCard";
 import Loading from "../Components/Loading";
+import { toast } from "react-toastify";
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");

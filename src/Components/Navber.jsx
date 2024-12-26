@@ -13,7 +13,7 @@ export default function Navber() {
             <div className="flex gap-2 flex-row">
               <img className="h-8 rounded-xl w-8" src={Logo} alt="not found" />
               <h2 className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                Blog Hub
+                NextEra Blog
               </h2>
             </div>
           </Navbar.Brand>
@@ -74,7 +74,7 @@ export default function Navber() {
             >
               All blogs
             </NavLink>
-            
+
             <NavLink
               className={({ isActive }) =>
                 `hover:text-cyan-500 font-bold ${
