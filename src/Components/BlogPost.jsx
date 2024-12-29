@@ -21,7 +21,6 @@ export default function BlogPost() {
     };
     fetchData();
   }, []);
-  console.log(import.meta.env.VITE_LOCALHOST)
   return (
     <div>
       {/* text */}
@@ -58,7 +57,7 @@ export default function BlogPost() {
           <div>
             <div>
               {blogs.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-2 xl:p-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-2 xl:p-0">
                   {[...blogs]
                     ?.reverse()
                     .slice(0, 6)

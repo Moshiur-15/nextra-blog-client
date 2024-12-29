@@ -5,27 +5,24 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import * as motion from "motion/react-client";
+import useAxios from "../hooks/interceptor";
 export default function Wishlist() {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
+  const axiosSecure = useAxios();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
-          `${import.meta.env.VITE_LOCALHOST}/wishlist/${user?.email}`,
-          { withCredentials: true }
-        );
+        const { data } = await axiosSecure.get(`/wishlist/${user?.email}`);
         setBlogs(data);
       } catch (err) {
         console.log(err);
-        // return toast.error(`${err?.response?.data?.message}`, {
-        //   position: "top-center",
-        // });
       }
     };
     fetchData();
   }, [user]);
+
 
   const handleDelete = (id) => {
     const fetchData = async () => {
@@ -51,7 +48,6 @@ export default function Wishlist() {
         }
       } catch (error) {
         console.log(error);
-        return toast.error(`Error: ${error.message}`);
       }
     };
     fetchData();
@@ -59,29 +55,6 @@ export default function Wishlist() {
 
   return (
     <div className="min-h-[calc(100vh-400px)] mb-12">
-      <div className="py-16 bg-cyan-100/80 mb-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.4,
-            scale: {
-              type: "spring",
-              visualDuration: 0.4,
-              bounce: 0.2,
-              delay: 0.2,
-            },
-          }}
-        >
-          <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
-            Wishlist Collection
-          </h1>
-          <p className="text-gray-600 text-center mt-3 md:text-lg max-w-md mx-auto">
-            Welcome to your wishlist page! Explore and manage your saved blogs
-            here.
-          </p>
-        </motion.div>
-      </div>
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -118,14 +91,21 @@ export default function Wishlist() {
                             <span>
                               <img
                                 className="h-8 w-8 object-fill rounded-full"
-                                src={blog?.blogPostUser?.photoURL}
+                                src={blog?.photoURL}
                                 alt=""
                               />
                             </span>
-                            <span className="text-gray-500 text-md">
-                              {blog?.blogPostUser?.displayName}
-                            </span>
+                            <div className="">
+                              {" "}
+                              <span className="text-gray-500 text-md">
+                                {blog?.displayName}
+                              </span>
+                              <p className="text-gray-500 text-xs">
+                                {blog?.deadline}
+                              </p>
+                            </div>
                           </div>
+
                           <span className="bg-cyan-100 text-cyan-700 text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
                             {blog.category}
                           </span>

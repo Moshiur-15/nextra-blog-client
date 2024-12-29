@@ -4,8 +4,11 @@ import useAuth from "../hooks/Hook";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import * as motion from "motion/react-client";
+import useAxios from "../hooks/interceptor";
 const AddBlogs = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxios();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,21 +40,13 @@ const AddBlogs = () => {
     };
 
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_LOCALHOST}/add-blogs`,
-        addBlog,
-        { withCredentials: true }
-      );
-      console.log(data);
+      await axiosSecure.post(`/add-blogs`,addBlog,);
       Swal.fire({
         title: "Blog Added Successfully",
         icon: "success",
       });
     } catch (err) {
       console.log(err);
-      // return toast.error(`${err?.response?.data?.message}`, {
-      //   position: "top-center",
-      // });
     }
   };
 
@@ -168,6 +163,7 @@ const AddBlogs = () => {
                 Long Description
               </label>
               <textarea
+                minLength={250}
                 name="longDescription"
                 rows="5"
                 className="mt-1 block w-full bg-gray-400/10 h-[230px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
@@ -225,7 +221,7 @@ const AddBlogs = () => {
             type="submit"
             className="w-full btn bg-cyan-500 text-white hover:bg-cyan-600 "
           >
-            Post Blog
+            Submit Blog
           </button>
         </form>
       </div>

@@ -46,7 +46,7 @@ export default function Featured() {
         }}
       >
         <section className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <div className="overflow-hidden rounded-lg relative">
+          <div className="rounded-lg relative">
             <img
               className="w-full h-[470px] transition-transform duration-1000 hover:scale-105"
               src={Img}

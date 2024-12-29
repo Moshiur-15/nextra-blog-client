@@ -6,6 +6,7 @@ import axios from "axios";
 import useAuth from "../hooks/Hook";
 import { toast } from "react-toastify";
 import Loading from "./Loading";
+import Swal from "sweetalert2";
 export default function BlogDetail() {
   const { user } = useAuth(null);
   const { id } = useParams(null);
@@ -73,8 +74,11 @@ export default function BlogDetail() {
     shortDescription: blogs?.shortDescription,
     category: blogs?.category,
     email: user?.email,
+    photoURL: blogs?.blogPostUser?.photoURL,
+    displayName: blogs?.blogPostUser?.displayName,
+    deadline:blogs?.deadline
   };
-
+  console.log(wishlistData);
   const handleWishlist = (wishlist) => {
     const fetchData = async () => {
       try {
@@ -82,10 +86,12 @@ export default function BlogDetail() {
           `${import.meta.env.VITE_LOCALHOST}/add-wishlist`,
           wishlist
         );
-        alert("data added");
+        Swal.fire({
+          title: "Added to wishlist successfully!",
+          icon: "success",
+        });
       } catch (err) {
         console.log(err);
-        return toast.error(`${err.message}`);
       }
     };
     fetchData();
@@ -176,9 +182,7 @@ export default function BlogDetail() {
                       Add To WishList
                     </button>
                     {isBlogOwner && (
-                      <button
-                        className="rounded-md px-5 md:py-3.5 bg-indigo-500/90 hover:bg-indigo-600/90 text-white font-semibold mr-5 font-lora"
-                      >
+                      <button className="rounded-md px-5 md:py-3.5 bg-indigo-500/90 hover:bg-indigo-600/90 text-white font-semibold mr-5 font-lora">
                         <Link to={`/updateBlog/${id}`}>Update Blog</Link>
                       </button>
                     )}

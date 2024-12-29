@@ -17,7 +17,6 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
-
   // createUser
   const createUser = (email, password) => {
     setLoading(true);
@@ -54,7 +53,7 @@ export default function AuthProvider({ children }) {
       if (currentUser?.email) {
         const userEmail = { email: currentUser.email };
         axios
-          .post("http://localhost:3000/jwt", userEmail, {
+          .post(`${import.meta.env.VITE_LOCALHOST}/jwt`, userEmail, {
             withCredentials: true,
           })
           .then((res) => {
@@ -62,24 +61,27 @@ export default function AuthProvider({ children }) {
             setLoading(false);
           })
           .catch((err) => {
-            return toast.error(`${err?.response?.data?.message}`, {
-              position: "top-center",
-            });
+            console.log(err);
+            setLoading(false);
+          
           });
       } else {
         axios
-          .post("http://localhost:3000/signOut", {}, { withCredentials: true })
+          .post(
+            `${import.meta.env.VITE_LOCALHOST}/signOut`,
+            {},
+            { withCredentials: true }
+          )
           .then((res) => {
             console.log("logout", res.data);
             setLoading(false);
           })
           .catch((err) => {
-            return toast.error(`${err?.response?.data?.message}`, {
-              position: "top-center",
-            });
+            setLoading(false);
+            console.log(err);
           });
       }
-      setLoading(false);
+      // setLoading(false);
       return () => unsubscribe();
     });
   }, []);

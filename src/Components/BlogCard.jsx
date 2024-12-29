@@ -7,7 +7,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 import Img from '../assets/love.avif'
 export default function BlogCard({ blog }) {
   const { user } = useAuth();
-  const { title, shortDescription, category, _id, cardImage, deadline } =
+  const { title, shortDescription, category, _id, cardImage, deadline, } =
     blog || {};
   const wishlistData = {
     title,
@@ -15,8 +15,10 @@ export default function BlogCard({ blog }) {
     shortDescription,
     category,
     email: user?.email,
+    photoURL:blog?.blogPostUser?.photoURL,
+    displayName:blog?.blogPostUser?.displayName,
+    deadline:deadline,
   };
-
   const handleWishlist = (wishlist) => {
     const fetchData = async () => {
       try {
@@ -34,7 +36,6 @@ export default function BlogCard({ blog }) {
     };
     fetchData();
   };
-
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg relative">
       <div className="flex flex-col h-full overflow-hidden">
