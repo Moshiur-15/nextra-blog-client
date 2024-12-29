@@ -6,7 +6,7 @@ import useAxios from "../hooks/interceptor";
 const UpdateBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
-  const axiosSecure = useAxios()
+  const axiosSecure = useAxios();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const UpdateBlog = () => {
     };
     fetchData();
   }, [id]);
-  
+
   const {
     title,
     shortDescription,
@@ -54,10 +54,7 @@ const UpdateBlog = () => {
     };
 
     try {
-      await axiosSecure.put(
-        `/update-blog/${id}`,
-        addBlog,
-      );
+      await axiosSecure.put(`/update-blog/${id}`, addBlog);
       Swal.fire({
         title: "Blog Update successfully!",
         icon: "success",
@@ -170,19 +167,6 @@ const UpdateBlog = () => {
           <div className="md:flex gap-5">
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700">
-                Cover Image
-              </label>
-              <input
-                defaultValue={cover}
-                type="url"
-                name="cover"
-                className="mt-1 bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                placeholder="Enter image URL"
-                required
-              />
-            </div>
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700">
                 Card Image
               </label>
               <input
@@ -194,12 +178,25 @@ const UpdateBlog = () => {
                 required
               />
             </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Details Page Cover Image
+              </label>
+              <input
+                defaultValue={cover}
+                type="url"
+                name="cover"
+                className="mt-1 bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                placeholder="Enter image URL"
+                required
+              />
+            </div>
           </div>
 
           <div className="md:flex gap-5">
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700">
-                Image 1
+                Details Page Image
               </label>
               <input
                 defaultValue={Img1}
@@ -212,7 +209,7 @@ const UpdateBlog = () => {
             </div>
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700">
-                Image 2
+                Details Page Image
               </label>
               <input
                 defaultValue={Img2}
