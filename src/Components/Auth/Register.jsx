@@ -144,7 +144,7 @@ export default function Register() {
             <span>
               <FaGoogle />
             </span>
-            <span>Google</span>
+            <span>Login With Google</span>
           </button>
         </div>
         <Link to="/login">

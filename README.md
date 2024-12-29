@@ -3,7 +3,9 @@
 A responsive blog website built with modern web technologies like Firebase, JWT Authentication, and a responsive design. This project includes features such as sorting blog posts by category, searching, a wishlist, and a user authentication system.
 
 ---
-
+## Live Link 
+  https://nextera-blog-me.netlify.app/
+  
 ---
 ## Features
 
@@ -66,4 +68,4 @@ A responsive blog website built with modern web technologies like Firebase, JWT 
 
 ## Contact
 
-For any inquiries or feedback, feel free to reach out at [masiurislam28@gmail.com].
+For any inquiries or feedback, feel free to reach out a[masiurislam28@gmail.com].

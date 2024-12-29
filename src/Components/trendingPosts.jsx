@@ -68,7 +68,7 @@ const TrendingPosts = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-12 px-6 rounded-lg">
+    <section className="bg-gray-50 py-12 px-16 rounded-lg">
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -83,10 +83,10 @@ const TrendingPosts = () => {
         }}
       >
         <div className="text-center px-4 md:px-0 py-8">
-          <h2 className="lg:text-3xl text-2xl font-oswald font-bold">
+          <h2 className="lg:text-3xl text-2xl font-bold">
             Trending Posts
           </h2>
-          <p className="text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-base md:text-lg max-w-xl mx-auto">
             Stay updated with the latest insights, tips, and stories trending
             across the web. Discover what's hot and stay informed!
           </p>
@@ -114,7 +114,7 @@ const TrendingPosts = () => {
               <div>
                 <div className="">
                   <img
-                    className="h-56 w-full object-cover"
+                    className="h-60 w-full object-cover"
                     src={post.image}
                     alt=""
                   />

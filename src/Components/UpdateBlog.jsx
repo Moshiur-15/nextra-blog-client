@@ -83,7 +83,7 @@ const UpdateBlog = () => {
         onSubmit={handleSubmit}
         className="mt-10 bg-white shadow-xl rounded-lg p-3 md:p-6 space-y-4 max-w-3xl mx-auto"
       >
-        <section className=" border rounded p-10 space-y-4">
+        <section className="rounded p-10 space-y-4">
           <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
             Text Part
           </h2>
@@ -163,8 +163,7 @@ const UpdateBlog = () => {
             />
           </div>
         </section>
-
-        <section className="py-8 space-y-8 clear-start border rounded p-10 bg-white">
+        <section className="py-8 border space-y-8 clear-start rounded p-10 bg-white">
           <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
             Img Section
           </h2>

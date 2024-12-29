@@ -23,10 +23,10 @@ export default function Featured() {
         }}
       >
         <div className="text-center px-4 md:px-0 py-8">
-          <h2 className="lg:text-3xl text-2xl font-oswald font-bold">
+          <h2 className="lg:text-3xl text-2xl font-bold">
             Featured Blogs
           </h2>
-          <p className="text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-base md:text-lg max-w-xl mx-auto">
             Read our exclusive blog posts designed to provide you with new
             knowledge and experiences. Start reading today!
           </p>
@@ -53,10 +53,10 @@ export default function Featured() {
               alt="Image not found"
             />
             <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold font-oswald text-white">
+              <h3 className="text-2xl font-bold text-white">
                 Pre-Trip Reading & Travel Plans for Amazon, Brazil
               </h3>
-              <p className="text-white mt-2 font-lora">
+              <p className="text-white mt-2">
                 Learn how technology is enhancing our lives.
               </p>
               <div>
@@ -77,10 +77,10 @@ export default function Featured() {
               alt="Image not found"
             />
             <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold font-oswald text-white">
+              <h3 className="text-2xl font-bold text-white">
                 The Ultimate Grand Canyon Travel Guide for alpinists
               </h3>
-              <p className="text-white mt-2 font-lora">
+              <p className="text-white mt-2">
                 Explore the best destinations and travel tips.
               </p>
               <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
@@ -99,10 +99,10 @@ export default function Featured() {
               alt="Image not found"
             />
             <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold font-oswald text-white">
+              <h3 className="text-2xl font-bold text-white">
                 Guided Hikes in Iceland – Rhyolite mountain Trail
               </h3>
-              <p className="text-white mt-2 font-lora">
+              <p className="text-white mt-2 ">
                 Guided Hikes in Iceland – Rhyolite mountain Trail
               </p>
               <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
@@ -121,10 +121,10 @@ export default function Featured() {
               alt="Image not found"
             />
             <div className="absolute flex flex-col justify-end items-start p-4 bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold font-oswald text-white">
+              <h3 className="text-2xl font-bold text-white">
                 My Favorite Hiking Trails Around Reykjavík
               </h3>
-              <p className="text-white mt-2 font-lora">
+              <p className="text-white mt-2">
                 Learn tips for staying healthy and fit.
               </p>
               <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">

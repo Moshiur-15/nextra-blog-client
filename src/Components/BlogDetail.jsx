@@ -12,16 +12,20 @@ export default function BlogDetail() {
   const { id } = useParams(null);
   const [blogs, setBlogs] = useState([]);
   const [comments, setComments] = useState([]);
-  const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_LOCALHOST}/unique-blog/${id}`
-      );
-      setBlogs(data);
-      setLoader(false);
+      try {
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_LOCALHOST}/unique-blog/${id}`
+        );
+        setBlogs(data);
+        setLoader(false);
+      } catch (err) {
+        console.log(err);
+        setLoader(false);
+      }
     };
     fetchData();
   }, [id]);
@@ -33,7 +37,7 @@ export default function BlogDetail() {
     const addComment = {
       comment,
     };
-    // Add your logic here to save the data to your database
+
     try {
       const commentData = {
         ...addComment,
@@ -76,9 +80,10 @@ export default function BlogDetail() {
     email: user?.email,
     photoURL: blogs?.blogPostUser?.photoURL,
     displayName: blogs?.blogPostUser?.displayName,
-    deadline:blogs?.deadline
+    deadline: blogs?.deadline,
+    job_id: blogs?._id,
   };
-  console.log(wishlistData);
+
   const handleWishlist = (wishlist) => {
     const fetchData = async () => {
       try {
@@ -92,6 +97,7 @@ export default function BlogDetail() {
         });
       } catch (err) {
         console.log(err);
+        setLoader(false)
       }
     };
     fetchData();
@@ -214,7 +220,7 @@ export default function BlogDetail() {
                       type="submit"
                       className="w-full bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mt-5 btn border-none"
                     >
-                      Post Comment
+                       Comment
                     </button>
                   </form>
                 )}

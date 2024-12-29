@@ -40,7 +40,7 @@ export default function FeaturedBlogs() {
             },
           }}
         >
-          <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
+          <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
             Featured Collection
           </h1>
         </motion.div>

@@ -41,10 +41,10 @@ export default function AllBlogs() {
             },
           }}
         >
-          <h1 className="text-2xl md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center font-oswald">
+          <h1 className="text-2xl md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
             All Blogs Post
           </h1>
-          <p className="text-gray-600 text-center mt-3 md:text-lg max-w-2xl mx-auto text-base">
+          <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg mx-auto text-base">
             Explore our collection of insightful blogs. Filter by category or
             search for a specific topic to stay up-to-date.
           </p>

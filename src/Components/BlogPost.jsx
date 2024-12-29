@@ -41,7 +41,7 @@ export default function BlogPost() {
           <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
             Recent Blog Posts
           </h2>
-          <p className="text-base max-w-[950px] mx-auto md:text-lg">
+          <p className="text-base max-w-[800px] mx-auto md:text-lg">
             Discover the latest stories, travel guides, and tips from around the
             world. Stay inspired with our handpicked adventures and hidden gems
             waiting to be explored.

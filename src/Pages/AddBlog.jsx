@@ -9,7 +9,6 @@ const AddBlogs = () => {
   const { user } = useAuth();
   const axiosSecure = useAxios();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -40,11 +39,12 @@ const AddBlogs = () => {
     };
 
     try {
-      await axiosSecure.post(`/add-blogs`,addBlog,);
+      await axiosSecure.post(`/add-blogs`, addBlog);
       Swal.fire({
         title: "Blog Added Successfully",
         icon: "success",
       });
+      from.reset();
     } catch (err) {
       console.log(err);
     }
@@ -67,7 +67,7 @@ const AddBlogs = () => {
               },
             }}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
               Add a New Blog
             </h2>
             <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
@@ -78,37 +78,24 @@ const AddBlogs = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="space-y-8 p-3 md:p-10  max-w-[900px] mx-auto"
+          className="space-y-8 p-3 md:p-10  max-w-[900px] mx-auto shadow-xl"
         >
-          <section className="border rounded p-10 space-y-4">
-            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+          <section className="rounded p-10 space-y-4">
+            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center ">
               Text Part
             </h2>
-            <div className="md:flex items-center gap-6">
-              <div className="flex-1">
-                <label className=" text-sm font-medium text-gray-700">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  name="title"
-                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
-                  placeholder="Enter blog title"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Card Image
-                </label>
-                <input
-                  type="url"
-                  name="cardImage"
-                  className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                  placeholder="Enter image URL"
-                  required
-                />
-              </div>
+
+            <div>
+              <label className=" text-sm font-medium text-gray-700">
+                Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                placeholder="Enter blog title"
+                required
+              />
             </div>
 
             <div className="md:flex gap-5">
@@ -163,7 +150,7 @@ const AddBlogs = () => {
                 Long Description
               </label>
               <textarea
-                minLength={250}
+                minLength={400}
                 name="longDescription"
                 rows="5"
                 className="mt-1 block w-full bg-gray-400/10 h-[230px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
@@ -174,20 +161,34 @@ const AddBlogs = () => {
           </section>
 
           <section className="py-8 space-y-5 clear-start border rounded p-10 bg-white">
-            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
               Img Part
             </h2>
-            <div className="flex-1">
-              <label className="block text-sm font-medium text-gray-700">
-                Details Page Cover Image
-              </label>
-              <input
-                type="url"
-                name="cover"
-                className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
-                placeholder="Enter image URL"
-                required
-              />
+            <div className="md:flex gap-5">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Card Image
+                </label>
+                <input
+                  type="url"
+                  name="cardImage"
+                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  placeholder="Enter image URL"
+                  required
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700">
+                  Details Page Cover Image
+                </label>
+                <input
+                  type="url"
+                  name="cover"
+                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  placeholder="Enter image URL"
+                  required
+                />
+              </div>
             </div>
 
             <div className="md:flex gap-5">

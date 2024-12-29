@@ -6,7 +6,7 @@ import Featured from "../Components/Featured";
 import TrendingPosts from "../Components/trendingPosts";
 export default function Home() {
   return (
-    <div className="font-lora">
+    <div className="font-oswald">
       <Banner />
       <div className="container mx-auto mt-20 px-2 md:px-0">
         <BlogPost />

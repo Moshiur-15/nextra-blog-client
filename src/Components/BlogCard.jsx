@@ -18,7 +18,9 @@ export default function BlogCard({ blog }) {
     photoURL:blog?.blogPostUser?.photoURL,
     displayName:blog?.blogPostUser?.displayName,
     deadline:deadline,
+    job_id:_id
   };
+
   const handleWishlist = (wishlist) => {
     const fetchData = async () => {
       try {
@@ -56,11 +58,11 @@ export default function BlogCard({ blog }) {
               </span>
               <span>{deadline}</span>
             </div>
-          </div>
-          <h2 className="text-xl lg:text-2xl font-semibold font-lora">
+        </div>
+          <h2 className="text-xl lg:text-2xl font-semibold">
             {title}
           </h2>
-          <p className="text-gray-600 text-sm mt-2 font-lora border-b-2 border-cyan-400 pb-3 border-dashed">
+          <p className="text-gray-600 text-sm mt-2 border-b-2 border-cyan-400 pb-3 border-dashed">
             {shortDescription}
           </p>
           <div className="flex mt-3">

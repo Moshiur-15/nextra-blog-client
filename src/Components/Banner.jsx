@@ -4,7 +4,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import banner1 from "../assets/travel-blog-b1.png";
+import banner1 from "../assets/IMG_0942-2-3_540.jpg";
 import banner2 from "../assets/travel-blog-b2.jpg";
 import banner3 from "../assets/travel-blog-b3.jpg";
 export default function Banner() {
@@ -34,10 +34,10 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl xl:text-5xl">
               Welcome to the Future of Blogging
               </h2>
-              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              <p className="text-base  font-bold text-gray-200/90 max-w-xl mx-auto">
               Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
               <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
@@ -52,10 +52,10 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl xl:text-5xl">
               Welcome to the Future of Blogging
               </h2>
-              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              <p className="text-base  font-bold text-gray-200/90 max-w-xl mx-auto">
               Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
               <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
@@ -70,10 +70,10 @@ export default function Banner() {
               alt=""
             />
             <div className="absolute bg-opacity-40 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
-              <h2 className="text-white font-extrabold text-2xl md:text-4xl">
+              <h2 className="text-white font-extrabold text-2xl md:text-4xl xl:text-5xl">
               Welcome to the Future of Blogging
               </h2>
-              <p className="text-base  font-bold text-gray-200/90 max-w-2xl mx-auto">
+              <p className="text-base  font-bold text-gray-200/90 max-w-xl mx-auto">
               Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.
               </p>
               <button className="btn text-white bg-cyan-500 border-none hover:bg-cyan-600">Explore More</button>
