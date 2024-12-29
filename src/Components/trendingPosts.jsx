@@ -68,7 +68,7 @@ const TrendingPosts = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-12 px-16 rounded-lg">
+    <section className="bg-gray-50 py-12 px-3 md:px-16 rounded-lg">
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
