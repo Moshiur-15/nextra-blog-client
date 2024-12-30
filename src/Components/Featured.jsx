@@ -24,11 +24,10 @@ export default function Featured() {
       >
         <div className="text-center px-4 md:px-0 py-8">
           <h2 className="lg:text-3xl text-2xl font-bold">
-            Featured Blogs
+            Popular Area
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto">
-            Read our exclusive blog posts designed to provide you with new
-            knowledge and experiences. Start reading today!
+          Explore our curated blogs offering insights, tips, and inspiration across diverse topics. Dive in and discover something new!
           </p>
         </div>
       </motion.div>
