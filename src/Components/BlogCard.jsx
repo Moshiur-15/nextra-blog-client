@@ -39,11 +39,11 @@ export default function BlogCard({ blog }) {
     fetchData();
   };
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg relative">
-      <div className="flex flex-col h-full overflow-hidden">
+    <div className="group bg-white rounded-lg shadow-md hover:shadow-lg relative">
+      <div className="flex flex-col h-full overflow-hidden rounded-lg">
         <img
           src={cardImage}
-          className="transition-transform duration-700 hover:scale-105  rounded-t-lg rounded-b-[1px] object-cover w-full h-[250px] xl:h-[240px]"
+          className="transition-transform duration-700 group-hover:scale-105  rounded-t-lg rounded-b-[1px] object-cover w-full h-[250px] xl:h-[240px]"
           alt="not found"
         />
         <div className="flex flex-col justify-between flex-grow p-5">

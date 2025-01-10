@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import * as motion from "motion/react-client";
 import useAxios from "../hooks/interceptor";
+
 const AddBlogs = () => {
   const { user } = useAuth();
   const axiosSecure = useAxios();
@@ -67,7 +68,7 @@ const AddBlogs = () => {
               },
             }}
           >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 cursor-pointer text-center">
               Add a New Blog
             </h2>
             <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
@@ -78,17 +79,15 @@ const AddBlogs = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="space-y-8 p-3 md:p-10  max-w-[900px] mx-auto shadow-xl"
+          className="space-y-8 p-3 md:p-10 max-w-[900px] mx-auto shadow-xl"
         >
-          <section className="rounded p-10 space-y-4">
-            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center ">
+          <section className="rounded p-10 space-y-4 bg-gray-50">
+            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
               Text Part
             </h2>
 
             <div>
-              <label className=" text-sm font-medium text-gray-700">
-                Title
-              </label>
+              <label className="text-sm font-medium text-gray-700">Title</label>
               <input
                 type="text"
                 name="title"
@@ -99,8 +98,8 @@ const AddBlogs = () => {
             </div>
 
             <div className="md:flex gap-5">
-              <div className="flex-1 w-full">
-                <label className="block  text-sm font-medium text-gray-700">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700">
                   Blog Post Date
                 </label>
                 <Datepicker name="deadline" />
@@ -160,7 +159,7 @@ const AddBlogs = () => {
             </div>
           </section>
 
-          <section className="py-8 space-y-5 clear-start border rounded p-10 bg-white">
+          <section className="bg-gray-50 py-8 space-y-5 clear-start rounded p-10">
             <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
               Img Part
             </h2>
@@ -193,7 +192,7 @@ const AddBlogs = () => {
 
             <div className="md:flex gap-5">
               <div className="flex-1">
-                <label className="block  text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700">
                   Details Page Image
                 </label>
                 <input
@@ -220,7 +219,7 @@ const AddBlogs = () => {
           </section>
           <button
             type="submit"
-            className="w-full btn bg-cyan-500 text-white hover:bg-cyan-600 "
+            className="w-full btn bg-cyan-500 text-white hover:bg-cyan-600 focus:ring-4 focus:ring-cyan-500"
           >
             Submit Blog
           </button>

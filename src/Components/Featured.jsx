@@ -1,12 +1,38 @@
-import * as motion from "motion/react-client";
 import React from "react";
+import * as motion from "motion/react-client";
 import Img from "../assets/blog-post-img-1.jpg";
 import Img2 from "../assets/blog-post-img-2.jpg";
 import Img3 from "../assets/blog-post-img-3.jpg";
 import Img4 from "../assets/blog-post-img-4.jpg";
-import { FaArrowRight } from "react-icons/fa";
 
 export default function Featured() {
+  const blogs = [
+    {
+      id: 1,
+      title: "Pre-Trip Reading & Travel Plans for Amazon, Brazil",
+      description: "Learn how technology is enhancing our lives.",
+      image: `${Img}`,
+    },
+    {
+      id: 2,
+      title: "The Ultimate Grand Canyon Travel Guide for Alpinists",
+      description: "Explore the best destinations and travel tips.",
+      image: `${Img2}`,
+    },
+    {
+      id: 3,
+      title: "Guided Hikes in Iceland – Rhyolite Mountain Trail",
+      description: "Guided Hikes in Iceland – Rhyolite mountain Trail",
+      image: `${Img3}`,
+    },
+    {
+      id: 4,
+      title: "My Favorite Hiking Trails Around Reykjavík",
+      description: "Learn tips for staying healthy and fit.",
+      image: `${Img4}`,
+    },
+  ];
+
   return (
     <div>
       <motion.div
@@ -22,12 +48,11 @@ export default function Featured() {
           },
         }}
       >
-        <div className="text-center px-4 md:px-0 py-8">
-          <h2 className="lg:text-3xl text-2xl font-bold">
-            Popular Area
-          </h2>
+        <div className="text-center px-4 md:px-0">
+          <h2 className="lg:text-3xl text-2xl font-bold">Popular Area</h2>
           <p className="text-base md:text-lg max-w-xl mx-auto">
-          Explore our curated blogs offering insights, tips, and inspiration across diverse topics. Dive in and discover something new!
+            Explore our curated blogs offering insights, tips, and inspiration
+            across diverse topics. Dive in and discover something new!
           </p>
         </div>
       </motion.div>
@@ -44,96 +69,21 @@ export default function Featured() {
           },
         }}
       >
-        <section className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <div className="rounded-lg relative">
-            <img
-              className="w-full h-[470px] transition-transform duration-1000 hover:scale-105"
-              src={Img}
-              alt="Image not found"
-            />
-            <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold text-white">
-                Pre-Trip Reading & Travel Plans for Amazon, Brazil
-              </h3>
-              <p className="text-white mt-2">
-                Learn how technology is enhancing our lives.
-              </p>
-              <div>
-                <button className=" flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
-                  <span>Read More</span>
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </button>
+        <section className=" mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {blogs.map((blog) => (
+            <div key={blog.id} className="group relative rounded-lg overflow-hidden">
+              <img
+                className="w-full h-[470px] group-hover:scale-105 transition-transform duration-1000"
+                src={blog.image}
+                alt="Blog visual"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+              <div className="absolute z-20 flex flex-col justify-end items-start p-5 inset-0">
+                <h3 className="text-2xl font-bold text-white">{blog.title}</h3>
+                <p className="text-gray-200 my-2">{blog.description}</p>
               </div>
             </div>
-          </div>
-
-          <div className="overflow-hidden rounded-lg relative">
-            <img
-              className="w-full h-[470px] transition-transform duration-1000 hover:scale-105"
-              src={Img2}
-              alt="Image not found"
-            />
-            <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold text-white">
-                The Ultimate Grand Canyon Travel Guide for alpinists
-              </h3>
-              <p className="text-white mt-2">
-                Explore the best destinations and travel tips.
-              </p>
-              <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
-                <span>Read More</span>
-                <span>
-                  <FaArrowRight />
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-lg relative">
-            <img
-              className="w-full  h-[470px] transition-transform duration-1000 hover:scale-105"
-              src={Img3}
-              alt="Image not found"
-            />
-            <div className="absolute flex flex-col justify-end items-start p-4  bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold text-white">
-                Guided Hikes in Iceland – Rhyolite mountain Trail
-              </h3>
-              <p className="text-white mt-2 ">
-                Guided Hikes in Iceland – Rhyolite mountain Trail
-              </p>
-              <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
-                <span>Read More</span>
-                <span>
-                  <FaArrowRight />
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-lg relative">
-            <img
-              className="w-full  h-[470px] transition-transform duration-1000 hover:scale-105"
-              src={Img4}
-              alt="Image not found"
-            />
-            <div className="absolute flex flex-col justify-end items-start p-4 bg-black bg-opacity-40 inset-0 hover:bg-opacity-50">
-              <h3 className="text-2xl font-bold text-white">
-                My Favorite Hiking Trails Around Reykjavík
-              </h3>
-              <p className="text-white mt-2">
-                Learn tips for staying healthy and fit.
-              </p>
-              <button className="flex items-center gap-1 mt-3 bg-cyan-500 text-white px-4 py-2 rounded">
-                <span>Read More</span>
-                <span>
-                  <FaArrowRight />
-                </span>
-              </button>
-            </div>
-          </div>
+          ))}
         </section>
       </motion.div>
     </div>

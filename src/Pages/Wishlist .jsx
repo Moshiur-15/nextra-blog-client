@@ -7,11 +7,14 @@ import Swal from "sweetalert2";
 import * as motion from "motion/react-client";
 import useAxios from "../hooks/interceptor";
 import Loading from "../Components/Loading";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
+
 export default function Wishlist() {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
   const axiosSecure = useAxios();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,7 +58,6 @@ export default function Wishlist() {
     fetchData();
   };
 
-  
   return (
     <div className="min-h-[calc(100vh-400px)] mb-12">
       <div className="py-16 bg-cyan-100/80 mb-10">
@@ -72,9 +74,12 @@ export default function Wishlist() {
             },
           }}
         >
-          <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
+          <h1 className="text-[26px] md:text-4xl font-bold text-gray-800 text-center">
             Wishlist Collection
           </h1>
+          <p className="text-xl text-center text-gray-600 mt-4">
+            Browse your favorite blogs and manage your wishlist!
+          </p>
         </motion.div>
       </div>
       <motion.div
@@ -90,88 +95,63 @@ export default function Wishlist() {
           },
         }}
       >
-        <div className={`container mx-auto ${blogs.length > 0 && "bg-gray-100/80"} md:px-8 md:py-8 rounded-lg`}>
-          <div>
-            {loading ? (
-              <Loading />
-            ) : (
-              <div>
-                {blogs.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-2">
-                    {blogs?.map((blog) => (
-                      <div
-                        key={blog._id}
-                        className="bg-white rounded-lg shadow-lg"
-                      >
-                        <div className="flex flex-col h-full overflow-hidden">
-                          <img
-                            src={blog.cardImage}
-                            className="transition-transform duration-700 hover:scale-105 bg-black bg-opacity-40 inset-0 hover:bg-opacity-45 rounded-t-lg rounded-b-[1px] object-cover w-full h-[200px]"
-                            alt="not found"
-                          />
-                          <div className="flex flex-col justify-between flex-grow p-5">
-                            {/* date, user*/}
-                            <div className="flex justify-between items-center mb-2">
-                              <div className="flex items-center gap-1.5">
-                                <span>
-                                  <img
-                                    className="h-8 w-8 object-fill rounded-full"
-                                    src={blog?.photoURL}
-                                    alt=""
-                                  />
-                                </span>
-                                <div className="">
-                                  {" "}
-                                  <span className="text-gray-500 text-md">
-                                    {blog?.displayName}
-                                  </span>
-                                  <p className="text-gray-500 text-xs">
-                                    {blog?.deadline}
-                                  </p>
-                                </div>
-                              </div>
-
-                              <span className="bg-cyan-100 text-cyan-700 text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
-                                {blog.category}
-                              </span>
-                            </div>
-                            <h2 className="text-xl lg:text-2xl font-semibold">
-                              {blog.title}
-                            </h2>
-                            <p className="text-gray-600 text-sm mt-2 border-b-2 border-cyan-400 pb-3 border-dashed">
-                              {blog.shortDescription.slice(0, 80)}...
-                            </p>
-
-                            <div className="flex mt-3">
-                              <button
-                                color=""
-                                className="flex-1 py-1.5 rounded-[5px] bg-cyan-500 hover:bg-cyan-600 text-white font-semibold mr-5"
-                              >
-                                <Link to={`/blogsDetail/${blog?.job_id}`}>
-                                  Details
-                                </Link>
-                              </button>
-                              <button
-                                color=""
-                                onClick={() => handleDelete(blog?._id)}
-                                className="flex-1 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-[5px]"
-                              >
-                                Delate
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-cyan-500 rounded-lg min-h-[calc(100vh-480px)] bg-red-200/50 text-3xl lg:text-5xl flex items-center justify-center">
-                    No items in your wishlist. Start adding some!
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
+        <div className="container mx-auto md:py-8 rounded-lg">
+          {loading ? (
+            <Loading />
+          ) : blogs.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="table table-zebra table-striped w-full text-left bg-white rounded-lg">
+                <thead className="bg-cyan-500 text-white">
+                  <tr>
+                    <th className="px-4 py-2">Blog Name</th>
+                    <th className="px-4 py-2">Deadline</th>
+                    <th className="px-4 py-2">Title</th>
+                    <th className="px-4 py-2">Category</th>
+                    <th className="px-4 py-2 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {blogs.map((blog) => (
+                    <tr key={blog._id} className="hover:bg-gray-100border">
+                      <td className="border px-4 py-2 md:flex items-center gap-3">
+                        <img
+                          src={blog.photoURL}
+                          className="w-10 h-10 object-cover rounded-full"
+                          alt="blogger"
+                        />
+                        {blog.displayName}
+                      </td>
+                      <td className="border px-4 py-2">{blog.deadline}</td>
+                      <td className="border px-4 py-2">{blog.title}</td>
+                      <td className="border px-4 py-2">{blog.category}</td>
+                      <td className="border px-4 py-2">
+                        <td className="px-4 py-2 flex justify-center gap-4">
+                          <Link
+                            to={`/blogsDetail/${blog.job_id}`}
+                            className="text-cyan-500 hover:text-cyan-600 text-xl tooltip tooltip-top"
+                            data-tip="Edit Blog"
+                          >
+                            <FaEdit />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(blog._id)}
+                            className="text-red-500 hover:text-red-600 text-xl tooltip tooltip-top"
+                            data-tip="Delete Blog"
+                          >
+                            <FaTrashAlt />
+                          </button>
+                        </td>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-red-500 rounded-lg min-h-[calc(100vh-480px)] text-3xl lg:text-5xl flex items-center justify-center">
+              No items in your wishlist. Start adding some!
+            </p>
+          )}
         </div>
       </motion.div>
     </div>

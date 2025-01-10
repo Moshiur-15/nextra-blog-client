@@ -17,58 +17,70 @@ import TrendingPosts from "../Components/trendingPosts";
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement:<ErrorPage/>,
-    element: <HomeLayout/>,
+    errorElement: <ErrorPage />,
+    element: <HomeLayout />,
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: "/navber",
-        element: <Navber/>
+        element: <Navber />,
       },
       {
         path: "/footer",
-        element: <Footer/>
+        element: <Footer />,
       },
       {
         path: "/allBlogs",
-        element: <AllBlogs/>
+        element: <AllBlogs />,
       },
       {
         path: "/blogsDetail/:id",
-        element: <BlogDetail/>
+        element: <BlogDetail />,
       },
       {
         path: "/popularBlog",
-        element: <TrendingPosts/>
+        element: <TrendingPosts />,
       },
       {
         path: "/featuredBlogs",
-        element: <FeaturedBlogs/>
+        element: <FeaturedBlogs />,
       },
       {
         path: "/wishlist",
-        element: <PrivateRoutes><Wishlist/></PrivateRoutes>
+        element: (
+          <PrivateRoutes>
+            <Wishlist />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/addBlog",
-        element: <PrivateRoutes><AddBlog/></PrivateRoutes>
+        element: (
+          <PrivateRoutes>
+            <AddBlog />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/updateBlog/:id",
-        element: <PrivateRoutes><UpdateBlog/></PrivateRoutes>
+        element: (
+          <PrivateRoutes>
+            <UpdateBlog />
+          </PrivateRoutes>
+        ),
       },
-      {
-        path: "/login",
-        element: <Login/>
-      },
-      {
-        path: "/register",
-        element: <Register/>
-      },
-    ]
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 export default router;

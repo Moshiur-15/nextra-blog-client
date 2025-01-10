@@ -1,6 +1,6 @@
 import axios from "axios";
 import { DataType, Table } from "ka-table";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 import { SortingMode, SortDirection } from "ka-table/enums";
 import React, { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ export default function FeaturedBlogs() {
   }, []);
 
   return (
-    <div >
+    <div>
       <div className="py-16 bg-cyan-100/80 mb-10">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -40,9 +40,13 @@ export default function FeaturedBlogs() {
             },
           }}
         >
-          <h1 className="text-[26px] md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
+          <h1 className="text-[26px] md:text-4xl font-bold text-gray-800 text-center">
             Featured Collection
           </h1>
+          <p className="text-lg text-center text-gray-700 mt-4 max-w-lg mx-auto">
+            Browse through our handpicked collection, showcasing the best and
+            most popular items of the season.
+          </p>
         </motion.div>
       </div>
       <div className="container mx-auto min-h-[calc(100vh-500px)] my-10 border">

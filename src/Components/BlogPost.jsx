@@ -1,4 +1,4 @@
-import * as motion from "motion/react-client";
+import { motion } from "framer-motion";
 import BlogCard from "./BlogCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -60,7 +60,7 @@ export default function BlogPost() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-2 xl:p-0">
                   {[...blogs]
                     ?.reverse()
-                    .slice(0, 6)
+                    .slice(0, 8)
                     .map((blog) => (
                       <BlogCard key={blog._id} blog={blog} />
                     ))}

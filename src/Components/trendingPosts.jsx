@@ -5,6 +5,8 @@ import Img3 from "../assets/img3.jpg";
 import Img4 from "../assets/img4.jpg";
 import Img5 from "../assets/img5.jpg";
 import Img6 from "../assets/img6.avif";
+import Img7 from "../assets/images (6).jpg";
+import Img8 from "../assets/unnamed.webp";
 import user from "../assets/user1.jpg";
 import user2 from "../assets/user2.jpg";
 import user3 from "../assets/user3.webp";
@@ -28,7 +30,8 @@ const TrendingPosts = () => {
       name: "Alice Johnson",
       user: `${user3}`,
       image: `${Img2}`,
-      description: "AI is shaping the future of gaming, from smarter NPCs to predictive analytics for professional gamers."
+      description:
+        "AI is shaping the future of gaming, from smarter NPCs to predictive analytics for professional gamers.",
     },
     {
       title: "Smart Living: How AI is Shaping Modern Lifestyles",
@@ -63,12 +66,31 @@ const TrendingPosts = () => {
       name: "Emily",
       user: `${user2}`,
       image: `${Img6}`,
-      description: "AI is enhancing the culinary world by creating innovative recipes, optimizing food preparation, and personalizing meal plans based on individual tastes."
+      description:
+        "AI is enhancing the culinary world by creating innovative recipes, optimizing food preparation, and personalizing meal plans based on individual tastes.",
     },
+    {
+      title: "The Future of Gaming: How AI Enhances Competitive Play",
+      category: "Game",
+      name: "Emilys",
+      user: `${user2}`,
+      image: `${Img8}`,
+      description:
+        "AI is shaping the future of gaming, from smarter NPCs to predictive analytics for professional gamers.",
+    },
+    {
+      title: "AI in Education: Personalizing Learning Experiences",
+      category: "Education",
+      name: "Michael Wilson",
+      user: `${user}`,
+      image: `${Img7}`,
+      description:
+        "AI tools are transforming education by offering personalized learning, automating grading, and enhancing student engagement.",
+    }
   ];
 
   return (
-    <section className="bg-gray-50 py-12 px-3 md:px-16 rounded-lg">
+    <section className="px-3 lg:px-0 rounded-lg">
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -83,9 +105,7 @@ const TrendingPosts = () => {
         }}
       >
         <div className="text-center px-4 md:px-0 py-8">
-          <h2 className="lg:text-3xl text-2xl font-bold">
-            Trending Posts
-          </h2>
+          <h2 className="lg:text-3xl text-2xl font-bold">Trending Posts</h2>
           <p className="text-base md:text-lg max-w-xl mx-auto">
             Stay updated with the latest insights, tips, and stories trending
             across the web. Discover what's hot and stay informed!
@@ -105,14 +125,14 @@ const TrendingPosts = () => {
           },
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {trendingPosts.map((post, inx) => (
             <div
               key={inx}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden group"
             >
               <div>
-                <div className="">
+                <div>
                   <img
                     className="h-60 w-full object-cover"
                     src={post.image}
@@ -120,7 +140,7 @@ const TrendingPosts = () => {
                   />
                 </div>
               </div>
-              {/* text */}
+              {/* Text */}
               <section className="p-6">
                 <div className="flex justify-between items-center mb-2">
                   <div className="flex items-center gap-1.5">
@@ -137,14 +157,13 @@ const TrendingPosts = () => {
                     {post.category}
                   </span>
                 </div>
-                <div className="">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4 hover:text-blue-600 transition duration-300 ease-in-out">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4 transition duration-300 ease-in-out">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{post.description.slice(0,100)}...</p>
-                  <Button className="cursor-not-allowed bg-cyan-500 hover:bg-cyan-600 text-white">
-                    Post Details
-                  </Button>
+                  <p className="text-gray-600 mb-2">
+                    {post.description.slice(0, 80)}
+                  </p>
                 </div>
               </section>
             </div>

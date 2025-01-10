@@ -1,10 +1,12 @@
 import React from "react";
-import { Avatar, Button, Navbar } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/blogsicon.png";
+
 export default function Navber() {
   const { user, logOut } = useAuth();
+
   return (
     <div className="shadow-md bg-gray-900 py-2 sticky top-0 z-50">
       <div className="md:mx-5 lg:mx-16">
@@ -17,42 +19,72 @@ export default function Navber() {
               </h2>
             </div>
           </Navbar.Brand>
+
           <div className="flex md:order-2">
-            <Avatar
-              alt="not found"
-              img={user?.photoURL}
-              className="mr-2"
-              rounded
-            />
-            <div className="space-x-2">
-              {user ? (
+            {user ? (
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar alt="User settings" img={user?.photoURL} rounded />
+                }
+              >
+                <Dropdown.Header>
+                  <span className="block text-sm">{user?.displayName}</span>
+                  <span className="block truncate text-sm font-medium">
+                    {user?.email}
+                  </span>
+                </Dropdown.Header>
+                <Dropdown.Item>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `hover:text-cyan-500 font-semibold w-full text-left ${
+                        isActive ? "text-cyan-400 underline" : "text-black"
+                      }`
+                    }
+                    to="/addBlog"
+                  >
+                    Add Blog
+                  </NavLink>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `hover:text-cyan-400 font-semibold w-full text-left ${
+                        isActive ? "text-cyan-500 underline" : "text-black"
+                      }`
+                    }
+                    to="/wishlist"
+                  >
+                    Wishlist
+                  </NavLink>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item onClick={logOut} className="font-semibold">
+                  Logout
+                </Dropdown.Item>
+              </Dropdown>
+            ) : (
+              <div className="flex gap-2">
                 <Button
                   color=""
                   className="bg-cyan-500 hover:bg-cyan-600 font-bold"
-                  onClick={logOut}
                 >
-                  Logout
+                  <Link to="/login">Login</Link>
                 </Button>
-              ) : (
-                <div className="flex gap-2">
-                  <Button
-                    color=""
-                    className="bg-cyan-500 hover:bg-cyan-600 font-bold"
-                  >
-                    <Link to="/login">Login</Link>
-                  </Button>
-                  <Button
-                    color=""
-                    className="bg-cyan-500 hover:bg-cyan-600 font-bold"
-                  >
-                    <Link to="/register">Register</Link>
-                  </Button>
-                </div>
-              )}
-            </div>
+                <Button
+                  color=""
+                  className="bg-cyan-500 hover:bg-cyan-600 font-bold"
+                >
+                  <Link to="/register">Register</Link>
+                </Button>
+              </div>
+            )}
+
             <Navbar.Toggle />
           </div>
-          <Navbar.Collapse className="font-lora">
+
+          <Navbar.Collapse className="font-lora text-center">
             <NavLink
               className={({ isActive }) =>
                 `hover:text-cyan-500 font-bold ${
@@ -81,31 +113,9 @@ export default function Navber() {
                   isActive ? "text-cyan-400 underline" : "text-white"
                 }`
               }
-              to="/addBlog"
-            >
-              Add Blog
-            </NavLink>
-
-            <NavLink
-              className={({ isActive }) =>
-                ` hover:text-cyan-500 font-bold ${
-                  isActive ? "text-cyan-400 underline" : "text-white"
-                }`
-              }
               to="/featuredBlogs"
             >
               Featured Blogs
-            </NavLink>
-
-            <NavLink
-              className={({ isActive }) =>
-                ` hover:text-cyan-400 font-bold ${
-                  isActive ? "text-cyan-500 underline" : "text-white"
-                }`
-              }
-              to="/wishlist"
-            >
-              Wishlist
             </NavLink>
           </Navbar.Collapse>
         </Navbar>

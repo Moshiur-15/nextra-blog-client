@@ -7,14 +7,16 @@ import TrendingPosts from "../Components/trendingPosts";
 export default function Home() {
   return (
     <div className="font-oswald">
-      <Banner />
-      <div className="container mx-auto mt-20 px-2 md:px-0">
+      <div>
+        <Banner />
+      </div>
+      <div className="container mx-auto px-2 md:px-0 my-8 md:my-14 lg:my-20">
         <BlogPost />
       </div>
-      <div className="container mx-auto mt-24 px-2 md:px-0">
+      <div className="container mx-auto px-2 md:px-0">
         <Featured />
       </div>
-      <div className="container mx-auto mt-24 px-2 md:px-0">
+      <div className="container mx-auto  px-2 md:px-0 my-8 md:my-14 lg:my-20">
         <TrendingPosts />
       </div>
       <div className="my-8 px-2 md:px-0">

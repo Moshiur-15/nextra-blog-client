@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import axios from "axios";
 import BlogCard from "../Components/BlogCard";
 import Loading from "../Components/Loading";
+import NewsletterSection from "../Components/NewsletterSection ";
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
@@ -41,7 +42,7 @@ export default function AllBlogs() {
             },
           }}
         >
-          <h1 className="text-2xl md:text-4xl hover:text-cyan-600 font-bold text-gray-800 text-center">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800 text-center">
             All Blogs Post
           </h1>
           <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg mx-auto text-base">
@@ -119,6 +120,9 @@ export default function AllBlogs() {
           </div>
         </div>
       </motion.div>
+      <div className="mt-20">
+        <NewsletterSection />
+      </div>
     </div>
   );
 }
