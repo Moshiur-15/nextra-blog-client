@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/Hook";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import * as motion from "motion/react-client";
+import { motion } from "framer-motion";
 import useAxios from "../hooks/interceptor";
 import Loading from "../Components/Loading";
-import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { TbListDetails } from "react-icons/tb";
 
 export default function Wishlist() {
   const [blogs, setBlogs] = useState([]);
@@ -29,6 +29,7 @@ export default function Wishlist() {
     fetchData();
   }, [user]);
 
+  console.log(blogs);
   const handleDelete = (id) => {
     const fetchData = async () => {
       try {
@@ -100,38 +101,39 @@ export default function Wishlist() {
             <Loading />
           ) : blogs.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="table table-zebra table-striped w-full text-left bg-white rounded-lg">
-                <thead className="bg-cyan-500 text-white">
+              <table className="table table-zebra table-striped max-w-7xl mx-auto text-left bg-white rounded-lg">
+                <thead className="bg-cyan-500 text-white text-center">
                   <tr>
-                    <th className="px-4 py-2">Blog Name</th>
-                    <th className="px-4 py-2">Deadline</th>
-                    <th className="px-4 py-2">Title</th>
-                    <th className="px-4 py-2">Category</th>
-                    <th className="px-4 py-2 text-center">Actions</th>
+                    <th className="px-4 py-4">Bloger Image</th>
+                    <th className="px-4 py-4">Bloger Name</th>
+                    <th className="px-4 py-4">Title</th>
+                    <th className="px-4 py-4">Category</th>
+                    <th className="px-4 py-4 text-center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {blogs.map((blog) => (
-                    <tr key={blog._id} className="hover:bg-gray-100border">
-                      <td className="border px-4 py-2 md:flex items-center gap-3">
+                  {blogs?.map((blog) => (
+                    <tr key={blog._id} className="hover:bg-gray-50 border text-center">
+                      <td className="border px-4 py-2 gap-3 flex justify-center items-center">
                         <img
                           src={blog.photoURL}
-                          className="w-10 h-10 object-cover rounded-full"
+                          className="w-10 h-10 object-cover rounded-full "
                           alt="blogger"
                         />
+                      </td>
+                      <td className="border px-4 py-2">
                         {blog.displayName}
                       </td>
-                      <td className="border px-4 py-2">{blog.deadline}</td>
                       <td className="border px-4 py-2">{blog.title}</td>
                       <td className="border px-4 py-2">{blog.category}</td>
                       <td className="border px-4 py-2">
-                        <td className="px-4 py-2 flex justify-center gap-4">
+                        <div className="px-4 py-2 flex justify-center gap-4">
                           <Link
                             to={`/blogsDetail/${blog.job_id}`}
                             className="text-cyan-500 hover:text-cyan-600 text-xl tooltip tooltip-top"
-                            data-tip="Edit Blog"
+                            data-tip="Blog Detail "
                           >
-                            <FaEdit />
+                            <TbListDetails />
                           </Link>
                           <button
                             onClick={() => handleDelete(blog._id)}
@@ -140,7 +142,7 @@ export default function Wishlist() {
                           >
                             <FaTrashAlt />
                           </button>
-                        </td>
+                        </div>
                       </td>
                     </tr>
                   ))}

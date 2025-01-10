@@ -10,8 +10,8 @@ import Img8 from "../assets/unnamed.webp";
 import user from "../assets/user1.jpg";
 import user2 from "../assets/user2.jpg";
 import user3 from "../assets/user3.webp";
-import { Button } from "flowbite-react";
-import * as motion from "motion/react-client";
+import { motion } from "framer-motion";
+
 
 const TrendingPosts = () => {
   const trendingPosts = [
@@ -162,7 +162,7 @@ const TrendingPosts = () => {
                     {post.title}
                   </h3>
                   <p className="text-gray-600 mb-2">
-                    {post.description.slice(0, 80)}
+                    {post.description.slice(0, 80)}...
                   </p>
                 </div>
               </section>

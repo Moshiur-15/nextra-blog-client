@@ -10,16 +10,16 @@ export default function Home() {
       <div>
         <Banner />
       </div>
-      <div className="container mx-auto px-2 md:px-0 my-8 md:my-14 lg:my-20">
+      <div className="container mx-auto px-2 md:px-0 my-8 md:my-14 lg:my-24">
         <BlogPost />
       </div>
       <div className="container mx-auto px-2 md:px-0">
         <Featured />
       </div>
-      <div className="container mx-auto  px-2 md:px-0 my-8 md:my-14 lg:my-20">
+      <div className="container mx-auto  px-2 md:px-0 my-8 md:my-14 lg:my-24">
         <TrendingPosts />
       </div>
-      <div className="my-8 px-2 lg:px-0">
+      <div className="mb-8 px-2 lg:px-0 md:mb-14 lg:mb-34">
         <NewsletterSection />
       </div>
     </div>

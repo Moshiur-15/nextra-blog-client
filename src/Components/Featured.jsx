@@ -73,7 +73,7 @@ export default function Featured() {
           {blogs.map((blog) => (
             <div key={blog.id} className="group relative rounded-lg overflow-hidden">
               <img
-                className="w-full h-[470px] group-hover:scale-105 transition-transform duration-1000"
+                className="object-cover w-full h-[400px] md:h-[440px] xl:h-[470px] group-hover:scale-105 transition-transform duration-1000"
                 src={blog.image}
                 alt="Blog visual"
               />

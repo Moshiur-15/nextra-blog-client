@@ -82,7 +82,7 @@ const AddBlogs = () => {
           className="space-y-8 p-3 md:p-10 max-w-[900px] mx-auto shadow-xl"
         >
           <section className="rounded p-10 space-y-4 bg-gray-50">
-            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
+            <h2 className="text-xl font-bold text-gray-800  cursor-pointer text-center">
               Text Part
             </h2>
 
@@ -160,7 +160,7 @@ const AddBlogs = () => {
           </section>
 
           <section className="bg-gray-50 py-8 space-y-5 clear-start rounded p-10">
-            <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center">
+            <h2 className="text-xl font-bold text-gray-800 cursor-pointer text-center">
               Img Part
             </h2>
             <div className="md:flex gap-5">
