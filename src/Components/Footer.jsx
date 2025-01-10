@@ -4,16 +4,28 @@ import {
   FaTwitter,
   FaInstagram,
   FaPinterestP,
+  FaFacebook,
+  FaEnvelope,
+  FaWhatsapp,
+  FaLinkedin,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Logo from "../assets/blogsicon.png";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-cyan-500">
-            NextEra Blog
-          </h1>
+          <div className="flex items-center gap-2">
+            <img
+              className="rounded-xl w-16 object-cover"
+              src={Logo}
+              alt="NextEra Blog Logo"
+            />
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-500">
+              NextEra Blog
+            </h2>
+          </div>
           <div className="mt-6 md:mt-0">
             <ul className="flex space-x-8 md:text-lg">
               <li>
@@ -92,31 +104,46 @@ export default function Footer() {
             <h2 className="text-xl font-semibold mb-4 text-cyan-500">
               Follow Us
             </h2>
-            <div className="flex justify-center md:justify-start space-x-6">
-              <a
-                href=""
-                className="text-gray-400 hover:text-cyan-500 transition duration-700"
-              >
-                <FaFacebookF size={28} />
-              </a>
-              <a
-                href=""
-                className="text-gray-400 hover:text-cyan-500 transition duration-700"
-              >
-                <FaTwitter size={28} />
-              </a>
-              <a
-                href=""
-                className="text-gray-400 hover:text-cyan-500 transition duration-700"
-              >
-                <FaInstagram size={28} />
-              </a>
-              <a
-                href=""
-                className="text-gray-400 hover:text-cyan-500 transition duration-700"
-              >
-                <FaPinterestP size={28} />
-              </a>
+            <div className="text-center mt-6">
+              <div className="border border-gray-400/60 mb-5"></div>
+              <div className="flex space-x-6 mt-6">
+                {/* Email */}
+                <a
+                  href="mailto:masiurislam28@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-3xl text-red-500 hover:text-red-600 transition duration-300"
+                >
+                  <FaEnvelope />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/+8801327023639"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp className="text-green-500 text-3xl cursor-pointer hover:text-green-600 transition" />
+                </a>
+
+                {/* Facebook */}
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook className="text-blue-600 text-3xl cursor-pointer hover:text-blue-700 transition" />
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/moshiur-islam28/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="text-blue-500 text-3xl cursor-pointer hover:text-blue-700 transition" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

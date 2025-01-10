@@ -120,7 +120,7 @@ export default function AllBlogs() {
           </div>
         </div>
       </motion.div>
-      <div className="mt-20">
+      <div className="mt-20 px-4 lg:px-0">
         <NewsletterSection />
       </div>
     </div>

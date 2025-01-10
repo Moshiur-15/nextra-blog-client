@@ -19,7 +19,7 @@ export default function Home() {
       <div className="container mx-auto  px-2 md:px-0 my-8 md:my-14 lg:my-20">
         <TrendingPosts />
       </div>
-      <div className="my-8 px-2 md:px-0">
+      <div className="my-8 px-2 lg:px-0">
         <NewsletterSection />
       </div>
     </div>

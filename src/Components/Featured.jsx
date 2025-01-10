@@ -69,7 +69,7 @@ export default function Featured() {
           },
         }}
       >
-        <section className=" mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <section className="px-2 lg:px-0 mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {blogs.map((blog) => (
             <div key={blog.id} className="group relative rounded-lg overflow-hidden">
               <img
