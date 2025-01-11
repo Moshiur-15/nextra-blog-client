@@ -31,6 +31,13 @@ export default function BlogCard({ blog }) {
   };
 
   const handleWishlist = (wishlist) => {
+    if (!user) {
+      Swal.fire({
+        title: "Please log in to add items to your wishlist!",
+        icon: "warning",
+      });
+      return
+    }
     const fetchData = async () => {
       try {
         await axios.post(

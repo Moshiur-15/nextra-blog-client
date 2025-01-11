@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import blog from "../assets/blog-news.jpeg";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 export default function NewsletterSection() {
+  const { user } = useContext(AuthContext);
   const handleForm = (e) => {
     e.preventDefault();
+    if (!user) {
+      Swal.fire({
+        title: "Please log in to add items to your wishlist!",
+        icon: "warning",
+      });
+      return;
+    }
     toast.success("Thank you for subscribing to our newsletter!");
     e.target.reset();
   };
@@ -11,8 +21,8 @@ export default function NewsletterSection() {
     <section className="container mx-auto">
       <div
         className="relative bg-cover bg-center rounded-xl h-[300px] lg:h-[350px]"
-        style={{ 
-          backgroundImage: `url(${blog})` ,
+        style={{
+          backgroundImage: `url(${blog})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

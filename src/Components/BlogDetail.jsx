@@ -32,6 +32,13 @@ export default function BlogDetail() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!user) {
+      Swal.fire({
+        title: "Please log in to Comment!",
+        icon: "warning",
+      });
+      return;
+    }
     const from = e.target;
     const comment = from.comment.value;
     const addComment = {
@@ -85,6 +92,13 @@ export default function BlogDetail() {
   };
 
   const handleWishlist = (wishlist) => {
+    if (!user) {
+      Swal.fire({
+        title: "Please log in to add items to your wishlist!",
+        icon: "warning",
+      });
+      return;
+    }
     const fetchData = async () => {
       try {
         await axios.post(
@@ -97,7 +111,7 @@ export default function BlogDetail() {
         });
       } catch (err) {
         console.log(err);
-        setLoader(false)
+        setLoader(false);
       }
     };
     fetchData();
@@ -220,7 +234,7 @@ export default function BlogDetail() {
                       type="submit"
                       className="w-full bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mt-5 btn border-none"
                     >
-                       Comment
+                      Comment
                     </button>
                   </form>
                 )}
