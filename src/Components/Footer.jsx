@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
           <div>
             <h2 className="text-xl font-semibold mb-4 text-cyan-500">
-              Follow Us
+              Contact Me
             </h2>
             <div className="text-center mt-6">
               <div className="border border-gray-400/60 mb-5"></div>

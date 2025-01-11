@@ -1,9 +1,7 @@
-import axios from "axios";
 import { Datepicker } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import Swal from "sweetalert2";
-import { toast } from "react-toastify";
-import * as motion from "motion/react-client";
+import {motion} from "framer-motion";
 import useAxios from "../hooks/interceptor";
 
 const AddBlogs = () => {
@@ -102,7 +100,7 @@ const AddBlogs = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Blog Post Date
                 </label>
-                <Datepicker name="deadline" />
+                <Datepicker disabled name="deadline" />
               </div>
 
               <div className="flex-1">
