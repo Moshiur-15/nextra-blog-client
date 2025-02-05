@@ -71,7 +71,7 @@ export default function Login() {
       </button>
 
       <section className="px-5 md:px-0">
-        <div className="pt-20 lg:pt-0  min-h-screen flex items-center justify-center bg-cover bg-center">
+        <div className="pt-20 lg:pt-0 min-h-screen flex items-center justify-center bg-cover bg-center">
           <div className="w-full max-w-md bg-gray-100/90 bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-8">
             <h2 className="text-3xl font-extrabold text-center text-cyan-700 mb-6">
               Welcome Back!

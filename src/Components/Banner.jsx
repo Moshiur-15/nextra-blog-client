@@ -4,7 +4,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { motion } from "framer-motion";  // Importing motion
+import { motion } from "framer-motion";
 import banner1 from "../assets/IMG_0942-2-3_540.jpg";
 import banner2 from "../assets/travel-blog-b2.jpg";
 import banner3 from "../assets/travel-blog-b3.jpg";

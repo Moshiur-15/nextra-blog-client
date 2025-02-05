@@ -86,7 +86,7 @@ export default function Register() {
       <button
         data-tip="Back To Home Page"
         onClick={handleHome}
-        className="tooltip tooltip-right absolute top-4 left-4 bg-cyan-600 border-none text-4xl rounded-full text-white p-2 shadow-md"
+        className="tooltip z-20 tooltip-right absolute top-4 left-4 bg-cyan-600 border-none text-4xl rounded-full text-white p-2 shadow-md"
       >
         <MdOutlineNavigateBefore />
       </button>

@@ -5,6 +5,9 @@ A responsive blog website built with modern web technologies like Firebase, JWT 
 ---
 ## Live Link 
   https://nextera-blog-me.netlify.app/
+
+  ![nextera-blog Live Demo](/src/assets/Screenshot%202025-01-09%20154515.png)
+
   
 ---
 ## Features
