@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import banner1 from "../assets/IMG_0942-2-3_540.jpg";
 import banner2 from "../assets/travel-blog-b2.jpg";
 import banner3 from "../assets/travel-blog-b3.jpg";
-
 export default function Banner() {
   const banners = [
     {
@@ -33,7 +32,6 @@ export default function Banner() {
         "Explore engaging content and a seamless user experience built with the latest technologies like React and Firebase.",
     },
   ];
-
   return (
     <div>
       <Swiper
