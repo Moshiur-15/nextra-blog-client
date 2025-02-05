@@ -1,9 +1,5 @@
 import React from "react";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaPinterestP,
   FaFacebook,
   FaEnvelope,
   FaWhatsapp,
@@ -117,7 +113,6 @@ export default function Footer() {
                   <FaEnvelope />
                 </a>
 
-                {/* WhatsApp */}
                 <a
                   href="https://wa.me/+8801327023639"
                   target="_blank"
@@ -126,7 +121,6 @@ export default function Footer() {
                   <FaWhatsapp className="text-green-500 text-3xl cursor-pointer hover:text-green-600 transition" />
                 </a>
 
-                {/* Facebook */}
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
@@ -135,7 +129,6 @@ export default function Footer() {
                   <FaFacebook className="text-blue-600 text-3xl cursor-pointer hover:text-blue-700 transition" />
                 </a>
 
-                {/* LinkedIn */}
                 <a
                   href="https://www.linkedin.com/in/moshiur-islam28/"
                   target="_blank"
@@ -150,7 +143,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-gray-700 pt-6 text-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Travel Blog. All rights reserved.
+            © {new Date().getFullYear()} Nextra Blog. All rights reserved.
           </p>
         </div>
       </div>
