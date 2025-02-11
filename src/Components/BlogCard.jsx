@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
-import { MdOutlineDateRange } from "react-icons/md";
+import { FaArrowRight } from "react-icons/fa";
 import Img from "../assets/love.avif";
 import toast from "react-hot-toast";
 import { IoWarning } from "react-icons/io5";
@@ -76,12 +76,7 @@ export default function BlogCard({ blog }) {
               </div>
               <div className="">
                 <span className="text-sm">{blogPostUser?.displayName}</span>
-                <div className="flex items-center gap-[2px] text-gray-500 text-[12px]">
-                  <span>
-                    <MdOutlineDateRange />
-                  </span>
-                  <span>{deadline}</span>
-                </div>
+                <div className="text-gray-500 text-[12px]">{deadline}</div>
               </div>
             </div>
             <div>
@@ -95,12 +90,13 @@ export default function BlogCard({ blog }) {
             {shortDescription.slice(0, 110)}...
           </p>
           <div className="flex mt-3">
-            <div>
+            <div className="mt-2">
               <Link
                 to={`/blogsDetail/${_id}`}
-                className="px-6 py-1.5 mt-2 rounded bg-cyan-500 text-white"
+                className="px-8 py-1.5 rounded bg-cyan-500 text-white flex items-center space-x-2"
               >
-                details
+                <span>Details</span>
+                <FaArrowRight />
               </Link>
             </div>
             <button

@@ -6,21 +6,18 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Logo from "../assets/blogsicon.png";
+import logo from "../assets/blogsicon.png";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
-          <div className="flex items-center gap-2">
+          <div className="">
             <img
-              className="rounded-xl w-16 object-cover"
-              src={Logo}
+              className="rounded-xl w-52 object-cover"
+              src={logo}
               alt="NextEra Blog Logo"
             />
-            <h2 className="text-3xl md:text-4xl font-bold text-cyan-500">
-              NextEra Blog
-            </h2>
           </div>
           <div className="mt-6 md:mt-0">
             <ul className="flex space-x-8 md:text-lg">

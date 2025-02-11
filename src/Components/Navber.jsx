@@ -1,9 +1,9 @@
 import React from "react";
-import { Avatar, Button, Dropdown, Navbar, Tooltip } from "flowbite-react";
+import {  Button, Navbar } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/blogsicon.png";
 import UseDropdown from "./UseDropdown";
+import logo from '../assets/blogsicon.png'
 
 export default function Navber() {
   const { user, logOut } = useAuth();
@@ -19,15 +19,12 @@ export default function Navber() {
           >
             {/* Brand Section */}
             <Navbar.Brand>
-              <div className="flex items-center gap-2">
+              <div className="">
                 <img
-                  className="rounded-xl w-9 object-cover"
-                  src={Logo}
+                  className="rounded-xl w-52 object-cover"
+                  src={logo}
                   alt="NextEra Blog Logo"
                 />
-                <h2 className="text-xl font-semibold dark:text-white">
-                  NextEra Blog
-                </h2>
               </div>
             </Navbar.Brand>
 
