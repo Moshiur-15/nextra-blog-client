@@ -7,6 +7,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 import Img from "../assets/love.avif";
 import { FaArrowRightLong } from "react-icons/fa6";
 import toast from "react-hot-toast";
+import { IoWarning } from "react-icons/io5";
 export default function BlogCard({ blog }) {
   const { user } = useAuth();
   const {
@@ -33,7 +34,12 @@ export default function BlogCard({ blog }) {
 
   const handleWishlist = (wishlist) => {
     if (!user) {
-      toast.warn("Please log in to add items to your wishlist!")
+      toast.custom(
+        <div className="flex items-center rounded-lg p-3 bg-[#f39c12] text-[#fff]">
+          <IoWarning className="bg-" />
+          Please log in to add items to your wishlist!
+        </div>
+      );
       return;
     }
     const fetchData = async () => {
@@ -42,7 +48,7 @@ export default function BlogCard({ blog }) {
           `${import.meta.env.VITE_LOCALHOST}/add-wishlist`,
           wishlist
         );
-        toast.success('Added to wishlist successfully!')
+        toast.success("Added to wishlist successfully!");
       } catch (err) {
         console.log(err);
       }
@@ -50,7 +56,7 @@ export default function BlogCard({ blog }) {
     fetchData();
   };
   return (
-    <Link to={`/blogsDetail/${_id}`} className="group bg-white rounded-lg shadow-md hover:shadow-lg relative">
+    <div className="group bg-white rounded-lg shadow-md hover:shadow-lg relative">
       <div className="flex flex-col h-full  rounded-lg">
         <div className="overflow-hidden rounded-t-lg">
           <img
@@ -91,6 +97,14 @@ export default function BlogCard({ blog }) {
             {shortDescription.slice(0, 110)}...
           </p>
           <div className="flex mt-3">
+            <div>
+              <Link
+                to={`/blogsDetail/${_id}`}
+                className="px-6 py-1.5 mt-2 rounded bg-cyan-500 text-white"
+              >
+                details
+              </Link>
+            </div>
             <button
               onClick={() => handleWishlist(wishlistData)}
               data-tip="Add to wishlist"
@@ -105,6 +119,6 @@ export default function BlogCard({ blog }) {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

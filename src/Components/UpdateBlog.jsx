@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import useAxios from "../hooks/interceptor";
+import { toast } from "react-hot-toast";
 const UpdateBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
@@ -55,10 +55,7 @@ const UpdateBlog = () => {
 
     try {
       await axiosSecure.put(`/update-blog/${id}`, addBlog);
-      Swal.fire({
-        title: "Blog Update successfully!",
-        icon: "success",
-      });
+      toast.success("Blog Update successfully!");
     } catch (err) {
       console.log(err);
     }

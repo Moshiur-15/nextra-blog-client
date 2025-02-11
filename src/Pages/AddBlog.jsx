@@ -3,6 +3,7 @@ import useAuth from "../hooks/Hook";
 import Swal from "sweetalert2";
 import {motion} from "framer-motion";
 import useAxios from "../hooks/interceptor";
+import {toast} from 'react-hot-toast'
 
 const AddBlogs = () => {
   const { user } = useAuth();
@@ -39,10 +40,7 @@ const AddBlogs = () => {
 
     try {
       await axiosSecure.post(`/add-blogs`, addBlog);
-      Swal.fire({
-        title: "Blog Added Successfully",
-        icon: "success",
-      });
+      toast.success("Blog Added Successfully!")
       from.reset();
     } catch (err) {
       console.log(err);

@@ -4,9 +4,10 @@ import { FaUser } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
-import { toast } from "react-toastify";
 import Loading from "./Loading";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { IoWarning } from "react-icons/io5";
 export default function BlogDetail() {
   const { user } = useAuth(null);
   const { id } = useParams(null);
@@ -33,10 +34,12 @@ export default function BlogDetail() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
-      Swal.fire({
-        title: "Please log in to Comment!",
-        icon: "warning",
-      });
+      toast.custom(
+        <div className="flex items-center rounded-lg p-3 bg-[#f39c12] text-[#fff]">
+          <IoWarning className="bg-" />
+          Please login and Comment
+        </div>
+      );
       return;
     }
     const from = e.target;
@@ -93,10 +96,12 @@ export default function BlogDetail() {
 
   const handleWishlist = (wishlist) => {
     if (!user) {
-      Swal.fire({
-        title: "Please log in to add items to your wishlist!",
-        icon: "warning",
-      });
+      toast.custom(
+        <div className="flex items-center rounded-lg p-3 bg-[#f39c12] text-[#fff]">
+          <IoWarning className="bg-" />
+          Please log in to add items to your wishlist!
+        </div>
+      );
       return;
     }
     const fetchData = async () => {
@@ -105,10 +110,7 @@ export default function BlogDetail() {
           `${import.meta.env.VITE_LOCALHOST}/add-wishlist`,
           wishlist
         );
-        Swal.fire({
-          title: "Added to wishlist successfully!",
-          icon: "success",
-        });
+        toast.success('Added to wishlist successfully!');
       } catch (err) {
         console.log(err);
         setLoader(false);
