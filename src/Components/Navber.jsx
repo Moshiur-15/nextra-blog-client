@@ -21,7 +21,7 @@ export default function Navber() {
             <Navbar.Brand>
               <div className="">
                 <img
-                  className="rounded-xl w-52 object-cover"
+                  className="rounded-xl w-32 object-cover"
                   src={logo}
                   alt="NextEra Blog Logo"
                 />

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/Hook";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import useAxios from "../hooks/interceptor";
 import Loading from "../Components/Loading";
@@ -33,27 +33,49 @@ export default function Wishlist() {
   const handleDelete = (id) => {
     const fetchData = async () => {
       try {
-        const result = await Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
+        // Show a confirmation toast
+        const confirmToast = new Promise((resolve, reject) => {
+          toast(
+            (t) => (
+              <span>
+                Are you sure?
+                <button
+                  onClick={() => {
+                    toast.dismiss(t.id);
+                    resolve(true);
+                  }}
+                  className="bg-red-500 text-white px-3 py-1 rounded ml-2"
+                >
+                  Yes
+                </button>
+                <button
+                  onClick={() => {
+                    toast.dismiss(t.id);
+                    reject(false);
+                  }}
+                  className="bg-blue-500 text-white px-3 py-1 rounded ml-2"
+                >
+                  No
+                </button>
+              </span>
+            ),
+            { duration: Infinity }
+          );
         });
-        if (result.isConfirmed) {
+    
+        const result = await confirmToast;
+        if (result) {
           await axios.delete(`${import.meta.env.VITE_LOCALHOST}/delete/${id}`);
+    
+          // Update state after deletion
           const stateUpdate = blogs.filter((blog) => blog._id !== id);
           setBlogs(stateUpdate);
-          Swal.fire({
-            title: "Deleted!",
-            text: "Blog deleted successfully from your wishlist",
-            icon: "success",
-          });
+    
+          // Success toast
+          toast.success("Blog deleted successfully!");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchData();
