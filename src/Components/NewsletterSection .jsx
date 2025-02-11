@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
-import { toast } from "react-toastify";
 import blog from "../assets/blog-news.jpeg";
 import { AuthContext } from "../Provider/AuthProvider";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { IoWarning } from "react-icons/io5";
 export default function NewsletterSection() {
   const { user } = useContext(AuthContext);
   const handleForm = (e) => {
     e.preventDefault();
     if (!user) {
-      Swal.fire({
-        title: "Please log in to add items to your wishlist!",
-        icon: "warning",
-      });
+      toast.custom(
+        <div className="flex items-center rounded-lg p-3 bg-[#f39c12] text-[#fff]">
+          <IoWarning className="" />
+          Please log in to add items to your wishlist!
+        </div>
+      );
       return;
     }
     toast.success("Thank you for subscribing to our newsletter!");
@@ -49,7 +51,7 @@ export default function NewsletterSection() {
 
             <button
               type="submit"
-              className="px-6 py-3 uppercase btn rounded-none text-white bg-[#111111] border-none"
+              className="px-6 py-3 uppercase btn rounded-none text-white bg-[#111111] border-none hover:bg-[#060606]"
             >
               Subscribe
             </button>

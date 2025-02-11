@@ -1,11 +1,9 @@
 import React from "react";
-import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/Hook";
 import { MdOutlineDateRange } from "react-icons/md";
 import Img from "../assets/love.avif";
-import { FaArrowRightLong } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { IoWarning } from "react-icons/io5";
 export default function BlogCard({ blog }) {

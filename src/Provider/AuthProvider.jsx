@@ -10,7 +10,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
@@ -98,7 +97,6 @@ export default function AuthProvider({ children }) {
   };
   return (
     <AuthContext.Provider value={authInfo}>
-      <ToastContainer />
       {children}
     </AuthContext.Provider>
   );
