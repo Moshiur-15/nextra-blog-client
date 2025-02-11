@@ -1,31 +1,34 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import { CgLogIn } from "react-icons/cg";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/Hook";
 import blogLogin from "../../assets/blog.jpg";
 import { MdOutlineNavigateBefore } from "react-icons/md";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import {toast} from 'react-hot-toast'
 
 export default function Login() {
   const { loginUser, setUser, googleProvider } = useAuth();
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   // handleGoogleProvider
   const handleGoogleProvider = () => {
+    setLoading2(true);
     googleProvider()
       .then((result) => {
         setUser(result.user);
         navigate(location.state ? location.state : "/");
-        Swal.fire({
-          title: "Login successfully!",
-          icon: "success",
-        });
+        toast.success("Login successfully!");
+        setLoading2(false);
       })
       .catch((error) => {
+        setLoading2(false);
         return toast.error(`${error.message}`);
       });
   };
@@ -33,18 +36,18 @@ export default function Login() {
   // handleLogin
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
     loginUser(email, password)
       .then((res) => {
         setUser(res.user);
         navigate(location.state ? location.state : "/");
-        Swal.fire({
-          title: "Login successfully!",
-          icon: "success",
-        });
+        toast.success("Login successfully!");
+        setLoading(false);
       })
       .catch((error) => {
+        setLoading(false);
         return toast.error(`${error.message}`);
       });
   };
@@ -116,8 +119,14 @@ export default function Login() {
                 type="submit"
                 className="w-full flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 rounded-lg transition"
               >
-                <CgLogIn className="text-lg" />
-                Login
+                {loading ? (
+                  <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
+                ) : (
+                  <>
+                    <CgLogIn className="text-lg" />
+                    Login
+                  </>
+                )}
               </button>
             </form>
             <div className="mt-6">
@@ -125,8 +134,14 @@ export default function Login() {
                 onClick={handleGoogleProvider}
                 className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-cyan-600 font-semibold py-3 rounded-lg hover:bg-cyan-50 transition"
               >
-                <FaGoogle className="text-lg" />
-                Login with Google
+                {loading2 ? (
+                  <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
+                ) : (
+                  <>
+                    <FaGoogle className="text-lg" />
+                    Login with Google
+                  </>
+                )}
               </button>
             </div>
             <div className="text-center mt-6">

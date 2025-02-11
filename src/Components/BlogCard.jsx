@@ -6,6 +6,7 @@ import useAuth from "../hooks/Hook";
 import { MdOutlineDateRange } from "react-icons/md";
 import Img from "../assets/love.avif";
 import { FaArrowRightLong } from "react-icons/fa6";
+import toast from "react-hot-toast";
 export default function BlogCard({ blog }) {
   const { user } = useAuth();
   const {
@@ -32,10 +33,7 @@ export default function BlogCard({ blog }) {
 
   const handleWishlist = (wishlist) => {
     if (!user) {
-      Swal.fire({
-        title: "Please log in to add items to your wishlist!",
-        icon: "warning",
-      });
+      toast.warn("Please log in to add items to your wishlist!")
       return;
     }
     const fetchData = async () => {
@@ -44,10 +42,7 @@ export default function BlogCard({ blog }) {
           `${import.meta.env.VITE_LOCALHOST}/add-wishlist`,
           wishlist
         );
-        Swal.fire({
-          title: "Added to wishlist successfully!",
-          icon: "success",
-        });
+        toast.success('Added to wishlist successfully!')
       } catch (err) {
         console.log(err);
       }
