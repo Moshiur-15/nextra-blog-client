@@ -36,7 +36,7 @@ export default function BlogCard({ blog }) {
         title: "Please log in to add items to your wishlist!",
         icon: "warning",
       });
-      return
+      return;
     }
     const fetchData = async () => {
       try {
@@ -55,13 +55,15 @@ export default function BlogCard({ blog }) {
     fetchData();
   };
   return (
-    <div className="group bg-white rounded-lg shadow-md hover:shadow-lg relative">
-      <div className="flex flex-col h-full overflow-hidden rounded-lg">
-        <img
-          src={cardImage}
-          className="transition-transform duration-700 group-hover:scale-105  rounded-t-lg rounded-b-[1px] object-cover w-full h-[250px] xl:h-[240px]"
-          alt="not found"
-        />
+    <Link to={`/blogsDetail/${_id}`} className="group bg-white rounded-lg shadow-md hover:shadow-lg relative">
+      <div className="flex flex-col h-full  rounded-lg">
+        <div className="overflow-hidden rounded-t-lg">
+          <img
+            src={cardImage}
+            className="transition-transform duration-700 group-hover:scale-105  rounded-t-lg rounded-b-[1px] object-cover w-full h-[250px] xl:h-[240px]"
+            alt="not found"
+          />
+        </div>
         <div className="flex flex-col justify-between flex-grow p-5">
           {/* date, user*/}
           <div className="flex justify-between items-center mb-2">
@@ -90,20 +92,10 @@ export default function BlogCard({ blog }) {
             </div>
           </div>
           <h2 className="text-xl lg:text-2xl font-semibold">{title}</h2>
-          <p className="text-gray-600 text-sm mt-2 border-b-2 border-cyan-400 pb-3 border-dashed">
-            {shortDescription}
+          <p className="text-gray-600 text-sm mt-2">
+            {shortDescription.slice(0, 110)}...
           </p>
           <div className="flex mt-3">
-            <Link
-              to={`/blogsDetail/${_id}`}
-              className="flex items-center justify-center gap-1 bg-cyan-500 w-full text-center text-white font-semibold py-2 rounded hover:bg-cyan-600 transition duration-700"
-            >
-              <span>Details</span>
-              <span>
-                <FaArrowRightLong />
-              </span>
-            </Link>
-
             <button
               onClick={() => handleWishlist(wishlistData)}
               data-tip="Add to wishlist"
@@ -118,6 +110,6 @@ export default function BlogCard({ blog }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
