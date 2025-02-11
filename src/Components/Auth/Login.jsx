@@ -5,7 +5,7 @@ import { CgLogIn } from "react-icons/cg";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/Hook";
-import blogLogin from "../../assets/bloglogin.jpg";
+import blogLogin from "../../assets/blog.jpg";
 import { MdOutlineNavigateBefore } from "react-icons/md";
 
 export default function Login() {
