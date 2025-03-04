@@ -1,15 +1,13 @@
-import { Dropdown, Avatar, Tooltip } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 import { NavLink } from "react-router-dom";
-import { IoMenu } from "react-icons/io5";
 
 const UserDropdown = ({ user, logOut }) => {
   return (
-    <div className="relative flex items-center gap-2">
-      <Avatar alt="User settings" img={user?.photoURL} rounded />
+    <div className="relative flex items-center gap-2 hover:text-[#DCA54A]">
       <Dropdown
         arrowIcon={false}
         inline
-        label={<IoMenu size={32} className="cursor-pointer border rounded bg-white text-black" />}
+        label='My Space'
       >
         <Dropdown.Header>
           <span className="block text-sm">{user?.displayName}</span>
