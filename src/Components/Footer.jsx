@@ -138,6 +138,7 @@ export default function Footer() {
           </div>
         </div>
 
+        
         <div className="mt-12 border-t border-gray-700 pt-6 text-center">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} Nextra Blog. All rights reserved.
