@@ -8,6 +8,7 @@ import useAxios from "../hooks/interceptor";
 import Loading from "../Components/Loading";
 import { FaTrashAlt } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
+import img from "../assets/no wishlist data  img.jpeg";
 
 export default function Wishlist() {
   const [blogs, setBlogs] = useState([]);
@@ -150,7 +151,9 @@ export default function Wishlist() {
                         <td className="py-3 border text-gray-800 font-medium">
                           {blog.displayName}
                         </td>
-                        <td className="py-3 border text-gray-700">{blog.title}</td>
+                        <td className="py-3 border text-gray-700">
+                          {blog.title}
+                        </td>
                         <td className="py-3 border text-gray-600 font-semibold uppercase">
                           {blog.category}
                         </td>
@@ -176,9 +179,9 @@ export default function Wishlist() {
                 </table>
               </div>
             ) : (
-              <p className="text-red-500 text-3xl flex justify-center items-center min-h-[calc(100vh-400px)]">
-                No items in your wishlist. Start adding some!
-              </p>
+              <div className="min-h-[calc(100vh-600px)] flex flex-col justify-center items-center">
+                <img src={img} className="object-cover w-[600px] h-[400px]" alt="" />
+              </div>
             )}
           </div>
         </motion.div>

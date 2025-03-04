@@ -37,38 +37,44 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex justify-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <NavLink
               className={({ isActive }) =>
-                `hover:text-[#DCA54A] font-bold ${
-                  isActive ? "text-[#DCA54A] underline" : "text-gray-600"
+                `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                  isActive
+                    ? "text-[#DCA54A] border-b border-yellow-300"
+                    : "text-gray-600"
                 }`
               }
               to="/"
             >
-              Home
+              🏠 Home
             </NavLink>
 
             <NavLink
               className={({ isActive }) =>
-                `hover:text-[#DCA54A] font-bold ${
-                  isActive ? "text-[#DCA54A] underline" : "text-gray-600"
+                `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                  isActive
+                    ? "text-[#DCA54A] border-b border-yellow-300"
+                    : "text-gray-600"
                 }`
               }
               to="/allBlogs"
             >
-              All Blogs
+              📚 All Blogs
             </NavLink>
 
             <NavLink
               className={({ isActive }) =>
-                `hover:text-[#DCA54A] font-bold ${
-                  isActive ? "text-[#DCA54A] underline" : "text-gray-600"
+                `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                  isActive
+                    ? "text-[#DCA54A] border-b border-yellow-300"
+                    : "text-gray-600"
                 }`
               }
               to="/featuredBlogs"
             >
-              Featured Blogs
+              ⭐ Featured Blogs
             </NavLink>
             {user && (
               <>
@@ -107,61 +113,85 @@ export default function Navbar() {
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="md:hidden bg-white px-2 py-4 space-y-3 text-center">
-            <NavLink
-              className="block text-gray-600 hover:text-[#DCA54A] font-bold"
-              to="/"
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </NavLink>
+          <div className="md:hidden bg-white px-2 py-4 space-y-3 text-center ">
+            <div className="flex flex-col max-w-[110px] mx-auto">
+              <NavLink
+                className={({ isActive }) =>
+                  `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                    isActive
+                      ? "text-[#DCA54A] border-b border-yellow-300"
+                      : "text-gray-600"
+                  }`
+                }
+                to="/"
+                onClick={() => setMenuOpen(false)}
+              >
+                🏠 Home
+              </NavLink>
 
-            <NavLink
-              className="block text-gray-600 hover:text-[#DCA54A] font-bold"
-              to="/allBlogs"
-              onClick={() => setMenuOpen(false)}
-            >
-              All Blogs
-            </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                    isActive
+                      ? "text-[#DCA54A] border-b border-yellow-300"
+                      : "text-gray-600"
+                  }`
+                }
+                to="/allBlogs"
+                onClick={() => setMenuOpen(false)}
+              >
+                📚 All Blogs
+              </NavLink>
 
-            <NavLink
-              className="block text-gray-600 hover:text-[#DCA54A] font-bold"
-              to="/featuredBlogs"
-              onClick={() => setMenuOpen(false)}
-            >
-              Featured Blogs
-            </NavLink>
-            {user && (
-              <div className="flex flex-col gap-3 text-center">
-                <NavLink
-                  className={({ isActive }) =>
-                    `hover:text-[#DCA54A] font-semibold w-full${
-                      isActive ? "text-black underline" : "text-black"
-                    }`
-                  }
-                  to="/addBlog"
-                >
-                  Add Blog
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    `hover:text-[#DCA54A] font-semibold w-full${
-                      isActive ? "text-black underline" : "text-black"
-                    }`
-                  }
-                  to="/wishlist"
-                >
-                  Wishlist
-                </NavLink>
-                <button
-                  type="submit"
-                  onClick={logOut}
-                  className="font-semibold w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
-                >
-                  Logout
-                </button>
-              </div>
-            )}
+              <NavLink
+                className={({ isActive }) =>
+                  `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                    isActive
+                      ? "text-[#DCA54A] border-b border-yellow-300"
+                      : "text-gray-600"
+                  }`
+                }
+                to="/featuredBlogs"
+                onClick={() => setMenuOpen(false)}
+              >
+                ⭐Featured Blogs
+              </NavLink>
+              {user && (
+                <div className="flex flex-col gap-3 text-center">
+                  <NavLink
+                    className={({ isActive }) =>
+                      `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                        isActive
+                          ? "text-[#DCA54A] border-b border-yellow-300"
+                          : "text-gray-600"
+                      }`
+                    }
+                    to="/addBlog"
+                  >
+                    📝 Add Blog
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1 ${
+                        isActive
+                          ? "text-[#DCA54A] border-b border-yellow-300"
+                          : "text-gray-600"
+                      }`
+                    }
+                    to="/wishlist"
+                  >
+                    🎁 Wishlist
+                  </NavLink>
+                  <button
+                    type="submit"
+                    onClick={logOut}
+                    className="font-semibold w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
+                  >
+                    🔐 Logout
+                  </button>
+                </div>
+              )}
+            </div>
 
             {user ? (
               ""
