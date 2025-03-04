@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <div className="shadow py-2 sticky top-0 z-50 bg-[#FAF5E5]">
       <section className="container mx-auto">
-        <div className="flex justify-between items-center px-4 md:px-0 py-2">
+        <div className="flex justify-between items-center px-4 xl:px-0 py-2">
           <div>
             <h2 className="font-bold text-lg">Nextra Blog</h2>
           </div>
@@ -90,13 +90,13 @@ export default function Navbar() {
               <div className="flex gap-2">
                 <Link
                   to="/login"
-                  className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                  className="px-5 border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-2 font-bold text-white bg-green-500 rounded-md hover:bg-green-600"
+                  className="px-5 border py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all"
                 >
                   Register
                 </Link>
@@ -161,6 +161,27 @@ export default function Navbar() {
                   Logout
                 </button>
               </div>
+            )}
+
+            {user ? (
+              ""
+            ) : (
+              <>
+                <div className="flex flex-col gap-3 mx-10">
+                  <Link
+                    to="/login"
+                    className="px-5 w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="px-5 w-full border py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all"
+                  >
+                    Register
+                  </Link>
+                </div>
+              </>
             )}
           </div>
         )}

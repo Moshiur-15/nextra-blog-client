@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { CgLogIn } from "react-icons/cg";
 import { toast } from "react-hot-toast";
-import Swal from "sweetalert2";
 import useAuth from "../../hooks/Hook";
 import blogReg from "../../assets/blog.jpg";
 import { MdOutlineNavigateBefore } from "react-icons/md";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { FileInput } from "flowbite-react";
+import { imgUp } from "../../api/Utills";
 
 export default function Register() {
   const { createUser, setUser, profile, googleProvider } = useAuth();
@@ -24,25 +25,28 @@ export default function Register() {
       .then((result) => {
         setUser(result.user);
         navigate(location.state ? location.state : "/");
-        toast.success("Registered successfully!")
-        setLoading2(false)
+        toast.success("Registered successfully!");
+        setLoading2(false);
       })
       .catch((error) => {
-        setLoading2(false)
+        setLoading2(false);
         return toast.error(`${error.message}`);
       });
   };
 
   // Form Submit
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const name = e.target.name.value;
-    const photo = e.target.photo.value;
+    // const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const img = e.target.image.files[0];
 
-    // Password Validation
+    const uploadedImageUrl = await imgUp(img);
+
     if (!/[A-Z]/.test(password)) {
       return toast.error(
         "Password must contain at least one uppercase letter."
@@ -57,13 +61,12 @@ export default function Register() {
       return toast.error("Password must be at least 6 characters long.");
     }
 
-    // Create User
     createUser(email, password)
       .then((res) => {
         setUser(res.user);
-        profile({ displayName: name, photoURL: photo });
+        profile({ displayName: name, photoURL: uploadedImageUrl });
         navigate(location.state ? location.state : "/");
-        toast.success("Registered successfully!")
+        toast.success("Registered successfully!");
         setLoading(false);
       })
       .catch((error) => {
@@ -89,14 +92,14 @@ export default function Register() {
       <button
         data-tip="Back To Home Page"
         onClick={handleHome}
-        className="tooltip z-20 tooltip-right absolute top-4 left-4 bg-[#FAF5E5] border-none text-4xl rounded-full text-[#DEE4E5] p-2 shadow-md"
+        className="tooltip z-20 tooltip-right absolute top-4 left-4 bg-[#FAF5E5] border-none text-4xl rounded-full p-2 shadow-md"
       >
         <MdOutlineNavigateBefore />
       </button>
       <section className="px-5 md:px-0">
         <div className="pt-20 lg:pt-0 flex items-center justify-center min-h-screen">
           <div className="w-full max-w-md bg-gray-100/90 p-8 shadow-lg rounded-lg relative z-10">
-            <h2 className="uppercase text-3xl font-bold text-center text-[#DCA54A] mb-6">
+            <h2 className="uppercase text-3xl font-bold text-center mb-6">
               Create account
             </h2>
             <form onSubmit={handleRegister} className="space-y-4">
@@ -109,7 +112,7 @@ export default function Register() {
                   type="text"
                   placeholder="Enter your name"
                   required
-                  className="w-full px-4 py-2 mt-1 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  className="w-full px-4 py-2 mt-1 bg-white border-none focus:ring-0 focus:outline-none"
                 />
               </div>
 
@@ -117,12 +120,14 @@ export default function Register() {
                 <label className="block text-sm font-medium text-gray-700">
                   Photo URL
                 </label>
+
                 <input
-                  name="photo"
-                  type="text"
-                  placeholder="Enter your photo URL"
                   required
-                  className="w-full px-4 py-2 mt-1 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  className="bg-white w-full"
                 />
               </div>
 
@@ -135,7 +140,7 @@ export default function Register() {
                   type="email"
                   placeholder="Enter your email"
                   required
-                  className="w-full px-4 py-2 mt-1 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  className="w-full px-4 py-2 mt-1 bg-white border-none focus:ring-0 focus:outline-none"
                 />
               </div>
 
@@ -148,7 +153,7 @@ export default function Register() {
                   type={showPass ? "text" : "password"}
                   placeholder="Enter your password"
                   required
-                  className="w-full px-4 py-2 mt-1 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  className="w-full px-4 py-2 mt-1 bg-white border-none focus:ring-0 focus:outline-none"
                 />
                 <button
                   type="button"
@@ -161,7 +166,7 @@ export default function Register() {
 
               <button
                 type="submit"
-                className="w-full bg-[#FAF5E5] hover:bg-cyan-700 text-[#DEE4E5] font-bold py-2 rounded-lg transition"
+                className="w-full flex items-center justify-center gap-2 px-5 py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transitions"
               >
                 {loading ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
@@ -177,7 +182,7 @@ export default function Register() {
             <div className="mt-4">
               <button
                 onClick={handleGoogleProvider}
-                className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-[#DCA54A] font-semibold py-2 rounded-lg hover:bg-cyan-50 transition"
+                className="w-full flex items-center justify-center gap-2 px-5 border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition"
               >
                 {loading2 ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
