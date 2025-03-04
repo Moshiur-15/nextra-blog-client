@@ -68,7 +68,7 @@ export default function Login() {
       <button
         data-tip="Back To Home Page"
         onClick={handleHome}
-        className="tooltip tooltip-right absolute top-4 left-4 bg-cyan-600 border-none text-4xl rounded-full text-white p-2 shadow-md"
+        className="tooltip tooltip-right absolute top-4 left-4 bg-[#FAF5E5] border-none text-4xl rounded-full text-[#DEE4E5] p-2 shadow-md"
       >
         <MdOutlineNavigateBefore />
       </button>
@@ -76,7 +76,7 @@ export default function Login() {
       <section className="px-5 md:px-0">
         <div className="pt-20 lg:pt-0 min-h-screen flex items-center justify-center bg-cover bg-center">
           <div className="w-full max-w-md bg-gray-100/90 bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-8">
-            <h2 className="text-3xl font-extrabold text-center text-cyan-700 mb-6">
+            <h2 className="text-3xl font-extrabold text-center text-[#DCA54A] mb-6">
               Welcome Back!
             </h2>
             <p className="text-sm text-center text-gray-600 mb-6">
@@ -117,7 +117,7 @@ export default function Login() {
               </div>
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 rounded-lg transition"
+                className="w-full flex items-center justify-center gap-2 bg-[#FAF5E5] hover:bg-cyan-700 text-[#DEE4E5] font-semibold py-3 rounded-lg transition"
               >
                 {loading ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
@@ -132,7 +132,7 @@ export default function Login() {
             <div className="mt-6">
               <button
                 onClick={handleGoogleProvider}
-                className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-cyan-600 font-semibold py-3 rounded-lg hover:bg-cyan-50 transition"
+                className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-[#DCA54A] font-semibold py-3 rounded-lg hover:bg-cyan-50 transition"
               >
                 {loading2 ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
@@ -147,7 +147,7 @@ export default function Login() {
             <div className="text-center mt-6">
               <Link to="/register" className="text-sm text-gray-600">
                 Don’t have an account?{" "}
-                <span className="text-cyan-600 hover:underline">Register</span>
+                <span className="text-[#DCA54A] hover:underline">Register</span>
               </Link>
             </div>
           </div>

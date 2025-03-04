@@ -7,11 +7,11 @@ export default function ErrorPage() {
   return (
     <div className="flex flex-col items-center mt-10">
       <img src={Img} alt="" />
-      <h1 className=" text-cyan-600 font-semibold md:text-5xl text-xl mb-5">
+      <h1 className=" text-[#DCA54A] font-semibold md:text-5xl text-xl mb-5">
         Oops Page {err.statusText}
       </h1>
       <Link to="/">
-        <button className="text-cyan-600 bg-cyan-50 btn border-2 border-cyan-600">
+        <button className="text-[#DCA54A] bg-cyan-50 btn border-2 border-cyan-600">
           Go back
         </button>
       </Link>

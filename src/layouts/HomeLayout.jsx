@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 
 export default function HomeLayout() {
   return (
-    <div className="font-oswald">
+    <div className="font-oswald bg-[#FAF5E5]">
       <Navber />
       <div className="">
         <Outlet />

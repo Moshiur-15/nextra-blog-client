@@ -62,9 +62,9 @@ const UpdateBlog = () => {
   };
 
   return (
-    <div className="mb-8">
-      <div className="bg-cyan-100 pt-14 pb-6">
-        <h2 className="text-2xl xl:text-3xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+    <div className="mb-8 mx-4 lg:mx-0">
+      <div className="bg-[#FAF5E5] pt-14">
+        <h2 className="text-2xl xl:text-3xl font-bold text-gray-800 cursor-pointer text-center font-lora">
           Update You Blog
         </h2>
         <p className="mb-14 font-lora max-w-2xl mx-auto text-center mt-2">
@@ -75,10 +75,10 @@ const UpdateBlog = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="mt-10 bg-white shadow-xl rounded-lg p-3 md:p-6 space-y-4 max-w-3xl mx-auto"
+        className="mt-10 bg-white p-3 md:p-6 space-y-4 max-w-4xl mx-auto"
       >
-        <section className="rounded p-10 space-y-4">
-          <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+        <section className="py-8 bg-gray-50 space-y-8 clear-start p-10">
+          <h2 className="text-xl font-bold text-gray-800 cursor-pointer text-center font-lora">
             Text Part
           </h2>
           <div>
@@ -157,8 +157,9 @@ const UpdateBlog = () => {
             />
           </div>
         </section>
-        <section className="py-8 border space-y-8 clear-start rounded p-10 bg-white">
-          <h2 className="text-xl font-bold text-gray-800 hover:text-cyan-600 cursor-pointer text-center font-lora">
+
+        <section className="py-8 bg-gray-50 space-y-8 clear-start p-10">
+          <h2 className="text-xl font-bold text-gray-800 cursor-pointer text-center font-lora">
             Img Section
           </h2>
           <div className="md:flex gap-5">
@@ -221,7 +222,7 @@ const UpdateBlog = () => {
         </section>
         <button
           type="submit"
-          className="w-full btn font-lora bg-cyan-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-cyan-600 focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+          className="w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
         >
           Update Blog
         </button>

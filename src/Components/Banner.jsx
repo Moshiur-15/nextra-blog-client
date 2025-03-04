@@ -60,7 +60,7 @@ export default function Banner() {
               />
               <div className="px-7 md:px-0 absolute bg-opacity-50 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
                 <motion.h2
-                  className="text-white font-extrabold text-2xl md:text-4xl xl:text-5xl mt-16"
+                  className="text-[#DEE4E5] font-extrabold text-2xl md:text-4xl xl:text-5xl mt-16"
                   initial={{ opacity: 0, y: -60 }} 
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ type: "spring", stiffness: 100, damping: 25 }}

@@ -89,14 +89,14 @@ export default function Register() {
       <button
         data-tip="Back To Home Page"
         onClick={handleHome}
-        className="tooltip z-20 tooltip-right absolute top-4 left-4 bg-cyan-600 border-none text-4xl rounded-full text-white p-2 shadow-md"
+        className="tooltip z-20 tooltip-right absolute top-4 left-4 bg-[#FAF5E5] border-none text-4xl rounded-full text-[#DEE4E5] p-2 shadow-md"
       >
         <MdOutlineNavigateBefore />
       </button>
       <section className="px-5 md:px-0">
         <div className="pt-20 lg:pt-0 flex items-center justify-center min-h-screen">
           <div className="w-full max-w-md bg-gray-100/90 p-8 shadow-lg rounded-lg relative z-10">
-            <h2 className="uppercase text-3xl font-bold text-center text-cyan-600 mb-6">
+            <h2 className="uppercase text-3xl font-bold text-center text-[#DCA54A] mb-6">
               Create account
             </h2>
             <form onSubmit={handleRegister} className="space-y-4">
@@ -161,7 +161,7 @@ export default function Register() {
 
               <button
                 type="submit"
-                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 rounded-lg transition"
+                className="w-full bg-[#FAF5E5] hover:bg-cyan-700 text-[#DEE4E5] font-bold py-2 rounded-lg transition"
               >
                 {loading ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
@@ -177,7 +177,7 @@ export default function Register() {
             <div className="mt-4">
               <button
                 onClick={handleGoogleProvider}
-                className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-cyan-600 font-semibold py-2 rounded-lg hover:bg-cyan-50 transition"
+                className="w-full flex items-center justify-center gap-2 bg-white border border-cyan-600 text-[#DCA54A] font-semibold py-2 rounded-lg hover:bg-cyan-50 transition"
               >
                 {loading2 ? (
                   <AiOutlineLoading3Quarters className="animate-spin mx-auto text-2xl" />
@@ -193,7 +193,7 @@ export default function Register() {
             <div className="text-center mt-4">
               <Link to="/login" className="text-sm text-gray-600">
                 Already have an account?{" "}
-                <span className="text-cyan-600 hover:underline">Login</span>
+                <span className="text-[#DCA54A] hover:underline">Login</span>
               </Link>
             </div>
           </div>

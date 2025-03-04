@@ -28,7 +28,7 @@ export default function AllBlogs() {
   }, [filter, search]);
   return (
     <div className="mb-12">
-      <div className="py-10 bg-cyan-100/80 mb-10">
+      <div className="py-10 bg-[#FAF5E5]/80 mb-10">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}

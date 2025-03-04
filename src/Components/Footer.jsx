@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/blogsicon.png";
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-[#DEE4E5] py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
           <div className="">
@@ -24,7 +24,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   Home
                 </Link>
@@ -32,7 +32,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/allBlogs"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   All blogs
                 </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/featuredBlogs"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   Featured Blogs
                 </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   {" "}
                   Privacy Policy
@@ -78,7 +78,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   Terms of Service
                 </a>
@@ -86,7 +86,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-cyan-500 transition duration-700"
+                  className="text-gray-400 hover:text-[#DCA54A] transition duration-700"
                 >
                   FAQ
                 </a>

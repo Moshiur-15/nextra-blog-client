@@ -31,10 +31,10 @@ export default function NewsletterSection() {
       >
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 rounded-xl"></div>
         <div className="relative z-10 text-center px-6 py-20 container mx-auto">
-          <h2 className="lg:text-3xl text-2xl font-bold font-oswald text-white">
+          <h2 className="lg:text-3xl text-2xl font-bold font-oswald text-[#DEE4E5]">
             Subscribe to our Newsletter
           </h2>
-          <p className="text-base lg:text-lg max-w-sm mx-auto opacity-80 text-white my-1">
+          <p className="text-base lg:text-lg max-w-sm mx-auto opacity-80 text-[#DEE4E5] my-1">
             Subscribe to my newsletter for the latest blog posts, tips, & travel
             guides. Let's stay updated!
           </p>
@@ -51,7 +51,7 @@ export default function NewsletterSection() {
 
             <button
               type="submit"
-              className="px-6 py-3 uppercase btn rounded-none text-white bg-[#111111] border-none hover:bg-[#060606]"
+              className="px-6 py-3 uppercase btn rounded-none text-[#DEE4E5] bg-[#111111] border-none hover:bg-[#060606]"
             >
               Subscribe
             </button>

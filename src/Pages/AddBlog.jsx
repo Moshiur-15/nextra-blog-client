@@ -1,9 +1,9 @@
 import { Datepicker } from "flowbite-react";
 import useAuth from "../hooks/Hook";
 import Swal from "sweetalert2";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import useAxios from "../hooks/interceptor";
-import {toast} from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 
 const AddBlogs = () => {
   const { user } = useAuth();
@@ -40,7 +40,7 @@ const AddBlogs = () => {
 
     try {
       await axiosSecure.post(`/add-blogs`, addBlog);
-      toast.success("Blog Added Successfully!")
+      toast.success("Blog Added Successfully!");
       from.reset();
     } catch (err) {
       console.log(err);
@@ -48,37 +48,38 @@ const AddBlogs = () => {
   };
 
   return (
-    <div className="bg-white mb-10">
-      <div className="">
-        <div className="bg-cyan-100 py-10 mb-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.4,
-              scale: {
-                type: "spring",
-                visualDuration: 0.4,
-                bounce: 0.2,
-                delay: 0.2,
-              },
-            }}
-          >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 cursor-pointer text-center">
-              Add a New Blog
-            </h2>
-            <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
-              Share your thoughts, ideas, or experiences with the world. Write
-              your blog post below and publish it for your readers to enjoy!
-            </p>
-          </motion.div>
-        </div>
+    <div className="py-10 mb-6 mx-4 lg:mx-auto">
+      <>
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.4,
+            scale: {
+              type: "spring",
+              visualDuration: 0.4,
+              bounce: 0.2,
+              delay: 0.2,
+            },
+          }}
+        >
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 cursor-pointer text-center">
+            Add a New Blog
+          </h2>
+          <p className="max-w-xl mx-auto text-center mt-2 text-base md:text-lg">
+            Share your thoughts, ideas, or experiences with the world. Write
+            your blog post below and publish it for your readers to enjoy!
+          </p>
+        </motion.div>
+      </>
+      <div className="bg-white max-w-[900px] mx-auto mt-10">
         <form
           onSubmit={handleSubmit}
-          className="space-y-8 p-3 md:p-10 max-w-[900px] mx-auto shadow-xl"
+          className="space-y-8 p-3 md:p-10"
         >
+          {/* Text Section */}
           <section className="rounded p-10 space-y-4 bg-gray-50">
-            <h2 className="text-xl font-bold text-gray-800  cursor-pointer text-center">
+            <h2 className="text-xl font-bold text-gray-800 text-center">
               Text Part
             </h2>
 
@@ -87,7 +88,7 @@ const AddBlogs = () => {
               <input
                 type="text"
                 name="title"
-                className="mt-1 block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 placeholder="Enter blog title"
                 required
               />
@@ -98,7 +99,7 @@ const AddBlogs = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Blog Post Date
                 </label>
-                <Datepicker disabled name="deadline" />
+                <Datepicker name="deadline" required />
               </div>
 
               <div className="flex-1">
@@ -107,7 +108,7 @@ const AddBlogs = () => {
                 </label>
                 <select
                   name="category"
-                  className="bg-gray-400/10 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                  className="bg-gray-100 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                   required
                 >
                   <option value="" disabled>
@@ -134,7 +135,7 @@ const AddBlogs = () => {
                 minLength={100}
                 maxLength={200}
                 rows="2"
-                className="mt-1 block w-full bg-gray-400/10 h-[180px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 placeholder="Write a short description"
                 required
               />
@@ -148,17 +149,19 @@ const AddBlogs = () => {
                 minLength={400}
                 name="longDescription"
                 rows="5"
-                className="mt-1 block w-full bg-gray-400/10 h-[230px] border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 placeholder="Write a detailed description"
                 required
               />
             </div>
           </section>
 
-          <section className="bg-gray-50 py-8 space-y-5 clear-start rounded p-10">
-            <h2 className="text-xl font-bold text-gray-800 cursor-pointer text-center">
+          {/* Image Section */}
+          <section className="bg-gray-50 py-8 space-y-5 rounded p-10">
+            <h2 className="text-xl font-bold text-gray-800 text-center">
               Img Part
             </h2>
+
             <div className="md:flex gap-5">
               <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700">
@@ -167,7 +170,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cardImage"
-                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -179,7 +182,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cover"
-                  className="mt-1 input bg-gray-400/10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -194,7 +197,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="Img1"
-                  className="mt-1 input block w-full bg-gray-400/10 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
@@ -206,16 +209,17 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="Img2"
-                  className="mt-1 input block bg-gray-400/10 w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:cyan-blue-500 sm:text-sm"
+                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
                   placeholder="Enter image URL"
                   required
                 />
               </div>
             </div>
           </section>
+
           <button
             type="submit"
-            className="w-full btn bg-cyan-500 text-white hover:bg-cyan-600 focus:ring-4 focus:ring-cyan-500"
+            className="w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
           >
             Submit Blog
           </button>

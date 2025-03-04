@@ -20,8 +20,8 @@ const UserDropdown = ({ user, logOut }) => {
         <Dropdown.Item>
           <NavLink
             className={({ isActive }) =>
-              `hover:text-cyan-500 font-semibold w-full text-left ${
-                isActive ? "text-cyan-400 underline" : "text-black"
+              `hover:text-[#DCA54A] font-semibold w-full text-left ${
+                isActive ? "text-black underline" : "text-black"
               }`
             }
             to="/addBlog"
@@ -32,8 +32,8 @@ const UserDropdown = ({ user, logOut }) => {
         <Dropdown.Item>
           <NavLink
             className={({ isActive }) =>
-              `hover:text-cyan-400 font-semibold w-full text-left ${
-                isActive ? "text-cyan-500 underline" : "text-black"
+              `hover:text-[#DCA54A] font-semibold w-full text-left ${
+                isActive ? "text-black underline" : "text-black"
               }`
             }
             to="/wishlist"

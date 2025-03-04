@@ -44,7 +44,7 @@ export default function Wishlist() {
                     toast.dismiss(t.id);
                     resolve(true);
                   }}
-                  className="bg-red-500 text-white px-3 py-1 rounded ml-2"
+                  className="bg-red-500 text-[#DEE4E5] px-3 py-1 rounded ml-2"
                 >
                   Yes
                 </button>
@@ -53,7 +53,7 @@ export default function Wishlist() {
                     toast.dismiss(t.id);
                     reject(false);
                   }}
-                  className="bg-blue-500 text-white px-3 py-1 rounded ml-2"
+                  className="bg-blue-500 text-[#DEE4E5] px-3 py-1 rounded ml-2"
                 >
                   No
                 </button>
@@ -62,15 +62,15 @@ export default function Wishlist() {
             { duration: Infinity }
           );
         });
-    
+
         const result = await confirmToast;
         if (result) {
           await axios.delete(`${import.meta.env.VITE_LOCALHOST}/delete/${id}`);
-    
+
           // Update state after deletion
           const stateUpdate = blogs.filter((blog) => blog._id !== id);
           setBlogs(stateUpdate);
-    
+
           // Success toast
           toast.success("Blog deleted successfully!");
         }
@@ -83,7 +83,7 @@ export default function Wishlist() {
 
   return (
     <div className="min-h-[calc(100vh-400px)] mb-12">
-      <div className="py-16 bg-cyan-100/80 mb-10">
+      <div className="py-16">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -118,65 +118,70 @@ export default function Wishlist() {
           },
         }}
       >
-        <div className="container mx-auto md:py-8 rounded-lg">
-          {loading ? (
-            <Loading />
-          ) : blogs.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="table table-zebra table-striped max-w-7xl mx-auto text-left bg-white rounded-lg">
-                <thead className="bg-cyan-500 text-white text-center">
-                  <tr>
-                    <th className="px-4 py-4">Bloger Image</th>
-                    <th className="px-4 py-4">Bloger Name</th>
-                    <th className="px-4 py-4">Title</th>
-                    <th className="px-4 py-4">Category</th>
-                    <th className="px-4 py-4 text-center">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {blogs?.map((blog) => (
-                    <tr key={blog._id} className="hover:bg-gray-50 border text-center">
-                      <td className="border px-4 py-2 gap-3 flex justify-center items-center">
-                        <img
-                          src={blog.photoURL}
-                          className="w-10 h-10 object-cover rounded-full "
-                          alt="blogger"
-                        />
-                      </td>
-                      <td className="border px-4 py-2">
-                        {blog.displayName}
-                      </td>
-                      <td className="border px-4 py-2">{blog.title}</td>
-                      <td className="border px-4 py-2">{blog.category}</td>
-                      <td className="border px-4 py-2">
-                        <div className="px-4 py-2 flex justify-center gap-4">
-                          <Link
-                            to={`/blogsDetail/${blog.job_id}`}
-                            className="text-cyan-500 hover:text-cyan-600 text-xl tooltip tooltip-top"
-                            data-tip="Blog Detail "
-                          >
-                            <TbListDetails />
-                          </Link>
-                          <button
-                            onClick={() => handleDelete(blog._id)}
-                            className="text-red-500 hover:text-red-600 text-xl tooltip tooltip-top"
-                            data-tip="Delete Blog"
-                          >
-                            <FaTrashAlt />
-                          </button>
-                        </div>
-                      </td>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <div className="container mx-auto">
+            {loading ? (
+              <Loading />
+            ) : blogs.length > 0 ? (
+              <div className="overflow-x-auto">
+                <table className="w-full bg-white overflow-hidden">
+                  <thead className="text-center bg-[#d1a5155c] text-gray-600/90">
+                    <tr>
+                      <th className="px-6 py-4 border">Blogger</th>
+                      <th className="px-6 py-4 border">Name</th>
+                      <th className="px-6 py-4 border">Title</th>
+                      <th className="px-6 py-4 border">Category</th>
+                      <th className="px-6 py-4 border">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <p className="text-red-500 rounded-lg min-h-[calc(100vh-480px)] text-3xl lg:text-5xl flex items-center justify-center">
-              No items in your wishlist. Start adding some!
-            </p>
-          )}
-        </div>
+                  </thead>
+                  <tbody>
+                    {blogs.map((blog) => (
+                      <tr
+                        key={blog._id}
+                        className="text-center hover:bg-gray-100 transition-all"
+                      >
+                        <td className="py-3 border flex justify-center items-center">
+                          <img
+                            src={blog.photoURL}
+                            className="w-12 h-12 object-cover rounded-full shadow-md border-2 border-yellow-500"
+                            alt="blogger"
+                          />
+                        </td>
+                        <td className="py-3 border text-gray-800 font-medium">
+                          {blog.displayName}
+                        </td>
+                        <td className="py-3 border text-gray-700">{blog.title}</td>
+                        <td className="py-3 border text-gray-600 font-semibold uppercase">
+                          {blog.category}
+                        </td>
+                        <td className="py-3">
+                          <div className="flex justify-center gap-4">
+                            <Link
+                              to={`/blogsDetail/${blog.job_id}`}
+                              className="text-blue-500 hover:text-blue-700 text-xl"
+                            >
+                              <TbListDetails />
+                            </Link>
+                            <button
+                              onClick={() => handleDelete(blog._id)}
+                              className="text-red-500 hover:text-red-700 text-xl"
+                            >
+                              <FaTrashAlt />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="text-red-500 text-3xl flex justify-center items-center min-h-[calc(100vh-400px)]">
+                No items in your wishlist. Start adding some!
+              </p>
+            )}
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );

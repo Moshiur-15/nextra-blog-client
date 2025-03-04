@@ -80,7 +80,7 @@ export default function BlogCard({ blog }) {
               </div>
             </div>
             <div>
-              <span className="bg-cyan-100 text-cyan-700 text-[12px] font-semibold px-3 py-1 rounded-full uppercase">
+              <span className="bg-[#FAF5E5] text-[#DCA54A] text-[12px] font-semibold px-3 py-1 rounded-full uppercase">
                 {category}
               </span>
             </div>
@@ -93,7 +93,7 @@ export default function BlogCard({ blog }) {
             <div className="mt-2">
               <Link
                 to={`/blogsDetail/${_id}`}
-                className="px-8 py-1.5 rounded bg-cyan-500 text-white flex items-center space-x-2"
+                className="px-8 py-1.5 border bg-[#FAF5E5] flex items-center space-x-2"
               >
                 <span>Details</span>
                 <FaArrowRight />

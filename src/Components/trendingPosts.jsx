@@ -153,7 +153,7 @@ const TrendingPosts = () => {
                     </span>
                     <span className="text-gray-500 text-md">{post.name}</span>
                   </div>
-                  <span className="bg-cyan-100 text-cyan-700 text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
+                  <span className="bg-[#FAF5E5] text-[#DCA54A] text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
                     {post.category}
                   </span>
                 </div>
