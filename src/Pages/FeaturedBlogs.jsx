@@ -39,7 +39,7 @@ export default function FeaturedBlogs() {
           }}
         >
           <h1 className="text-[26px] md:text-4xl font-bold text-gray-800 text-center">
-            Featured Collection
+          ⭐Featured Collection
           </h1>
           <p className="text-lg text-center text-gray-700 mt-4 max-w-lg mx-auto">
             Browse through our handpicked collection, showcasing the best and

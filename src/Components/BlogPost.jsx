@@ -3,6 +3,7 @@ import BlogCard from "./BlogCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import Title from "./sherd/Title";
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,9 +39,7 @@ export default function BlogPost() {
         }}
       >
         <div className="text-center py-6 px-4 md:px-0 space-y-3 mb-5">
-          <h2 className="font-oswald font-bold text-2xl md:text-3xl mb-2">
-            Recent Blog Posts
-          </h2>
+          <Title fast_text='Resent Blogs' italic='Posts' />
           <p className="text-base max-w-[800px] mx-auto md:text-lg">
             Discover the latest stories, travel guides, and tips from around the
             world. Stay inspired with our handpicked adventures and hidden gems

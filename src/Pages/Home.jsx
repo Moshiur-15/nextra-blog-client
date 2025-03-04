@@ -2,8 +2,8 @@ import React from "react";
 import Banner from "../Components/Banner";
 import BlogPost from "../Components/BlogPost";
 import NewsletterSection from "../Components/NewsletterSection ";
-import Featured from "../Components/Featured";
 import TrendingPosts from "../Components/trendingPosts";
+import PassionsSection from "../Components/PassionsSection";
 export default function Home() {
   return (
     <div className="font-oswald">
@@ -13,8 +13,9 @@ export default function Home() {
       <div className="container mx-auto px-2 md:px-0 my-8 md:my-14 lg:my-24">
         <BlogPost />
       </div>
-      <div className="container mx-auto px-2 md:px-0">
-        <Featured />
+      <div className="px-2 md:px-0">
+        {/* <Featured />*/}
+        <PassionsSection/>
       </div>
       <div className="container mx-auto  px-2 md:px-0 my-8 md:my-14 lg:my-24">
         <TrendingPosts />

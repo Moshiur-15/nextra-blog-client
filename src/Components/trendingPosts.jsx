@@ -11,7 +11,7 @@ import user from "../assets/user1.jpg";
 import user2 from "../assets/user2.jpg";
 import user3 from "../assets/user3.webp";
 import { motion } from "framer-motion";
-
+import Title from "./sherd/Title";
 
 const TrendingPosts = () => {
   const trendingPosts = [
@@ -86,7 +86,7 @@ const TrendingPosts = () => {
       image: `${Img7}`,
       description:
         "AI tools are transforming education by offering personalized learning, automating grading, and enhancing student engagement.",
-    }
+    },
   ];
 
   return (
@@ -105,7 +105,7 @@ const TrendingPosts = () => {
         }}
       >
         <div className="text-center px-4 md:px-0 py-8">
-          <h2 className="lg:text-3xl text-2xl font-bold">Trending Posts</h2>
+          <Title fast_text=" Trending" italic="Posts" />
           <p className="text-base md:text-lg max-w-xl mx-auto">
             Stay updated with the latest insights, tips, and stories trending
             across the web. Discover what's hot and stay informed!
@@ -127,10 +127,7 @@ const TrendingPosts = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {trendingPosts.map((post, inx) => (
-            <div
-              key={inx}
-              className="bg-white rounded-lg shadow-md overflow-hidden group"
-            >
+            <div key={inx} className="bg-white overflow-hidden group">
               <div>
                 <div>
                   <img
@@ -161,7 +158,7 @@ const TrendingPosts = () => {
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 transition duration-300 ease-in-out">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-gray-600">
                     {post.description.slice(0, 80)}...
                   </p>
                 </div>

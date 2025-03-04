@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/blogsicon.png";
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-[#DEE4E5] py-12">
+    <footer className="bg-white text-[#DEE4E5] py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
           <div className="">
@@ -51,18 +51,18 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
-            <h2 className="text-xl font-semibold mb-4 text-cyan-500">
+            <h2 className="text-xl font-semibold mb-4 text-[#DCA54A]">
               About Us
             </h2>
             <p className="text-gray-400">
               Welcome to{" "}
-              <span className="font-bold text-cyan-500">NextEra Blog!</span>{" "}
+              <span className="font-bold text-[#DCA54A]">NextEra Blog!</span>{" "}
               Your ultimate guide to discovering beautiful destinations, hidden
               gems, and unique experiences around the world.
             </p>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-4 text-cyan-500">
+            <h2 className="text-xl font-semibold mb-4 text-[#DCA54A]">
               Quick Links
             </h2>
             <ul className="space-y-2">
@@ -94,7 +94,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-4 text-cyan-500">
+            <h2 className="text-xl font-semibold mb-4 text-[#DCA54A]">
               Contact Me
             </h2>
             <div className="text-center mt-6">

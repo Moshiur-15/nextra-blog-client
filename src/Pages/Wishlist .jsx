@@ -157,7 +157,7 @@ export default function Wishlist() {
                         <td className="py-3 border text-gray-600 font-semibold uppercase">
                           {blog.category}
                         </td>
-                        <td className="py-3">
+                        <td className="py-3 border">
                           <div className="flex justify-center gap-4">
                             <Link
                               to={`/blogsDetail/${blog.job_id}`}
