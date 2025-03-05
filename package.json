@@ -26,10 +26,11 @@
     "react-hot-toast": "^2.5.1",
     "react-icons": "^5.4.0",
     "react-loader-spinner": "^6.1.6",
+    "react-parallax": "^3.5.1",
     "react-router-dom": "^7.1.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.15.3",
-    "swiper": "^11.1.15"
+    "swiper": "^11.2.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

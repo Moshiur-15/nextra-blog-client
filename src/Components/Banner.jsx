@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import banner1 from "../assets/IMG_0942-2-3_540.jpg";
 import banner2 from "../assets/travel-blog-b2.jpg";
 import banner3 from "../assets/travel-blog-b3.jpg";
+import {Link} from 'react-router-dom'
 export default function Banner() {
   const banners = [
     {
@@ -61,7 +62,7 @@ export default function Banner() {
               <div className="px-7 md:px-0 absolute bg-opacity-50 bg-black inset-0 text-center flex flex-col items-center justify-center pb-20 gap-2">
                 <motion.h2
                   className="text-[#DEE4E5] font-extrabold text-2xl md:text-4xl xl:text-5xl mt-16"
-                  initial={{ opacity: 0, y: -60 }} 
+                  initial={{ opacity: 0, y: -60 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ type: "spring", stiffness: 100, damping: 25 }}
                 >
@@ -75,6 +76,9 @@ export default function Banner() {
                 >
                   {banner.description}
                 </motion.p>
+                <Link to='/allBlogs' className="px-5 py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition">
+                  Explore Now
+                </Link>
               </div>
             </div>
           </SwiperSlide>

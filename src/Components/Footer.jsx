@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
           <div className="">
             <img
-              className="rounded-xl w-32 object-cover"
+              className="w-32"
               src={logo}
               alt="NextEra Blog Logo"
             />

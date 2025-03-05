@@ -54,20 +54,18 @@ export default function BlogCard({ blog }) {
     fetchData();
   };
   return (
-    <div
-      className="group bg-white relative cursor-pointer"
-    >
+    <div className="group bg-white relative">
       <div className="flex flex-col h-full">
         <div className="overflow-hidden">
           <img
             src={cardImage}
-            className="transition-transform duration-700 group-hover:scale-105   object-cover w-full h-[250px] xl:h-[240px]"
+            className="transition-transform duration-700 group-hover:scale-105 object-cover w-full h-[200px] xl:h-[220px]"
             alt="not found"
           />
         </div>
-        <div className="flex flex-col justify-between flex-grow p-5">
+        <div className="flex flex-col justify-between flex-grow">
           {/* date, user*/}
-          <div className="flex justify-between items-center mb-2">
+          <div className="flex justify-between items-center mb-2 px-5 mt-6">
             <div className="flex items-center gap-3">
               <div>
                 <img
@@ -87,20 +85,22 @@ export default function BlogCard({ blog }) {
               </span>
             </div>
           </div>
-          <h2 className="text-xl lg:text-2xl font-semibold">{title}</h2>
-          <p className="text-gray-600 text-sm mt-2">
+          <h2 className="text-xl lg:text-2xl font-semibold px-5">{title}</h2>
+          <p className="text-gray-600 text-sm mt-2 mb-4 px-5">
             {shortDescription.slice(0, 110)}...
           </p>
-          <div className="flex mt-3">
-            <div className="mt-2">
-              <Link
-                to={`/blogsDetail/${_id}`}
-                className="px-8 py-1.5 border bg-[#FAF5E5] flex items-center space-x-2"
-              >
-                <span>Details</span>
-                <FaArrowRight />
-              </Link>
-            </div>
+          <div className="flex justify-end">
+            <Link
+              to={`/blogsDetail/${_id}`}
+              className="flex items-center justify-center gap-2 px-8 py-2 bg-[#FAF5E5] text-black border hover:border-transparent relative overflow-hidden transition-all duration-700 group"
+            >
+              <span className="z-10 relative text-black group-hover:text-white">
+                Details
+              </span>
+              <FaArrowRight className="z-10 relative text-black group-hover:text-white transform -rotate-45 transition-transform duration-700 group-hover:rotate-0" />
+              <span className="absolute inset-0 bg-[#DCA54A] transform -translate-x-full transition-all duration-1000 group-hover:translate-x-0"></span>
+            </Link>
+
             <button
               onClick={() => handleWishlist(wishlistData)}
               data-tip="Add to wishlist"

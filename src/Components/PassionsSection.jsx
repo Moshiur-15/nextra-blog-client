@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const PassionsSection = () => {
   return (
     <div
-      className="bg-cover bg-center py-20 px-8"
+      className="bg-cover bg-center py-14 lg:py-20 px-8 lg:px-0"
       style={{
         backgroundImage:
-          "url('https://i.ibb.co.com/nMs3dkbX/Whats-App-Image-2025-03-04-at-14-25-29-16a82068.jpg')",
+          "url('https://i.ibb.co.com/yFGM65Ww/pa.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
