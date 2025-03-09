@@ -61,6 +61,7 @@ export default function Footer() {
               gems, and unique experiences around the world.
             </p>
           </div>
+
           <div>
             <h2 className="text-xl font-semibold mb-4 text-[#DCA54A]">
               Quick Links
@@ -93,13 +94,14 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
           <div>
             <h2 className="text-xl font-semibold mb-4 text-[#DCA54A]">
               Contact Me
             </h2>
             <div className="text-center mt-6">
               <div className="border border-gray-400/60 mb-5"></div>
-              <div className="flex space-x-6 mt-6">
+              <div className="flex space-x-6 mt-6 justify-center md:justify-start">
                 {/* Email */}
                 <a
                   href="mailto:masiurislam28@gmail.com"

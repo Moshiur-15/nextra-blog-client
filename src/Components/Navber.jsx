@@ -25,14 +25,11 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? (
-              <IoMdClose
-                size={38}
-                className="cursor-pointer bg-white text-black p-1"
-              />
+              <IoMdClose size={38} className="cursor-pointer text-black p-1" />
             ) : (
               <IoMenu
                 size={38}
-                className="cursor-pointer bg-white text-black p-1"
+                className="cursor-pointer text-[#DCA54A] p-1 border border-[#e8a73d]"
               />
             )}
           </button>
@@ -77,6 +74,25 @@ export default function Navbar() {
             >
               ⭐ Featured Blogs
             </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                `hover:text-[#DCA54A] duration-700 transition hover:border-b hover:border-yellow-300 pb-1  flex flex-row items-center gap-1 ${
+                  isActive
+                    ? "text-[#DCA54A] border-b border-yellow-300"
+                    : "text-gray-600"
+                }`
+              }
+              to="/about"
+            >
+              <img
+                className="h-5 w-5"
+                src="https://i.ibb.co.com/RG80Xq1p/Screenshot-2025-03-09-114756-removebg-preview.png"
+                alt=""
+              />
+              About
+            </NavLink>
+
             {user && (
               <>
                 <UseDropdown user={user} logOut={logOut} />
@@ -97,13 +113,13 @@ export default function Navbar() {
               <div className="flex gap-2">
                 <Link
                   to="/login"
-                  className="px-5 border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
+                  className="px-5 border py-2 bg-[#FAF5E5] border-[#f1b451] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all hover:border-transparent"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="px-5 border py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all"
+                  className="px-5 border py-2 bg-[#DCA54A] border-[#f1b451] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all border-transparent"
                 >
                   Register
                 </Link>
@@ -157,6 +173,25 @@ export default function Navbar() {
               >
                 ⭐Featured Blogs
               </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  `hover:text-[#DCA54A] duration-700 mx-auto transition hover:border-b hover:border-yellow-300 pb-1  flex flex-row items-center gap-1 ${
+                    isActive
+                      ? "text-[#DCA54A] border-b border-yellow-300"
+                      : "text-gray-600"
+                  }`
+                }
+                to="/about"
+              >
+                <img
+                  className="h-5 w-5"
+                  src="https://i.ibb.co.com/RG80Xq1p/Screenshot-2025-03-09-114756-removebg-preview.png"
+                  alt=""
+                />
+                About
+              </NavLink>
+
               {user && (
                 <div className="flex flex-col gap-3 text-center">
                   <NavLink

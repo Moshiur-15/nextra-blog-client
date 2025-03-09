@@ -55,12 +55,9 @@ const Categories = () => {
       <div className="text-center mt-14">
         <Link
           to="/allBlogs"
-          className="relative inline-block px-8 py-3 bg-[#FAF5E5] text-black hover:border-[#DCA54A] overflow-hidden group transition-all duration-500"
+          className="px-10 border py-2 bg-[#DCA54A] hover:border-[#f1b451] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all"
         >
-          <span className="z-10 relative text-black group-hover:text-white font-semibold">
-            VIEW ALL BLOGS
-          </span>
-          <span className="absolute inset-0 bg-[#DCA54A] transform translate-x-full duration-1000 group-hover:translate-x-0 border border-[#FAF5E5] hover:border-transparent"></span>
+          View All Blog’s
         </Link>
       </div>
     </div>

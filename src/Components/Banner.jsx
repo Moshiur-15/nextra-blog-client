@@ -76,7 +76,7 @@ export default function Banner() {
                 >
                   {banner.description}
                 </motion.p>
-                <Link to='/allBlogs' className="px-5 py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition">
+                <Link to='/allBlogs' className="px-10 border py-2 bg-[#DCA54A] border-[#f1b451] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition-all border-transparent">
                   Explore Now
                 </Link>
               </div>

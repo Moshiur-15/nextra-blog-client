@@ -14,6 +14,7 @@ import Register from "../Components/Auth/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateBlog from "../Components/updateBlog";
 import TrendingPosts from "../Components/trendingPosts";
+import About from "../Pages/About";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/featuredBlogs",
         element: <FeaturedBlogs />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/wishlist",

@@ -28,7 +28,7 @@ export default function AllBlogs() {
     fetchData();
   }, [filter, search]);
   return (
-    <div className="mb-12">
+    <>
       <div className="py-10 bg-[#FAF5E5]">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -46,12 +46,13 @@ export default function AllBlogs() {
           <h1 className="text-2xl md:text-4xl font-bold text-gray-800 text-center">
             📚All Blogs Post
           </h1>
-          <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg mx-auto text-base">
+          <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg px-2 mx-auto text-base">
             Explore our collection of insightful blogs. Filter by category or
             search for a specific topic to stay up-to-date.
           </p>
         </motion.div>
       </div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -65,13 +66,13 @@ export default function AllBlogs() {
           },
         }}
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto pb-6 sm:pb-14 md:pb-20 lg:pb-36">
           <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-6 mb-8 p-2">
             <div className="flex-1">
               <select
                 name="category"
                 onChange={(e) => setFilter(e.target.value)}
-                className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
+                className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                 required
                 value={filter}
               >
@@ -95,7 +96,7 @@ export default function AllBlogs() {
                 value={search}
                 type="text"
                 placeholder="Search blogs by title"
-                className="input w-full border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-gray-300/20"
+                className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
               />
             </div>
           </div>
@@ -125,9 +126,10 @@ export default function AllBlogs() {
           </div>
         </div>
       </motion.div>
+
       <div className="my-20 px-4 lg:px-0">
         <NewsletterSection />
       </div>
-    </div>
+    </>
   );
 }
