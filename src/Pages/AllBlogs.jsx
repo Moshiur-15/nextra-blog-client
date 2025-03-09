@@ -4,6 +4,7 @@ import axios from "axios";
 import BlogCard from "../Components/BlogCard";
 import Loading from "../Components/Loading";
 import NewsletterSection from "../Components/NewsletterSection ";
+import img from "../assets/no wishlist data  img.jpeg";
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
@@ -28,7 +29,7 @@ export default function AllBlogs() {
   }, [filter, search]);
   return (
     <div className="mb-12">
-      <div className="py-10 bg-[#FAF5E5] mb-10">
+      <div className="py-10 bg-[#FAF5E5]">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -43,7 +44,7 @@ export default function AllBlogs() {
           }}
         >
           <h1 className="text-2xl md:text-4xl font-bold text-gray-800 text-center">
-          📚All Blogs Post
+            📚All Blogs Post
           </h1>
           <p className="text-gray-600 text-center mt-3 md:text-lg max-w-lg mx-auto text-base">
             Explore our collection of insightful blogs. Filter by category or
@@ -111,9 +112,13 @@ export default function AllBlogs() {
                     ))}
                   </div>
                 ) : (
-                  <p className="rounded-lg min-h-[calc(100vh-440px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
-                    blog posts Not available.!
-                  </p>
+                  <div className="flex flex-col justify-center items-center container mx-auto md:mb-36 xl:mb-72">
+                    <img
+                      src={img}
+                      className="object-cover w-full max-h-[550px]"
+                      alt=""
+                    />
+                  </div>
                 )}
               </div>
             )}

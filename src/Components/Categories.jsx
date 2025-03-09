@@ -2,13 +2,12 @@ import React from "react";
 import Title from "./sherd/Title";
 import { Link } from "react-router-dom";
 
-const PassionsSection = () => {
+const Categories = () => {
   return (
     <div
       className="bg-cover bg-center py-14 lg:py-20 px-8 lg:px-0"
       style={{
-        backgroundImage:
-          "url('https://i.ibb.co.com/yFGM65Ww/pa.jpg')",
+        backgroundImage: "url('https://i.ibb.co.com/yFGM65Ww/pa.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -41,7 +40,10 @@ const PassionsSection = () => {
             icon: "💪",
           },
         ].map((passion, index) => (
-          <div key={index} className="bg-white p-6 text-center shadow mt-8">
+          <div
+            key={index}
+            className="bg-[#fedd9bb0] p-6 text-center shadow md:mt-8"
+          >
             <div className="text-4xl mb-4">{passion.icon}</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               {passion.title}
@@ -53,13 +55,16 @@ const PassionsSection = () => {
       <div className="text-center mt-14">
         <Link
           to="/allBlogs"
-          className="px-8 py-2 bg-[#DCA54A] hover:bg-[#FAF5E5] hover:text-black text-white duration-700 transition"
+          className="relative inline-block px-8 py-3 bg-[#FAF5E5] text-black hover:border-[#DCA54A] overflow-hidden group transition-all duration-500"
         >
-          VIEW ALL BLOGS
+          <span className="z-10 relative text-black group-hover:text-white font-semibold">
+            VIEW ALL BLOGS
+          </span>
+          <span className="absolute inset-0 bg-[#DCA54A] transform translate-x-full duration-1000 group-hover:translate-x-0 border border-[#FAF5E5] hover:border-transparent"></span>
         </Link>
       </div>
     </div>
   );
 };
 
-export default PassionsSection;
+export default Categories;

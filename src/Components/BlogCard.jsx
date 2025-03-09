@@ -98,7 +98,7 @@ export default function BlogCard({ blog }) {
                 Details
               </span>
               <FaArrowRight className="z-10 relative text-black group-hover:text-white transform -rotate-45 transition-transform duration-700 group-hover:rotate-0" />
-              <span className="absolute inset-0 bg-[#DCA54A] transform -translate-x-full transition-all duration-1000 group-hover:translate-x-0"></span>
+              <span className="absolute inset-0 bg-[#DCA54A] transform translate-x-full transition-all duration-1000 group-hover:translate-x-0"></span>
             </Link>
 
             <button

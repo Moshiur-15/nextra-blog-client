@@ -46,7 +46,7 @@ export default function Banner() {
           delay: 2000,
           disableOnInteraction: false,
         }}
-        speed={2000}
+        speed={700}
         centeredSlides={true}
         className="mySwiper"
         modules={[Autoplay, Pagination, Navigation]}

@@ -3,8 +3,8 @@ import Banner from "../Components/Banner";
 import BlogPost from "../Components/BlogPost";
 import NewsletterSection from "../Components/NewsletterSection ";
 import TrendingPosts from "../Components/trendingPosts";
-import PassionsSection from "../Components/PassionsSection";
 import Faq from "../Components/Faq";
+import Categories from "../Components/Categories";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <BlogPost />
       </div>
       <div className="">
-        <PassionsSection />
+        <Categories />
       </div>
       <div className="my-8 md:my-12 lg:my-20 container mx-auto px-4 md:px-0">
         <TrendingPosts />

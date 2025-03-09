@@ -10,7 +10,7 @@ import logo from "../assets/blogsicon.png";
 export default function Footer() {
   return (
     <footer className="bg-white text-[#DEE4E5] py-12">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto mt-8 md:mt-12 lg:mt-20 px-4 md:px-0">
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
           <div className="">
             <img

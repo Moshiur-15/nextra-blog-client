@@ -39,7 +39,7 @@ export default function FeaturedBlogs() {
           }}
         >
           <h1 className="text-[26px] md:text-4xl font-bold text-gray-800 text-center">
-          ⭐Featured Collection
+            ⭐Featured Collection
           </h1>
           <p className="text-lg text-center text-gray-700 mt-4 max-w-lg mx-auto">
             Browse through our handpicked collection, showcasing the best and
@@ -54,7 +54,7 @@ export default function FeaturedBlogs() {
         ) : error ? (
           <p className="text-center text-red-500 font-semibold">{error}</p>
         ) : (
-          <div className="border-t border-l">
+          <div className="border-t border-l overflow-x-auto">
             <Table
               columns={[
                 {
@@ -90,8 +90,7 @@ export default function FeaturedBlogs() {
                   elementAttributes: ({ rowData }) => ({
                     style: {
                       backgroundColor:
-                        rowData.idx % 2 === 0 ? "#F9FAFB" : "#FFFFFF",
-                      // padding: "12px",
+                        rowData.idx % 2 === 0 ? "#FAF5E5" : "#FFFFFF",
                       border: "1px solid rgba(0, 0, 0, 0.1)",
                       transition: "background-color 0.3s ease",
                     },

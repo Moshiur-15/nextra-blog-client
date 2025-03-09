@@ -32,7 +32,7 @@ const Faq = () => {
   return (
     <div className="flex flex-col items-center justify-center py-14 lg:py-20" style={{
         backgroundImage:
-          "url('https://i.ibb.co.com/yFGM65Ww/pa.jpg')",
+          "url('https://i.ibb.co.com/HLH2f7gk/Untitled-design.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -40,7 +40,7 @@ const Faq = () => {
       <Title fast_text="Frequently Asked" italic="Questions" />
       <section className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         {/* FAQ List */}
-        <div className="w-full md:w-[50%]">
+        <div className="w-full md:w-[50%] px-16 md:px-0 mt-6 md:mt-0">
           {faqs.map((faq, index) => (
             <details key={index} className="mb-4 p-4 bg-[#FAF5E5]">
               <summary

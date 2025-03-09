@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import Title from "./sherd/Title";
+import img from "../assets/no wishlist data  img.jpeg";
+
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,9 +66,13 @@ export default function BlogPost() {
                   ))}
               </div>
             ) : (
-              <p className="rounded-lg min-h-[calc(100vh-440px)] bg-gray-200/50 text-3xl text-red-500 flex items-center justify-center">
-                blog posts Not available.!
-              </p>
+              <div className="flex flex-col justify-center items-center container mx-auto">
+                <img
+                  src={img}
+                  className="object-cover w-full max-h-[800px]"
+                  alt=""
+                />
+              </div>
             )}
           </>
         )}
