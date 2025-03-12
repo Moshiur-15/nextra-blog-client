@@ -73,10 +73,7 @@ const AddBlogs = () => {
         </motion.div>
       </>
       <div className="bg-white max-w-[900px] mx-auto mt-10">
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-8 p-3 md:p-10"
-        >
+        <form onSubmit={handleSubmit} className="space-y-8 p-3 md:p-10">
           {/* Text Section */}
           <section className="rounded p-10 space-y-4 bg-gray-50">
             <h2 className="text-xl font-bold text-gray-800 text-center">
@@ -88,7 +85,7 @@ const AddBlogs = () => {
               <input
                 type="text"
                 name="title"
-                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                 placeholder="Enter blog title"
                 required
               />
@@ -99,7 +96,14 @@ const AddBlogs = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Blog Post Date
                 </label>
-                <Datepicker name="deadline" required />
+                <input
+                  type="date"
+                  name="deadline"
+                  id="deadline"
+                  required
+                  readOnly
+                  class="input w-full rounded-none focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5] border-[#FAF5E5]"
+                />
               </div>
 
               <div className="flex-1">
@@ -108,7 +112,7 @@ const AddBlogs = () => {
                 </label>
                 <select
                   name="category"
-                  className="bg-gray-100 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                  className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                   required
                 >
                   <option value="" disabled>
@@ -135,7 +139,7 @@ const AddBlogs = () => {
                 minLength={100}
                 maxLength={200}
                 rows="2"
-                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                 placeholder="Write a short description"
                 required
               />
@@ -149,7 +153,7 @@ const AddBlogs = () => {
                 minLength={400}
                 name="longDescription"
                 rows="5"
-                className="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                className="w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                 placeholder="Write a detailed description"
                 required
               />
@@ -170,7 +174,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cardImage"
-                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
+                  className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                   placeholder="Enter image URL"
                   required
                 />
@@ -182,7 +186,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="cover"
-                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
+                  className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                   placeholder="Enter image URL"
                   required
                 />
@@ -197,7 +201,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="Img1"
-                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
+                  className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                   placeholder="Enter image URL"
                   required
                 />
@@ -209,7 +213,7 @@ const AddBlogs = () => {
                 <input
                   type="url"
                   name="Img2"
-                  className="mt-1 input block w-full bg-gray-100 border-gray-300 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm"
+                  className="input w-full rounded-none border-gray-300 focus:outline-none focus:ring-0 focus:ring-none bg-[#FAF5E5]"
                   placeholder="Enter image URL"
                   required
                 />
