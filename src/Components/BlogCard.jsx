@@ -92,13 +92,13 @@ export default function BlogCard({ blog }) {
           <div className="flex justify-end">
             <Link
               to={`/blogsDetail/${_id}`}
-              className="flex items-center justify-center gap-2 px-8 py-2 bg-[#FAF5E5] border-[#f1b451] text-black border hover:border-transparent relative overflow-hidden transition-all duration-700 group"
+              className="flex items-center justify-center gap-2 px-8 py-2 bg-[#FAF5E5] border-b border-r border-[#efa733] text-black hover:border-transparent relative overflow-hidden transition-all duration-300 group"
             >
-              <span className="z-10 relative text-black group-hover:text-white">
-                Details
+              <span className="z-10 relative text-black group-hover:text-white uppercase">
+                View More
               </span>
               <FaArrowRight className="z-10 relative text-black group-hover:text-white transform -rotate-45 transition-transform duration-700 group-hover:rotate-0" />
-              <span className="absolute inset-0 bg-[#DCA54A] transform translate-x-full transition-all duration-1000 group-hover:translate-x-0"></span>
+              <span className="absolute inset-0 bg-[#DCA54A] transform translate-x-full transition-all duration-300 group-hover:translate-x-0"></span>
             </Link>
 
             <button

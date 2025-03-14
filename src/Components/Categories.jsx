@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   return (
     <div
-      className="bg-cover bg-center py-14 lg:py-20 px-8 lg:px-0"
+      className="bg-cover bg-center py-14 lg:py-20 px-4 xl:px-0"
       style={{
-        backgroundImage: "url('https://i.ibb.co.com/yFGM65Ww/pa.jpg')",
+        backgroundImage: "url('https://i.ibb.co.com/Rp0YVrzR/pa.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -42,7 +42,7 @@ const Categories = () => {
         ].map((passion, index) => (
           <div
             key={index}
-            className="bg-[#fedd9bb0] p-6 text-center shadow md:mt-8"
+            className="bg-[#fedd9bc1] p-6 text-center mt-4 md:mt-8 shadow-md"
           >
             <div className="text-4xl mb-4">{passion.icon}</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">

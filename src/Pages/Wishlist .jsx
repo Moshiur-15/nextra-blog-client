@@ -83,7 +83,7 @@ export default function Wishlist() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-400px)] mb-12">
+    <div className="min-h-[calc(100vh-400px)] mb-12 px-4 xl:px-0">
       <div className="py-16">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}

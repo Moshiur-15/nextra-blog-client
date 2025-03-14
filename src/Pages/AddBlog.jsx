@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import useAxios from "../hooks/interceptor";
 import { toast } from "react-hot-toast";
+import { useState } from "react";
 
 const AddBlogs = () => {
   const { user } = useAuth();
   const axiosSecure = useAxios();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,11 +41,14 @@ const AddBlogs = () => {
     };
 
     try {
+      setLoading(true);
       await axiosSecure.post(`/add-blogs`, addBlog);
       toast.success("Blog Added Successfully!");
       from.reset();
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -224,8 +229,13 @@ const AddBlogs = () => {
           <button
             type="submit"
             className="w-full border py-2 bg-[#FAF5E5] hover:bg-[#DCA54A] hover:text-white duration-700 transition-all"
+            disabled={loading} // Disable button while loading
           >
-            Submit Blog
+            {loading ? (
+              <span>Submit Bloging...</span> // Or a spinner icon here
+            ) : (
+              "Submit Blog"
+            )}
           </button>
         </form>
       </div>

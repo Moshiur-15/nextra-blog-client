@@ -15,42 +15,6 @@ import Title from "./sherd/Title";
 
 const TrendingPosts = () => {
   const trendingPosts = [
-    // {
-    //   title: "AI-Powered Fitness: Transforming Health and Wellness",
-    //   category: "Health & Fitness",
-    //   name: "Michael Wilson",
-    //   user: `${user}`,
-    //   image: `${Img1}`,
-    //   description:
-    //     "AI is revolutionizing personal health and fitness with personalized workout plans and data-driven insights.",
-    // },
-    // {
-    //   title: "The Future of Gaming: How AI Enhances Competitive Play",
-    //   category: "The Game",
-    //   name: "Alice Johnson",
-    //   user: `${user3}`,
-    //   image: `${Img2}`,
-    //   description:
-    //     "AI is shaping the future of gaming, from smarter NPCs to predictive analytics for professional gamers.",
-    // },
-    // {
-    //   title: "Smart Living: How AI is Shaping Modern Lifestyles",
-    //   category: "Lifestyle",
-    //   name: "Emily",
-    //   image: `${Img3}`,
-    //   user: `${user2}`,
-    //   description:
-    //     "AI-powered devices and solutions are changing how we live, from smart homes to health management.",
-    // },
-    // {
-    //   title: "AI in Education: Personalizing Learning Experiences",
-    //   category: "Education",
-    //   name: "Michael Wilson",
-    //   image: `${Img4}`,
-    //   user: `${user}`,
-    //   description:
-    //     "AI tools are transforming education by offering personalized learning, automating grading, and enhancing student engagement.",
-    // },
     {
       title: "Food of the Future: AI in Meal Planning and Preparation",
       category: "Food",
@@ -125,7 +89,7 @@ const TrendingPosts = () => {
           },
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {trendingPosts.map((post, inx) => (
             <div key={inx} className="bg-white overflow-hidden group">
               <div>
@@ -139,21 +103,6 @@ const TrendingPosts = () => {
               </div>
               {/* Text */}
               <section className="p-6">
-                {/* <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center gap-1.5">
-                    <span>
-                      <img
-                        className="h-10 w-10 object-cover rounded-full"
-                        src={post.user}
-                        alt=""
-                      />
-                    </span>
-                    <span className="text-gray-500 text-md">{post.name}</span>
-                  </div>
-                  <span className="bg-[#FAF5E5] text-[#DCA54A] text-[10px] xl:text-sm font-semibold px-3 py-1 rounded-full uppercase">
-                    {post.category}
-                  </span>
-                </div> */}
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 transition duration-300 ease-in-out">
                     {post.title}

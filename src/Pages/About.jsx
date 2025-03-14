@@ -4,7 +4,7 @@ import NewsletterSection from "../Components/NewsletterSection ";
 
 const About = () => {
   return (
-    <div className="my-24">
+    <div className="my-10">
       <section className="text-center container mx-auto px-6 space-y-5">
         <div className="flex flex-row items-center gap-1 justify-center text-2xl uppercase">
           <img
@@ -18,7 +18,7 @@ const About = () => {
           i`am Junior Mern Stack Developer
         </h1>
         <p className="text-lg max-w-5xl mx-auto">
-          Hey, I’m Moshiur—a Front-end & Node.js Developer passionate about
+          Hey, I’m Moshiur—a Front-end & React.js Developer passionate about
           building dynamic and user-friendly web applications. With expertise in
           React.js, Express.js, MongoDB, and Firebase, I’ve worked on projects
           like a game review app and a task management system. I love gaming,
@@ -31,7 +31,7 @@ const About = () => {
       <Mission />
 
       {/* newslater */}
-      <div className="mt-8 sm:mt-40 lg:mt-56 px-6">
+      <div className="mt-8 sm:mt-40 lg:mt-72 px-6">
         <NewsletterSection />
       </div>
     </div>

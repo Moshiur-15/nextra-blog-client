@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <div className="shadow py-2 sticky top-0 z-50 bg-[#FAF5E5]">
       <section className="container mx-auto">
-        <div className="flex justify-between items-center px-4 md:px-0 py-2">
+        <div className="flex justify-between items-center px-4 xl:px-0 py-2">
           <div>
             <img className="w-32" src={logo} alt="" />
           </div>

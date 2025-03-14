@@ -54,7 +54,7 @@ export default function FeaturedBlogs() {
         ) : error ? (
           <p className="text-center text-red-500 font-semibold">{error}</p>
         ) : (
-          <div className="border-t border-l overflow-x-auto">
+          <div className="border-t border-l">
             <Table
               columns={[
                 {
